@@ -17,18 +17,18 @@ public class PickupParent : MonoBehaviour
 	void FixedUpdate ()
     {
         device = SteamVR_Controller.Input((int)trackedObj.index);
-        //if(device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
-        //{
-        //    Debug.Log("holding down touch trigger");
-        //}
-        //if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
-        //{
-        //    Debug.Log("activated touch down");
-        //}
-        //if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
-        //{
-        //    Debug.Log("activated touch up");
-        //}
+        if(device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
+        {
+            Debug.Log("holding down touch trigger");
+        }
+        if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
+        {
+            Debug.Log("activated touch down");
+        }
+        if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
+        {
+            Debug.Log("activated touch up");
+        }
     }
 
     void OntriggerStay(Collider col)
