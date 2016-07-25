@@ -19,33 +19,62 @@ public class PickupParent : MonoBehaviour
         device = SteamVR_Controller.Input((int)trackedObj.index);
         if(device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("holding down touch trigger");
+            //Debug.Log("holding down touch trigger");
         }
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("activated touch down");
+            //Debug.Log("activated touch down");
         }
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("activated touch up");
+            //Debug.Log("activated touch up");
         }
     }
 
-    void OntriggerStay(Collider col)
+    void OnTriggerStay(Collider col)
     {
-        Debug.Log("you have collided with" + col.name + "and activated on trigger stay");
+        //Debug.Log("you have collided with" + col.name + "and activated on trigger stay");
+        //checks to see if your touching an object
         if(device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("you have collided with" + col.name +  "while holding down touch");
-            col.attachedRigidbody.isKinematic = true;
-            col.gameObject.transform.SetParent(this.gameObject.transform);
+            if(col.attachedRigidbody != null)
+            {
+                //Debug.Log("you have collided with" + col.name + "while holding down touch");
+                //rigidbody is no longer affected by physics system
+                col.attachedRigidbody.isKinematic = true;
+                //sets the sphere to this objects transform
+                col.gameObject.transform.SetParent(this.gameObject.transform);
+            }
         }
 
+        //checks to see if triger is up
         if(device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("you have released touch while colliding with" + col.name);
-            col.gameObject.transform.SetParent(null);
-            col.attachedRigidbody.isKinematic = false;
+            if(col.attachedRigidbody != null)
+            {
+                //Debug.Log("you have released touch while colliding with" + col.name);
+                //stops object being a child of the controller
+                col.gameObject.transform.SetParent(null);
+                //sets the rigidbody to be affected by physics sytem
+                col.attachedRigidbody.isKinematic = false;
+                TossObject(col.attachedRigidbody);
+            }            
         }
     }
+
+    void TossObject(Rigidbody rigidbody)
+    {
+        //convert local space vectors to world space vectors
+        //
+            //define origin to define conversion
+        Transform origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
+
+        //check to see if origin is not null
+        if(origin !=  null)
+        {
+            rigidbody.velocity = origin.TransformVector(device.velocity);
+            rigidbody.angularVelocity = origin.TransformVector(device.angularVelocity);
+        }
+    }
+
 }

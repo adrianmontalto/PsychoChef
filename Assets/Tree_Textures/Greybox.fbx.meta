@@ -1,17 +1,44 @@
 fileFormatVersion: 2
-guid: 1d645fc491a30ea418694abc003c9e4a
-timeCreated: 1468975913
+guid: f571b0545a22c7f43b09f73ed453dc36
+timeCreated: 1468971892
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: whole_model_group1
+    100002: group
+    100004: pasted__pCube4
+    100006: pCube1
+    100008: pCube2
+    100010: pCube3
+    100012: pCube4
+    100014: pCube5
+    100016: pPlane1
+    100018: transform1
+    100020: transform2
+    100022: transform3
+    100024: transform4
+    100026: transform5
+    100028: transform6
     400000: //RootNode
-    400002: whole_model_group1
-    2300000: whole_model_group1
-    3300000: whole_model_group1
-    4300000: whole_model_group1
+    400002: group
+    400004: pasted__pCube4
+    400006: pCube1
+    400008: pCube2
+    400010: pCube3
+    400012: pCube4
+    400014: pCube5
+    400016: pPlane1
+    400018: transform1
+    400020: transform2
+    400022: transform3
+    400024: transform4
+    400026: transform5
+    400028: transform6
+    2300000: pCube5
+    3300000: pCube5
+    4300000: pCube5
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -70,7 +97,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
