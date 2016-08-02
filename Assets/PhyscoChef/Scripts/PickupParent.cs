@@ -14,20 +14,20 @@ public class PickupParent : MonoBehaviour
 	}
 	
     //called for every frame
-	void FixedUpdate ()
+	void Update ()
     {
         device = SteamVR_Controller.Input((int)trackedObj.index);
         if(device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
         {
-            //Debug.Log("holding down touch trigger");
+            Debug.Log("holding down touch trigger");
         }
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
-            //Debug.Log("activated touch down");
+            Debug.Log("activated touch down");
         }
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
-            //Debug.Log("activated touch up");
+            Debug.Log("activated touch up");
         }
     }
 
@@ -37,28 +37,22 @@ public class PickupParent : MonoBehaviour
         //checks to see if your touching an object
         if(device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
         {
-            if(col.attachedRigidbody != null)
-            {
-                //Debug.Log("you have collided with" + col.name + "while holding down touch");
-                //rigidbody is no longer affected by physics system
-                col.attachedRigidbody.isKinematic = true;
-                //sets the sphere to this objects transform
-                col.gameObject.transform.SetParent(this.gameObject.transform);
-            }
+            //Debug.Log("you have collided with" + col.name + "while holding down touch");
+            //rigidbody is no longer affected by physics system
+            col.attachedRigidbody.isKinematic = true;
+            //sets the sphere to this objects transform
+            col.gameObject.transform.SetParent(this.gameObject.transform);
         }
 
         //checks to see if triger is up
         if(device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
-            if(col.attachedRigidbody != null)
-            {
-                //Debug.Log("you have released touch while colliding with" + col.name);
-                //stops object being a child of the controller
-                col.gameObject.transform.SetParent(null);
-                //sets the rigidbody to be affected by physics sytem
-                col.attachedRigidbody.isKinematic = false;
-                TossObject(col.attachedRigidbody);
-            }            
+            Debug.Log("you have released touch while colliding with" + col.name);
+            //stops object being a child of the controller
+            col.gameObject.transform.SetParent(null);
+            //sets the rigidbody to be affected by physics sytem
+            col.attachedRigidbody.isKinematic = false;
+            TossObject(col.attachedRigidbody);       
         }
     }
 

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Water
   - Food
+  - Knife
+  - SaucePan
+  - Hand
   layers:
   - Default
   - TransparentFX
