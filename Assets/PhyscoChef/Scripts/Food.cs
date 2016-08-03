@@ -12,6 +12,7 @@ public class Food : MonoBehaviour
     public Material burntMaterial;//the material for when it is burnt
     private bool isCooking = false;//a bool to dertermine whether the food is cooking
     private float totalCookTime;//the total time that the food has been cooked for
+    private float temperature = 1.0f;
 
 
     // Use this for initialization
@@ -57,9 +58,11 @@ public class Food : MonoBehaviour
         }
     }
 
-    public void SetCooking(bool cook)
+    public void SetCooking(bool cook,float rate,float temp)
     {
         //sets the cooking state
         isCooking = cook;
+        cookRate = rate;
+        temperature = temp;
     }
 }

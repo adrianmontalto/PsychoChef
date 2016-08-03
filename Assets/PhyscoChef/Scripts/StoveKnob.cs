@@ -7,7 +7,7 @@ public class StoveKnob : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        stoveFire = gameObject.GetComponent<StoveFire>();
+
 	}
 	
 	// Update is called once per frame
@@ -22,7 +22,7 @@ public class StoveKnob : MonoBehaviour
         if (col.gameObject.tag == "Hand")
         {
             Debug.Log("stoveLit");
-            //
+            stoveFire.GetComponent<Renderer>().enabled = true;
         }
     }
 }

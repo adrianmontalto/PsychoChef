@@ -3,7 +3,8 @@ using System.Collections;
 
 public class BoilingArea : MonoBehaviour
 {
-
+    private float temperature = 1.0f;
+    private 
 	// Use this for initialization
 	void Start ()
     {
@@ -15,4 +16,23 @@ public class BoilingArea : MonoBehaviour
     {
 	
 	}
+
+    void OnTriggerEnter(Collider other)
+    {
+        //checks to see if a food is in the water
+        if (other.tag == "Food")
+        {
+            //sets the food to cooking
+            other.GetComponent<Food>().SetCooking(true);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Food")
+        {
+            //sets the food to not cooking
+            other.GetComponent<Food>().SetCooking(false);
+        }
+    }
 }
