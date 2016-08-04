@@ -21,7 +21,7 @@ public class Boiling : MonoBehaviour
         if(other.tag == "Food")
         {
            //sets the food to cooking
-           other.GetComponent<Food>().SetCooking(true);
+           //other.GetComponent<Food>().SetCooking(true);
         }
     }
 
@@ -30,7 +30,7 @@ public class Boiling : MonoBehaviour
         if(other.tag == "Food")
         {
             //sets the food to not cooking
-            other.GetComponent<Food>().SetCooking(false);
+            //other.GetComponent<Food>().SetCooking(false);
         }
     }
 }
