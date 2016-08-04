@@ -32,7 +32,7 @@ public class Food : MonoBehaviour
             //Debug.Log("cooking");
             if (isBoiling)
             {
-                Debug.Log("cooking + boiling");
+                //increases the cook time of the food
                 totalCookTime += cookRate * externalCookRate * boilCookRate * Time.deltaTime;
             }
             else
@@ -44,7 +44,7 @@ public class Food : MonoBehaviour
 
         if (isBoiling == true)
         {
-            //Debug.Log("boiling");
+            //increase the cook time byt applying the boil rate
             totalCookTime += cookRate * boilCookRate * Time.deltaTime;
         }
         //checks to see which cook stage the food is in
@@ -56,7 +56,6 @@ public class Food : MonoBehaviour
         //checks to see if the total cooktime is equal to the first cook state
         if (totalCookTime >= cookState1)
         {
-            Debug.Log("stage1");
             //change the foods texture to stage 1 cooked
             this.GetComponent<MeshRenderer>().material = stage1Material;
         }
@@ -64,7 +63,6 @@ public class Food : MonoBehaviour
         //checks to see if the total cooktime is equal to the second cook state
         if (totalCookTime >= cookState2)
         {
-            Debug.Log("stage 2");
             //change the foods texture to stage 2 cooked
             this.GetComponent<MeshRenderer>().material = stage2Material;
         }
@@ -72,7 +70,6 @@ public class Food : MonoBehaviour
         //checks to see if the totatlcooktime is equal to the burnt state
         if (totalCookTime >= cookState3)
         {
-            Debug.Log("stage3");
             //change the food to burnt texture
             this.GetComponent<MeshRenderer>().material = burntMaterial;
         }
@@ -89,10 +86,5 @@ public class Food : MonoBehaviour
     {
         isBoiling = boil;
         boilCookRate = temp;
-    }
-
-    public bool GetBoiling()
-    {
-        return isBoiling;
     }
 }

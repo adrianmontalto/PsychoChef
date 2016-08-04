@@ -487,6 +487,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 11465206, guid: 63f9f186dacb3fa46840283d94c2fbda, type: 2}
+      propertyPath: partiallyBoiledMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 992b80ae49525f84d8f25b0a96f67f84, type: 2}
+    - target: {fileID: 11465206, guid: 63f9f186dacb3fa46840283d94c2fbda, type: 2}
+      propertyPath: notBoiledMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ad15d8e4a001a6945a6b91aa42bac1f1, type: 2}
+    - target: {fileID: 11465206, guid: 63f9f186dacb3fa46840283d94c2fbda, type: 2}
+      propertyPath: fullyBoiledmaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a99e1239b29d004a810b50b0c1a5ef5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63f9f186dacb3fa46840283d94c2fbda, type: 2}
   m_IsPrefabParent: 0

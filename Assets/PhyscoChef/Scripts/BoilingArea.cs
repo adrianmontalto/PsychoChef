@@ -3,15 +3,15 @@ using System.Collections;
 
 public class BoilingArea : MonoBehaviour
 {
-    public float maxTemperature = 0.0f;
-    public float partialyBoiled = 0.0f;
-    public float heatRate = 0.0f;
-    public float cooldownRate = 0.0f;
-    public Material notBoiledMaterial;
-    public Material partiallyBoiledMaterial;
-    public Material fullyBoiledmaterial;
-    private float temperature = 1.0f;
-    private bool isBoiling;
+    public float maxTemperature = 0.0f;//the max temperature of the water
+    public float partialyBoiled = 0.0f;//the temperature at which the water is partially boiled
+    public float heatRate = 0.0f;//the rate at which the water heats up
+    public float cooldownRate = 0.0f;//the rate at which the water cools
+    public Material notBoiledMaterial;//the texture for not boiled
+    public Material partiallyBoiledMaterial;//the texture for the partially biled temperature
+    public Material fullyBoiledMaterial;//the texture for when the water is completly boiled
+    private float temperature = 1.0f;//the temperature of the water
+    private bool isBoiling;//whether the water is boiling
    
 	// Use this for initialization
 	void Start ()
@@ -22,28 +22,40 @@ public class BoilingArea : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        //checks to see if the water is boiling
 	    if(isBoiling == true)
         {
+            //checks that the temperature is less then the max temperature
             if(temperature < maxTemperature)
             {
+                //increase the temperature of the water
                 temperature += heatRate * Time.deltaTime;
             }
-            else
+            //checks to see if the waters temperature is greater than or equal to the max temperature
+            if(temperature >= maxTemperature)
             {
+                //sets the temperature to the max temperature
                 temperature = maxTemperature;
             }
         }
+
+        //checks to see if the water isn't boiling
         if(isBoiling == false)
         {
+            //checks to see if the temperature is greater then zero
             if(temperature > 0)
             {
+                //reduces the temperature
                 temperature -= cooldownRate * Time.deltaTime;
             }
+            //checks to see if the temperature is less then zero
             if(temperature < 0)
             {
+                //sets the tempeature to zero
                 temperature = 0.0f;
             }
         }
+        //checks for which stage of boiling the water is in
         CheckBoilingStage();
 	}
 
@@ -54,22 +66,30 @@ public class BoilingArea : MonoBehaviour
 
     void CheckBoilingStage()
     {
+        //checks to see if the water temp is less then the partially boiled temperature
         if(temperature < partialyBoiled)
         {
+            //sets the boil texture to the not boiled material
             this.GetComponent<MeshRenderer>().material = notBoiledMaterial;
         }
 
+        //checks to see if the temperature is greater then or equal to 
+        //the partially boiled state
         if(temperature >= partialyBoiled)
         {
+            //checks to see if the temperature is less then the max temperature
             if(temperature < maxTemperature)
             {
+                //sets the texture to the partially boiled texture
                 this.GetComponent<MeshRenderer>().material = partiallyBoiledMaterial;
             }
         }
 
+        //checks to see if the temperature is equal to the max temperature
         if(temperature == maxTemperature)
         {
-            this.GetComponent<MeshRenderer>().material = fullyBoiledmaterial;
+            //sets the texture to the fully boiled texture
+            this.GetComponent<MeshRenderer>().material = fullyBoiledMaterial;
         }
     }
 

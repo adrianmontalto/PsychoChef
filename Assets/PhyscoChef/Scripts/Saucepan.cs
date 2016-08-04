@@ -22,11 +22,14 @@ public class Saucepan : MonoBehaviour
         //checks to see the area is boilig
 	    if(isBoiling == true)
         {
+            //sets the boiling area to boiling
             boilingArea.SetBoiling(true);
         }
         
+        //checks to see if the sauce is not boiling
         if(isBoiling == false)
         {
+            //sets the boiling area to not boiling
             boilingArea.SetBoiling(false);
         }
 	}

@@ -21,13 +21,17 @@ public class HeatingArea : MonoBehaviour
         //checks to see if the area is heating up
         if (isHeating == true)
         {
+            //checks to see if the temperature is less than the max temperature
             if(temperature < maxTemperature)
             {
                 //increase the areas temperature
                 temperature += heatRate * Time.deltaTime;
             }
+
+            //checks to see if the temperature is greater then the max temperature
             if(temperature > maxTemperature)
             {
+                //sets the temperature to the max temperature
                 temperature = maxTemperature;
             }
         }
@@ -65,13 +69,11 @@ public class HeatingArea : MonoBehaviour
             {
                 //sets the boiling area in the saucepoan to true
                 other.GetComponent<Saucepan>().SetBoilAreaActive(true);
-                //boil.SetBoiling(true);
             }
 
             //checks to see if food is in the heating area
             if (other.tag == "Food")
             {
-
                 //sets the food to be cooking at the temperature of the food
                 other.GetComponent<Food>().SetCooking(true, temperature);
             }
@@ -87,13 +89,11 @@ public class HeatingArea : MonoBehaviour
             {
                 //sets the boiling area in the saucepoan to true
                 other.GetComponent<Saucepan>().SetBoilAreaActive(true);
-                //boil.SetBoiling(true);
             }
 
             //checks to see if food is in the heating area
             if (other.tag == "Food")
             {
-
                 //sets the food to be cooking at the temperature of the food
                 other.GetComponent<Food>().SetCooking(true, temperature);
             }
@@ -111,7 +111,6 @@ public class HeatingArea : MonoBehaviour
         //checks to see if the food has left the heating area
         if (other.tag == "Food")
         {
-            Debug.Log("food exit");
             //sets the cooking of food to be false
             other.GetComponent<Food>().SetCooking(false, 1.0f);
         }
