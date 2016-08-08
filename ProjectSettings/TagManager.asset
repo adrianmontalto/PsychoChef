@@ -9,6 +9,7 @@ TagManager:
   - Knife
   - SaucePan
   - Hand
+  - Fork
   layers:
   - Default
   - TransparentFX
