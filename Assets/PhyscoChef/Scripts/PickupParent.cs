@@ -14,7 +14,7 @@ public class PickupParent : MonoBehaviour
 	}
 	
     //called for every frame
-	void Update ()
+	void FixedUpdate ()
     {
         device = SteamVR_Controller.Input((int)trackedObj.index);
         if(device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
@@ -60,7 +60,7 @@ public class PickupParent : MonoBehaviour
     {
         //convert local space vectors to world space vectors
         //
-            //define origin to define conversion
+        //define origin to define conversion
         Transform origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
 
         //check to see if origin is not null
@@ -70,5 +70,4 @@ public class PickupParent : MonoBehaviour
             rigidbody.angularVelocity = origin.TransformVector(device.angularVelocity);
         }
     }
-
 }
