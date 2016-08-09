@@ -29,7 +29,6 @@ public class Food : MonoBehaviour
         //checks to see if the food is cooking
         if (isCooking)
         {
-            //Debug.Log("cooking");
             if (isBoiling)
             {
                 //increases the cook time of the food

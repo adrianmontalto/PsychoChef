@@ -9,6 +9,8 @@ TagManager:
   - Knife
   - SaucePan
   - Hand
+  - ToasterHandle
+  - StoveKnob
   layers:
   - Default
   - TransparentFX

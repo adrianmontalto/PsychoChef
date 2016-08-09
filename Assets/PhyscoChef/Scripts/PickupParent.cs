@@ -19,15 +19,15 @@ public class PickupParent : MonoBehaviour
         device = SteamVR_Controller.Input((int)trackedObj.index);
         if(device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("holding down touch trigger");
+            //Debug.Log("holding down touch trigger");
         }
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("activated touch down");
+            //Debug.Log("activated touch down");
         }
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("activated touch up");
+            //Debug.Log("activated touch up");
         }
     }
 
@@ -47,7 +47,7 @@ public class PickupParent : MonoBehaviour
         //checks to see if triger is up
         if(device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("you have released touch while colliding with" + col.name);
+            //Debug.Log("you have released touch while colliding with" + col.name);
             //stops object being a child of the controller
             col.gameObject.transform.SetParent(null);
             //sets the rigidbody to be affected by physics sytem
@@ -68,6 +68,14 @@ public class PickupParent : MonoBehaviour
         {
             rigidbody.velocity = origin.TransformVector(device.velocity);
             rigidbody.angularVelocity = origin.TransformVector(device.angularVelocity);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "StoveKnob")
+        {
+            other.GetComponent<StoveKnob>().SetActive();
         }
     }
 }

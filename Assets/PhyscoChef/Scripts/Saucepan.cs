@@ -36,6 +36,7 @@ public class Saucepan : MonoBehaviour
 
     public void SetBoilAreaActive(bool boil)
     {
+        Debug.Log("boil active");
         boilingArea.SetBoiling(boil);
     }
 }
