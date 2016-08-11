@@ -12,8 +12,8 @@ GameObject:
   - 65: {fileID: 6504200}
   - 23: {fileID: 2351228}
   - 114: {fileID: 11426962}
-  m_Layer: 0
-  m_Name: Carrot3
+  m_Layer: 9
+  m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,8 +31,8 @@ GameObject:
   - 65: {fileID: 6587302}
   - 23: {fileID: 2326676}
   - 114: {fileID: 11493430}
-  m_Layer: 0
-  m_Name: Carrot5
+  m_Layer: 9
+  m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,8 +50,8 @@ GameObject:
   - 65: {fileID: 6504460}
   - 23: {fileID: 2303306}
   - 114: {fileID: 11480686}
-  m_Layer: 0
-  m_Name: Carrot2
+  m_Layer: 9
+  m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ GameObject:
   - 54: {fileID: 5445978}
   - 114: {fileID: 11432100}
   - 114: {fileID: 11474506}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,8 +90,8 @@ GameObject:
   - 65: {fileID: 6594756}
   - 23: {fileID: 2329784}
   - 114: {fileID: 11444860}
-  m_Layer: 0
-  m_Name: Carrot4
+  m_Layer: 9
+  m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

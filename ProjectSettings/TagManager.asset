@@ -10,6 +10,7 @@ TagManager:
   - SaucePan
   - Hand
   - Fork
+  - ForkableObject
   layers:
   - Default
   - TransparentFX
@@ -19,11 +20,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Environment
+  - Food
+  - Tools
+  - ForkProngs
+  - EnvironmentCollider
   - 
   - 
   - 
