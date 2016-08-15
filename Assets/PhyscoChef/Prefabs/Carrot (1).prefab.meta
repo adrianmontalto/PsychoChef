@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/PhyscoChef/Prefabs/Carrot (1).prefab.meta
 guid: bc672cffab57be841802cb46ffc09339
 timeCreated: 1470720689
+=======
+guid: 5bb961f2cc9dabd45b0559977fbafa98
+timeCreated: 1470639720
+>>>>>>> 2951ee6937472cf0bbe1c4fdce33145485e188cc:Assets/PhyscoChef/Prefabs/Carrot.prefab.meta
 licenseType: Free
 NativeFormatImporter:
   userData: 
