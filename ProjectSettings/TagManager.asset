@@ -3,19 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Water
-  - Food
-  - Knife
-  - SaucePan
-  - Hand
-<<<<<<< HEAD
-  - ToasterHandle
-  - StoveKnob
-=======
-  - Fork
-  - ForkableObject
->>>>>>> 2951ee6937472cf0bbe1c4fdce33145485e188cc
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -25,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - Environment
-  - Food
-  - Tools
-  - ForkProngs
-  - EnvironmentCollider
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
