@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - EnviromentCollider
+  - Food
+  - Pickup
   - 
   - 
   - 
