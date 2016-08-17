@@ -11,8 +11,8 @@ GameObject:
   - 33: {fileID: 3393182}
   - 65: {fileID: 6556414}
   - 23: {fileID: 2355704}
-  - 114: {fileID: 11484782}
-  m_Layer: 0
+  - 114: {fileID: 11485896}
+  m_Layer: 8
   m_Name: Burner_Left_Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 33: {fileID: 3376210}
   - 65: {fileID: 6584394}
   - 23: {fileID: 2347038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob_Middle_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,8 +48,8 @@ GameObject:
   - 33: {fileID: 3388606}
   - 65: {fileID: 6513116}
   - 23: {fileID: 2365418}
-  - 114: {fileID: 11477616}
-  m_Layer: 0
+  - 114: {fileID: 11439230}
+  m_Layer: 8
   m_Name: Burner_Right_Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - 65: {fileID: 6576966}
   - 23: {fileID: 2334702}
   - 114: {fileID: 11499642}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob_Right_Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,8 +86,8 @@ GameObject:
   - 33: {fileID: 3339556}
   - 65: {fileID: 6548082}
   - 23: {fileID: 2339330}
-  - 114: {fileID: 11408482}
-  m_Layer: 0
+  - 114: {fileID: 11488496}
+  m_Layer: 8
   m_Name: Burner_Right_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - 65: {fileID: 6579544}
   - 23: {fileID: 2368200}
   - 114: {fileID: 11416428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob_Left_Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - 33: {fileID: 3330086}
   - 23: {fileID: 2357896}
   - 65: {fileID: 6565730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,8 +142,8 @@ GameObject:
   - 33: {fileID: 3329622}
   - 65: {fileID: 6531522}
   - 23: {fileID: 2307742}
-  - 114: {fileID: 11419834}
-  m_Layer: 0
+  - 114: {fileID: 11450202}
+  m_Layer: 8
   m_Name: Burner_Left_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - 65: {fileID: 6532774}
   - 23: {fileID: 2301922}
   - 114: {fileID: 11480776}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob_Left_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - 65: {fileID: 6544896}
   - 23: {fileID: 2354238}
   - 114: {fileID: 11420816}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob_Right_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - 33: {fileID: 3347006}
   - 65: {fileID: 6595212}
   - 23: {fileID: 2318628}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knob_Middle_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ Transform:
   m_LocalScale: {x: 0.31646115, y: 0.13301983, z: 0.316461}
   m_Children: []
   m_Father: {fileID: 455396}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &417028
 Transform:
   m_ObjectHideFlags: 1
@@ -273,13 +273,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1257505, y: -2.842171e-16, z: -0.40000048}
+  m_LocalPosition: {x: 0.12575054, y: 0, z: -0.39999914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 494530}
   - {fileID: 434718}
-  - {fileID: 480598}
   - {fileID: 416362}
+  - {fileID: 480598}
   - {fileID: 491232}
   - {fileID: 411966}
   - {fileID: 440858}
@@ -323,7 +323,7 @@ Transform:
   m_LocalScale: {x: 0.31646115, y: 0.13301983, z: 0.316461}
   m_Children: []
   m_Father: {fileID: 455396}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &491232
 Transform:
   m_ObjectHideFlags: 1
@@ -860,17 +860,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11408482
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11416428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -879,20 +868,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 152232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 46dbd905e329acc438437c7969d87df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11419834
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  heatArea: {fileID: 11485896}
 --- !u!114 &11420816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -901,10 +880,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 185708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 46dbd905e329acc438437c7969d87df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11477616
+  heatArea: {fileID: 11488496}
+--- !u!114 &11439230
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -912,9 +892,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 128780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: ba7f8a54cc381114c8b6b177b6eb0530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heatRate: 0
+  cooldownRate: 0
+  maxTemperature: 0
+--- !u!114 &11450202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7f8a54cc381114c8b6b177b6eb0530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heatRate: 0
+  cooldownRate: 0
+  maxTemperature: 0
 --- !u!114 &11480776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -923,10 +920,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 185274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 46dbd905e329acc438437c7969d87df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11484782
+  heatArea: {fileID: 11450202}
+--- !u!114 &11485896
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -934,9 +932,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 108564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: ba7f8a54cc381114c8b6b177b6eb0530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heatRate: 0
+  cooldownRate: 0
+  maxTemperature: 0
+--- !u!114 &11488496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7f8a54cc381114c8b6b177b6eb0530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heatRate: 0
+  cooldownRate: 0
+  maxTemperature: 0
 --- !u!114 &11499642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -945,9 +960,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 143118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 46dbd905e329acc438437c7969d87df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heatArea: {fileID: 11439230}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

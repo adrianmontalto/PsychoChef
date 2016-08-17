@@ -17,7 +17,7 @@ GameObject:
   - 65: {fileID: 6555800}
   - 65: {fileID: 6567768}
   - 65: {fileID: 6537240}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FridgeColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   - 33: {fileID: 3390056}
   - 23: {fileID: 2310310}
   - 54: {fileID: 5413524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FreezerDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - 54: {fileID: 5400744}
   - 59: {fileID: 5940734}
   - 59: {fileID: 5991326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 482934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FreezerDoorColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 407622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FridgeDoorColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - 33: {fileID: 3375896}
   - 23: {fileID: 2333498}
   - 54: {fileID: 5451098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FridgeDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
