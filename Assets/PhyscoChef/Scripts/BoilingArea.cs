@@ -25,6 +25,7 @@ public class BoilingArea : MonoBehaviour
         //checks to see if the water is boiling
 	    if(isBoiling == true)
         {
+            Debug.Log("ba");
             //checks that the temperature is less then the max temperature
             if(temperature < maxTemperature)
             {

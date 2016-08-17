@@ -67,6 +67,7 @@ public class HeatingArea : MonoBehaviour
             //checks to see if the saucepan has collided
             if (other.tag == "SaucePan")
             {
+                Debug.Log("pan");
                 //sets the boiling area in the saucepoan to true
                 other.GetComponent<Saucepan>().SetBoilAreaActive(true);
             }
