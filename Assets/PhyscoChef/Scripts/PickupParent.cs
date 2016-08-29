@@ -86,7 +86,7 @@ public class PickupParent : MonoBehaviour
             other.GetComponent<StoveKnob>().SetActive();
         }
 
-        if(other.tag == "finishBell")
+        if(other.tag == "Finish")
         {
             other.GetComponent<Bell>().SetDone(true);
         }

@@ -15,6 +15,7 @@ public enum FoodName
 public class Food : MonoBehaviour
 {
     public float cookRate;//the rate at which a food cooks
+    public float boilRate;//the rate at which the food boils
     public float partialyCookedState;//the first stage of cooking
     public float cookedState;//the scond stage of cooking
     public float burntState;//when the food is burnt
@@ -31,7 +32,7 @@ public class Food : MonoBehaviour
     private bool isSliced = false;
     private float totalCookTime;//the total time that the food has been cooked for
     private float externalCookRate = 1.0f;//the rate of cooking applied by an external source
-    private float totalBoilTime;
+    private float totalBoilTime;//the total time the food has been boiling
     private float boilCookRate = 1.0f;//the rate at which boil affects cooking
  
 
@@ -46,25 +47,21 @@ public class Food : MonoBehaviour
         //checks to see if the food is cooking
         if (isCooking)
         {
-            if (isBoiling)
-            {
-                //increases the cook time of the food
-                totalCookTime += cookRate * externalCookRate * boilCookRate * Time.deltaTime;
-            }
-            else
+            if(isBoiling == false)
             {
                 //increases the cook time
                 totalCookTime += cookRate * externalCookRate * Time.deltaTime;
-            }
+            }              
         }
 
         if (isBoiling == true)
         {
             //increase the cook time byt applying the boil rate
-            totalCookTime += cookRate * boilCookRate * Time.deltaTime;
+            totalBoilTime+= boilRate * boilCookRate * Time.deltaTime;
         }
         //checks to see which cook stage the food is in
         CheckCookStage();
+        CheckBoiledStage();
     }
 
     void CheckCookStage()
@@ -81,6 +78,7 @@ public class Food : MonoBehaviour
         {
             //change the foods texture to stage 2 cooked
             this.GetComponent<MeshRenderer>().material = cookedMaterial;
+            isCooked = true;
         }
 
         //checks to see if the totatlcooktime is equal to the burnt state
@@ -88,6 +86,34 @@ public class Food : MonoBehaviour
         {
             //change the food to burnt texture
             this.GetComponent<MeshRenderer>().material = burntMaterial;
+            isCooked = false;
+        }
+    }
+
+    void CheckBoiledStage ()
+    {
+        //checks to see if the total cooktime is equal to the first cook state
+        if (totalBoilTime >= partialyCookedState)
+        {
+            //change the foods texture to stage 1 cooked
+            this.GetComponent<MeshRenderer>().material = partialyCookedMaterial;
+        }
+
+        //checks to see if the total cooktime is equal to the second cook state
+        if (totalBoilTime >= cookedState)
+        {
+            //change the foods texture to stage 2 cooked
+            this.GetComponent<MeshRenderer>().material = cookedMaterial;
+            isBoiled = true;
+            isCooked = false;
+        }
+
+        //checks to see if the totatlcooktime is equal to the burnt state
+        if (totalBoilTime >= burntState)
+        {
+            //change the food to burnt texture
+            this.GetComponent<MeshRenderer>().material = burntMaterial;
+            isBoiled = false;
         }
     }
 
