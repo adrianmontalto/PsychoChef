@@ -33,12 +33,11 @@ public class Food : MonoBehaviour
     private float externalCookRate = 1.0f;//the rate of cooking applied by an external source
     private float totalBoilTime;
     private float boilCookRate = 1.0f;//the rate at which boil affects cooking
-
+ 
 
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame

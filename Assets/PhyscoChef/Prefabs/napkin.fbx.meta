@@ -1,0 +1,114 @@
+fileFormatVersion: 2
+guid: d7a6a14f233263b4fa99799bc8578fea
+timeCreated: 1472426346
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bin
+    100002: chicken
+    100004: //RootNode
+    100006: napkin
+    100008: napkin_holder
+    100010: sign
+    100012: squirt_bottle
+    100014: straw
+    100016: straw_holder
+    400000: bin
+    400002: chicken
+    400004: //RootNode
+    400006: napkin
+    400008: napkin_holder
+    400010: sign
+    400012: squirt_bottle
+    400014: straw
+    400016: straw_holder
+    2300000: bin
+    2300002: chicken
+    2300004: napkin
+    2300006: napkin_holder
+    2300008: sign
+    2300010: squirt_bottle
+    2300012: straw
+    2300014: straw_holder
+    3300000: bin
+    3300002: chicken
+    3300004: napkin
+    3300006: napkin_holder
+    3300008: sign
+    3300010: squirt_bottle
+    3300012: straw
+    3300014: straw_holder
+    4300000: sign
+    4300002: squirt_bottle
+    4300004: straw_holder
+    4300006: straw
+    4300008: napkin_holder
+    4300010: napkin
+    4300012: bin
+    4300014: chicken
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

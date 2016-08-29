@@ -492,5 +492,14 @@ public class CreamyPastaChicken : MonoBehaviour
         ingredientsArea.SetActive(false);
         bell.GetComponent<Bell>().SetDone(false);
         isActive = false;
+
+        Rigidbody[] bodies = FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
+        foreach (Rigidbody body in bodies)
+        {
+            if(body.GetComponent<Items>() != null)
+            {
+                body.GetComponent<Items>().ResetPostion();
+            }           
+        }
     }
 }
