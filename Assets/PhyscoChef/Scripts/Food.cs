@@ -66,7 +66,7 @@ public class Food : MonoBehaviour
 
     void CheckCookStage()
     {
-        //checks to see if the total cooktime is equal to the first cook state
+        //checks to see if the total cooktime is equal to the first cook wstate
         if (totalCookTime >= partialyCookedState)
         {
             //change the foods texture to stage 1 cooked
@@ -76,7 +76,7 @@ public class Food : MonoBehaviour
         //checks to see if the total cooktime is equal to the second cook state
         if (totalCookTime >= cookedState)
         {
-            //change the foods texture to stage 2 cooked
+            //change the foods texture to stage 2 cookedw
             this.GetComponent<MeshRenderer>().material = cookedMaterial;
             isCooked = true;
         }

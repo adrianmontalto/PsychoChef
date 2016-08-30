@@ -19,7 +19,6 @@ public class CuttingScript : MonoBehaviour {
     {
         if (other.gameObject.tag == "Knife")
         {
-
             Vector3 cutPoint = transform.InverseTransformPoint(other.contacts[0].point);
 
             Transform objectTransform = transform;
@@ -39,12 +38,19 @@ public class CuttingScript : MonoBehaviour {
 
             while (checking == true && objectTransform.childCount != 0)
             {
-                objectTransform = objectTransform.GetChild(0);
+                for (int i = 0; i < objectTransform.childCount; ++i)
+                {
+                    if (objectTransform.GetChild(i).tag == "Food")
+                    {
+                        objectTransform = objectTransform.GetChild(i);
+                    }
+                }
 
                 xLocation += objectTransform.localPosition.x;
 
                 if (cutPoint.x < xLocation)
                 {
+                    Debug.LogError("Cutpoint");
                     checking = false;
 
                     objectTransform.parent = null;
