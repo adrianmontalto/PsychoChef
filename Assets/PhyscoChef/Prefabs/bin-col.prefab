@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 461986}
   - 33: {fileID: 3382246}
   - 23: {fileID: 2313384}
-  - 95: {fileID: 9521962}
   - 54: {fileID: 5467480}
   - 65: {fileID: 6516330}
   - 65: {fileID: 6526844}
@@ -69,7 +68,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131206}
-  m_Mesh: {fileID: 4300000, guid: dce3f7b25b00b8b46972bb30c1a50ef2, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 3ca8e0f5c596be44ba9a58c9d012c4d7, type: 3}
 --- !u!54 &5467480
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -145,30 +144,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020352662, y: 0.3694775, z: 0.19683862}
   m_Center: {x: -0.17084429, y: 0.18473935, z: -0.007234335}
---- !u!95 &9521962
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131206}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: dce3f7b25b00b8b46972bb30c1a50ef2, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 3ca8e0f5c596be44ba9a58c9d012c4d7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131206}
