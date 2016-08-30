@@ -67,6 +67,8 @@ public class CuttingScript : MonoBehaviour {
                         Destroy(this);
                     }
 
+                    this.GetComponent<Food>().SetSliced(true);
+
                     return;
                 }
 
