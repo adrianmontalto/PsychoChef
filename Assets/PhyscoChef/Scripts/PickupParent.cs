@@ -76,6 +76,11 @@ public class PickupParent : MonoBehaviour
             rigidbody.velocity = origin.TransformVector(device.velocity);
             rigidbody.angularVelocity = origin.TransformVector(device.angularVelocity);
         }
+        else
+        {
+            rigidbody.velocity = device.velocity;
+            rigidbody.angularVelocity = device.angularVelocity;
+        }
     }
 
     void OnTriggerEnter(Collider other)

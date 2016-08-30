@@ -14,7 +14,10 @@ public class Bell : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-	
+	    if(isDone == true)
+        {
+            ingredientsArea.SetActive(true);
+        }
 	}
 
     public void SetDone(bool done)

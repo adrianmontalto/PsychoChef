@@ -8,7 +8,7 @@ public class pickupFixed : MonoBehaviour
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
 
-    FixedJoint fixedJoint = null;
+    FixedJoint fixedJoint;
 
     // Use this for initialization
     void Awake ()
@@ -17,39 +17,45 @@ public class pickupFixed : MonoBehaviour
     }
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         device = SteamVR_Controller.Input((int)trackedObj.index);
     }
 
     void OnTriggerStay(Collider col)
     {
-
-        if (fixedJoint == null && device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
+        if (fixedJoint == null)
         {
-            //adds a fixed joint to the colliding object
-            fixedJoint = col.gameObject.AddComponent<FixedJoint>();
-            //connects the object toi the hand
-            fixedJoint.connectedBody = rigidBodyAttachPoint;
-            col.attachedRigidbody.isKinematic = true;
-            Debug.Log("pick up object");
+            if(device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
+            {
+                //adds a fixed joint to the colliding object
+                fixedJoint = col.gameObject.AddComponent<FixedJoint>();
+                //connects the object to the hand
+                fixedJoint.connectedBody = rigidBodyAttachPoint;
+                col.attachedRigidbody.isKinematic = true;
+                Debug.Log("pick up object");
+            }
         }
 
         //checks to see if there is a fixed joint and that the trigger is not held
-        if(fixedJoint !=null && device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
+        else if(fixedJoint !=null)
         {
-            //sets the objects kinematic to false
-            col.attachedRigidbody.isKinematic = false;
-            //sets a gameobject top the attached object
-            GameObject go = fixedJoint.gameObject;
-            //sets a rigid body to the attached objects rigidbody
-            Rigidbody rigidbody = go.GetComponent<Rigidbody>();
-            //destroys the fixed joint
-            Object.Destroy(fixedJoint);
-            //nulls the fixed joint
-            fixedJoint = null;
-            //throws object
-            TossObject(rigidbody);
+            if(device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
+            {
+                //sets the objects kinematic to false
+                col.attachedRigidbody.isKinematic = false;
+                //sets a gameobject top the attached object
+                GameObject go = fixedJoint.gameObject;
+                //sets a rigid body to the attached objects rigidbody
+                Rigidbody rigidbody = go.GetComponent<Rigidbody>();
+                //destroys the fixed joint
+                Object.Destroy(fixedJoint);
+                //nulls the fixed joint
+                fixedJoint = null;
+                //throws object
+                TossObject(rigidbody);
+            }
+
         }
     }
 
@@ -67,6 +73,11 @@ public class pickupFixed : MonoBehaviour
             rigidbody.velocity = origin.TransformVector(device.velocity);
             rigidbody.angularVelocity = origin.TransformVector(device.angularVelocity);
         }
+        else
+        {
+            rigidbody.velocity = device.velocity;
+            rigidbody.angularVelocity = device.angularVelocity;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -76,6 +87,11 @@ public class pickupFixed : MonoBehaviour
         {
             //sets the heating area
             other.GetComponent<StoveKnob>().SetActive();
+        }
+
+        if (other.tag == "Finish")
+        {
+            other.GetComponent<Bell>().SetDone(true);
         }
     }
 }
