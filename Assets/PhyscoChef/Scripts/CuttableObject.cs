@@ -28,6 +28,7 @@ public class CuttableObject : MonoBehaviour
             //applies force to the fixed joint
             if(GetComponent<FixedJoint>() != null)
             {
+                Debug.Log("hit");
                 ExplosiveForce();
             }           
        }
@@ -35,10 +36,10 @@ public class CuttableObject : MonoBehaviour
 
     void ExplosiveForce()
     {
-        Debug.Log("boom");
         FixedJoint joint = GetComponent<FixedJoint>();
         Rigidbody rb = this.GetComponent<Rigidbody>();
 
+        this.GetComponent<Food>().SetSliced(true);
         rb.AddExplosionForce(explosiveForce,this.transform.position,explosiveRadius);
         joint.connectedBody.AddExplosionForce(explosiveForce, joint.transform.position, explosiveRadius);
     }

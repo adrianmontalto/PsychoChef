@@ -26,7 +26,6 @@ public class StoveKnob : MonoBehaviour
             //turns the heat area off
             heatArea.SetHeating(false);
             //disables the heat areas mesh
-            heatArea.GetComponent<MeshRenderer>().enabled = false;
             return;
         }
 
@@ -38,7 +37,6 @@ public class StoveKnob : MonoBehaviour
             //turns the heat area on
             heatArea.SetHeating(true);
             //enables the heat areas mesh
-            heatArea.GetComponent<MeshRenderer>().enabled = true;
             return;
         }
     }

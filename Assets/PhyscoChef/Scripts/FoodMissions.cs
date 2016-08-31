@@ -14,14 +14,16 @@ public class FoodMissions : MonoBehaviour
     public float missionCountdownTimer = 0.0f;//a timer to countdown how long to do the mission
     public float setUpDelayTimer = 0.0f;//a delay timer to allow the player time to set up
     public float satisfaction = 0.0f;//the level of satisfaction the customer has
-    private float timeUsed = 0.0f;
-    private float timeLeft = 0.0f;
+    private float timeUsed = 0.0f;//the amount of time used
+    private float timeLeft = 0.0f;//the amount of time left
+    private float initialTime = 0.0f;//the initial countdown timer
 
 	// Use this for initialization
 	void Start ()
     {
         //sets the mission countdown timer and reset timer
         missionCountdownResetTimer = missionCountdownTimer;
+        initialTime = missionCountdownTimer;
         missionCountdownTimer = 0;
         //missionTimerBar = GetComponent<UnityEngine.UI.Image>();
 	}
@@ -29,13 +31,13 @@ public class FoodMissions : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        //reduces the delay timer
-        setUpDelayTimer -= Time.deltaTime;
-
-        //checks to see if the delay timer is less than zero
-        if (setUpDelayTimer < 0)
+        if(!isChecking)
         {
-            if (!isChecking)
+            //reduces the delay timer
+            setUpDelayTimer -= Time.deltaTime;
+
+            //checks to see if the delay timer is less than zero
+            if (setUpDelayTimer < 0)
             {
                 //reduces the countdown timer
                 missionCountdownTimer -= Time.deltaTime;
@@ -48,9 +50,9 @@ public class FoodMissions : MonoBehaviour
                     //resets mission countdown timer
                     missionCountdownTimer = missionCountdownResetTimer;
                 }
+                missionTimerBar.rectTransform.localScale = new Vector3(1, missionCountdownTimer * 0.02f, 1);
+                satisfactionBar.rectTransform.localScale = new Vector3(satisfaction * 0.002f, 0.3f, 0.3f);
             }
-            missionTimerBar.rectTransform.localScale = new Vector3(1, missionCountdownTimer * 0.02f, 1);
-            satisfactionBar.rectTransform.localScale = new Vector3(satisfaction * 0.002f, 0.3f, 0.3f);
         }
     }
 
@@ -92,5 +94,10 @@ public class FoodMissions : MonoBehaviour
     {
         timeLeft = missionCountdownResetTimer - missionCountdownTimer;
         return timeLeft;
+    }
+
+    public void ResetTimer()
+    {
+        missionCountdownTimer = initialTime;
     }
 }

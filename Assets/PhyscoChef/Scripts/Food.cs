@@ -25,6 +25,7 @@ public class Food : MonoBehaviour
     public Material cookedMaterial;//the material for the second stage
     public Material burntMaterial;//the material for when it is burnt
     public FoodName foodName = FoodName.FOOD;//the name of the food
+    public bool sliced = false;
     private bool isCooking = false;//a bool to dertermine whether the food is cooking
     private bool isCooked = false;
     private bool isBoiling = false;//checks to see that the food is boiling
@@ -105,6 +106,7 @@ public class Food : MonoBehaviour
             //change the foods texture to stage 2 cooked
             this.GetComponent<MeshRenderer>().material = cookedMaterial;
             isBoiled = true;
+            Debug.Log("food boiled");
             isCooked = false;
         }
 

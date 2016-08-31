@@ -12,6 +12,7 @@ public class BoilingArea : MonoBehaviour
     public Material fullyBoiledMaterial;//the texture for when the water is completly boiled
     private float temperature = 1.0f;//the temperature of the water
     private bool isBoiling;//whether the water is boiling
+
    
 	// Use this for initialization
 	void Start ()
@@ -22,10 +23,10 @@ public class BoilingArea : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        //Debug.Log(temperature);
         //checks to see if the water is boiling
-	    if(isBoiling == true)
+        if (isBoiling == true)
         {
-            Debug.Log("ba");
             //checks that the temperature is less then the max temperature
             if(temperature < maxTemperature)
             {

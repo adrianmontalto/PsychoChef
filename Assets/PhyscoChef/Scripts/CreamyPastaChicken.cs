@@ -19,8 +19,8 @@ public class CreamyPastaChicken : MonoBehaviour
     private float totalSatisfaction = 0.0f;//the total amount of satisfaction
     private float timeRemaining = 0.0f;//the amount of time left
     private float timeUsed = 0.0f;//the amount of time used
-    private int correctIngredients = 0;//the amount of correct ingredients
-    private int incorrectIngredients = 0;//the amount of incorrect ingredients
+    private int correctIngredients = 1;//the amount of correct ingredients
+    private int incorrectIngredients = 1;//the amount of incorrect ingredients
     private int numberOfChickenSlices = 0;//the amount of cooked sliced chicken
     private int totalCookedChicken = 0;//the total amount of cooked chicken
     private int totalCookedOil = 0;//the total amount of cooked oil
@@ -37,20 +37,6 @@ public class CreamyPastaChicken : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        //check that the incorrect ingredients are less than zero
-        if(incorrectIngredients < 0)
-        {
-            //resets incorrect ingredients to zero
-            incorrectIngredients = 0;
-        }
-
-        //check that the correct ingredients are less than zero
-        if(correctIngredients < 0)
-        {
-            //reset correct ingredients to zero
-            correctIngredients = 0;
-        }
-
         //checks to see if the recipe is active
 	    if(isActive)
         {
@@ -58,7 +44,7 @@ public class CreamyPastaChicken : MonoBehaviour
             satisfactionIncrease = missions.GetComponent<FoodMissions>().GetTimeLeft() * correctIngredients * increaseRate;
             //calculates the satisfaction decrease
             satisfactionDecrease = missions.GetComponent<FoodMissions>().GetTimeUsed() * incorrectIngredients * decreaseRate;
-            //calculate the total amount of satisfaction give
+            //calculate the total amount of satisfaction given
             totalSatisfaction = satisfactionIncrease + satisfactionDecrease;
             //applies the satisfaction to the missions satisfaction
             missions.satisfaction += totalSatisfaction;
@@ -108,8 +94,7 @@ public class CreamyPastaChicken : MonoBehaviour
             {
                 //increases the number of incorrect ingredients by one
                 incorrectIngredients ++;
-            }
-               
+            }               
         }
         //checks to see if it is not food
         if(other.tag != "Food")
@@ -374,7 +359,7 @@ public class CreamyPastaChicken : MonoBehaviour
                 //sets the oil cooked to true
                 oilCooked = true;
             }
-            //checks to see that the oil isnt cooked
+            //checks to see that the oil isn't cooked
             if(col.GetComponent<Food>().GetCooked() == false)
             {
                 //increase the incorrect ingredients by one
@@ -489,6 +474,7 @@ public class CreamyPastaChicken : MonoBehaviour
         totalCreamAdded = 0;
         totalBoiledPasta = 0;
         missions.SetChecking(false);
+        missions.ResetTimer();
         ingredientsArea.SetActive(false);
         bell.GetComponent<Bell>().SetDone(false);
         isActive = false;
