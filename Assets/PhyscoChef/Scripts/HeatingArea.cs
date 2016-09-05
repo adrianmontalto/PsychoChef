@@ -6,7 +6,6 @@ public class HeatingArea : MonoBehaviour
     public float heatRate = 0.0f;//the rate  at which the area heats up
     public float cooldownRate = 0.0f;//the rate at which the area cools down
     public float maxTemperature = 0.0f;//the maximum temperature that the area can get to
-    public GameObject fire;
     private float temperature = 1.0f;//the temperature of the area
     private bool isHeating = false;//determine whether the area is heating up
 
@@ -62,12 +61,10 @@ public class HeatingArea : MonoBehaviour
         if(heat ==true)
         {
             Debug.Log("on");
-            fire.GetComponent<MeshRenderer>().enabled = true;
         }
         if(heat == false)
         {
             Debug.Log("off");
-            fire.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 
@@ -75,7 +72,6 @@ public class HeatingArea : MonoBehaviour
     {
         if(isHeating)
         {
-            Debug.Log("heating");
             //checks to see if the saucepan has collided
             if (other.tag == "SaucePan")
             {
@@ -118,6 +114,7 @@ public class HeatingArea : MonoBehaviour
         //checks to see if the food has left the heating area
         if (other.tag == "SaucePan")
         {
+            Debug.Log("saucepan exit");
             //sets the boiling to be false
             other.GetComponent<Saucepan>().SetBoilAreaActive(false);
         }

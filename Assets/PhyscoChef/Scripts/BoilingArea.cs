@@ -23,7 +23,6 @@ public class BoilingArea : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        //Debug.Log(temperature);
         //checks to see if the water is boiling
         if (isBoiling == true)
         {
@@ -64,6 +63,11 @@ public class BoilingArea : MonoBehaviour
     public void SetBoiling(bool boil)
     {
         isBoiling = boil;
+    }
+
+    public bool GetBoiling()
+    {
+        return isBoiling;
     }
 
     void CheckBoilingStage()

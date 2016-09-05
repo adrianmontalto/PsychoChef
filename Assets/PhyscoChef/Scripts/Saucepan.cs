@@ -20,23 +20,29 @@ public class Saucepan : MonoBehaviour
 	void Update ()
     {
         //checks to see the area is boilig
-	    if(isBoiling == true)
-        {
-            //sets the boiling area to boiling
-            boilingArea.SetBoiling(true);
-        }
-        
-        //checks to see if the sauce is not boiling
-        if(isBoiling == false)
-        {
-            //sets the boiling area to not boiling
-            boilingArea.SetBoiling(false);
-        }
+	    //if(isBoiling == true)
+        //{
+        //    //sets the boiling area to boiling
+        //    boilingArea.SetBoiling(true);
+        //}
+        //
+        ////checks to see if the sauce is not boiling
+        //if(isBoiling == false)
+        //{
+        //    Debug.Log("sp-setnotboil");
+        //    //sets the boiling area to not boiling
+        //    boilingArea.SetBoiling(false);
+        //}
 	}
 
     public void SetBoilAreaActive(bool boil)
     {
-        Debug.Log("boil active");
+        //Debug.Log("boil active");
         boilingArea.SetBoiling(boil);
+    }
+
+    public bool GetBoilActive()
+    {
+        return boilingArea.GetBoiling();
     }
 }

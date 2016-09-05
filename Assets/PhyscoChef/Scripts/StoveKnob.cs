@@ -3,7 +3,7 @@ using System.Collections;
 
 public class StoveKnob : MonoBehaviour
 {
-    public HeatingArea heatArea;
+    public StoveFire heatArea;
     private bool isActive = false;
 	// Use this for initialization
 	void Start ()
@@ -21,6 +21,7 @@ public class StoveKnob : MonoBehaviour
     {
         if (isActive == true)
         {
+            Debug.Log("stove on");
             //turns the knob off
             isActive = false;
             //turns the heat area off
@@ -32,6 +33,7 @@ public class StoveKnob : MonoBehaviour
         //checks to see if the stove knob isnt active
         if (isActive == false)
         {
+            Debug.Log("stove off");
             //sets the knob to active
             isActive = true;
             //turns the heat area on

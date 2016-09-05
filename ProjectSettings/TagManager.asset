@@ -12,6 +12,7 @@ TagManager:
   - Fork
   - StoveKnob
   - VrCamera
+  - FryingPan
   layers:
   - Default
   - TransparentFX
