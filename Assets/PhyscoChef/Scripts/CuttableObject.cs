@@ -28,7 +28,6 @@ public class CuttableObject : MonoBehaviour
             //applies force to the fixed joint
             if(GetComponent<FixedJoint>() != null)
             {
-                Debug.Log("hit");
                 ExplosiveForce();
             }           
        }

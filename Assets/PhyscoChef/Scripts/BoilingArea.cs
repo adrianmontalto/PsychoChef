@@ -111,12 +111,28 @@ public class BoilingArea : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        //checks to see if a food is in the water
-        if (other.tag == "Food")
+        //checks to see if thye area is boiling
+        if(isBoiling)
         {
-            //sets the food to boiling
-            other.GetComponent<Food>().SetBoiling(true, temperature);
+            //checks to see if a food is in the water
+            if (other.tag == "Food")
+            {
+                //sets the food to boiling
+                other.GetComponent<Food>().SetBoiling(true, temperature);
+            }
         }
+
+        //checks to see if the area isnt boiling
+        if(!isBoiling)
+        {
+            //checks to see if a food is in the water
+            if (other.tag == "Food")
+            {
+                //sets the food to boiling
+                other.GetComponent<Food>().SetBoiling(false, temperature);
+            }
+        }
+
     }
 
     void OnTriggerExit(Collider other)

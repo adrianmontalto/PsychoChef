@@ -61,13 +61,15 @@ public class StoveFire : MonoBehaviour
         isHeating = heat;
         if (heat == true)
         {
-            //Debug.Log("on");
+            Debug.Log("on");
             fire.GetComponent<MeshRenderer>().enabled = true;
+            isHeating = true;
         }
         if (heat == false)
         {
-            //Debug.Log("off");
+            Debug.Log("off");
             fire.GetComponent<MeshRenderer>().enabled = false;
+            isHeating = false;
         }
     }
 
@@ -111,6 +113,23 @@ public class StoveFire : MonoBehaviour
             {
                 //sets the food to be cooking at the temperature of the food
                 other.GetComponent<Food>().SetCooking(true, temperature);
+            }
+        }
+
+        if(!isHeating)
+        {
+            //checks to see if the saucepan has collided
+            if (other.tag == "SaucePan")
+            {
+                //sets the boiling area in the saucepoan to true
+                other.GetComponent<Saucepan>().SetBoilAreaActive(false);
+            }
+
+            //checks to see if food is in the heating area
+            if (other.tag == "Food")
+            {
+                //sets the food to be cooking at the temperature of the food
+                other.GetComponent<Food>().SetCooking(false, temperature);
             }
         }
     }
