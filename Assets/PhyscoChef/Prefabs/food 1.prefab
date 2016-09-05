@@ -104,19 +104,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookRate: 0.2
-  cookState1: 7
-  cookState2: 14
-  cookState3: 28
-  stage1Material: {fileID: 2100000, guid: f2ce31240c1c3ea44bc02a61e273243d, type: 2}
-  stage2Material: {fileID: 2100000, guid: 992b80ae49525f84d8f25b0a96f67f84, type: 2}
+  partialyCookedState: 7
+  cookedState: 14
+  burntState: 21
+  partialyBoiledState: 12
+  boiledState: 24
+  partialyCookedMaterial: {fileID: 2100000, guid: 4d243c000faf94946ab4fa28438b5950,
+    type: 2}
+  cookedMaterial: {fileID: 2100000, guid: d9ead09ce8ff86844b53adad335a32c2, type: 2}
   burntMaterial: {fileID: 2100000, guid: ed1fae72a59d7164d99b0d92b020707f, type: 2}
+  foodName: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: partialyCookedState
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cookedState
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: burntState
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: partialyBoiledState
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boiledState
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: partialyCookedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d243c000faf94946ab4fa28438b5950, type: 2}
+    - target: {fileID: 0}
+      propertyPath: cookedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: d9ead09ce8ff86844b53adad335a32c2, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 191340}

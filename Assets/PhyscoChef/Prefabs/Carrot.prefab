@@ -553,12 +553,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookRate: 0.3
-  cookState1: 7
-  cookState2: 14
-  cookState3: 28
+  partialyCookedState: 0
+  cookedState: 0
+  burntState: 0
+  partialyBoiledState: 0
+  boiledState: 0
   partialyCookedMaterial: {fileID: 0}
   cookedMaterial: {fileID: 0}
   burntMaterial: {fileID: 2100000, guid: ed1fae72a59d7164d99b0d92b020707f, type: 2}
+  foodName: 0
 --- !u!114 &11432100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -571,12 +574,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookRate: 0.3
-  cookState1: 7
-  cookState2: 14
-  cookState3: 28
-  partialyCookedMaterial: {fileID: 0}
-  cookedMaterial: {fileID: 0}
+  partialyCookedState: 0
+  cookedState: 0
+  burntState: 0
+  partialyBoiledState: 0
+  boiledState: 0
+  partialyCookedMaterial: {fileID: 2100000, guid: df19828c0f981234fa89a4c38938e890,
+    type: 2}
+  cookedMaterial: {fileID: 2100000, guid: e57f7601ec41f0c4faf4a41f1c061fac, type: 2}
   burntMaterial: {fileID: 2100000, guid: ed1fae72a59d7164d99b0d92b020707f, type: 2}
+  foodName: 1
 --- !u!114 &11444860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -589,12 +596,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookRate: 0.3
-  cookState1: 7
-  cookState2: 14
-  cookState3: 28
+  partialyCookedState: 0
+  cookedState: 0
+  burntState: 0
+  partialyBoiledState: 0
+  boiledState: 0
   partialyCookedMaterial: {fileID: 0}
   cookedMaterial: {fileID: 0}
   burntMaterial: {fileID: 2100000, guid: ed1fae72a59d7164d99b0d92b020707f, type: 2}
+  foodName: 0
 --- !u!114 &11474506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -618,12 +628,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookRate: 0.3
-  cookState1: 7
-  cookState2: 14
-  cookState3: 28
+  partialyCookedState: 0
+  cookedState: 0
+  burntState: 0
+  partialyBoiledState: 0
+  boiledState: 0
   partialyCookedMaterial: {fileID: 0}
   cookedMaterial: {fileID: 0}
   burntMaterial: {fileID: 2100000, guid: ed1fae72a59d7164d99b0d92b020707f, type: 2}
+  foodName: 0
 --- !u!114 &11493430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -636,12 +649,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookRate: 0.3
-  cookState1: 7
-  cookState2: 14
-  cookState3: 28
+  partialyCookedState: 0
+  cookedState: 0
+  burntState: 0
+  partialyBoiledState: 0
+  boiledState: 0
   partialyCookedMaterial: {fileID: 0}
   cookedMaterial: {fileID: 0}
   burntMaterial: {fileID: 2100000, guid: ed1fae72a59d7164d99b0d92b020707f, type: 2}
+  foodName: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -652,6 +668,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Name
       value: Carrot
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: food
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: partialyCookedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: df19828c0f981234fa89a4c38938e890, type: 2}
+    - target: {fileID: 0}
+      propertyPath: cookedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e57f7601ec41f0c4faf4a41f1c061fac, type: 2}
+    - target: {fileID: 0}
+      propertyPath: foodName
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
