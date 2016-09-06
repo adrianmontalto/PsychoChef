@@ -7,6 +7,7 @@ public class PickupParent : MonoBehaviour
     private bool isHolding = false;
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
+    public GameObject model;
 
     //always called before any start functions and also just after a prefab is instatiated(if gameobject is inactive during start up awake is not called until it is made active)
     void Awake ()
@@ -46,6 +47,7 @@ public class PickupParent : MonoBehaviour
                 col.attachedRigidbody.isKinematic = true;
                 //sets the sphere to this objects transform
                 col.gameObject.transform.SetParent(this.gameObject.transform);
+                model.GetComponent<MeshRenderer>().enabled = false;
                 isHolding = true;
             }
         }
@@ -59,6 +61,7 @@ public class PickupParent : MonoBehaviour
             //sets the rigidbody to be affected by physics sytem
             col.attachedRigidbody.isKinematic = false;
             TossObject(col.attachedRigidbody);
+            model.GetComponent<MeshRenderer>().enabled = true;
             isHolding = false;       
         }
     }
@@ -83,17 +86,18 @@ public class PickupParent : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider col)
     {
         //checks to see if the hand has hit the stove
-        if(other.tag == "StoveKnob")
+        if(col.tag == "StoveKnob")
         {
-            other.GetComponent<StoveKnob>().SetActive();
+            col.GetComponent<StoveKnob>().SetActive();
         }
 
-        if(other.tag == "Finish")
+        if(col.tag == "Finish")
         {
-            other.GetComponent<Bell>().SetDone(true);
+            Debug.Log("hit bell");
+            col.GetComponent<Bell>().SetDone(true);
         }
     }
 }

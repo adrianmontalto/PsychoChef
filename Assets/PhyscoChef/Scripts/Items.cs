@@ -13,6 +13,10 @@ public class Items : MonoBehaviour
 
     public void ResetPostion()
     {
+        if(this.gameObject.GetComponent<Food>())
+        {
+            this.gameObject.GetComponent<Food>().ResetFood();
+        }
         this.transform.position = startPosition;
     }
 }

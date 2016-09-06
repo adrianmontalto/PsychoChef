@@ -35,11 +35,15 @@ public class Food : MonoBehaviour
     private float externalCookRate = 1.0f;//the rate of cooking applied by an external source
     private float totalBoilTime;//the total time the food has been boiling
     private float boilCookRate = 1.0f;//the rate at which boil affects cooking
+    private Material intialMaterial;
+    private Material currentMaterial;
  
 
     // Use this for initialization
     void Start()
     {
+        currentMaterial = this.GetComponent<MeshRenderer>().material;
+        intialMaterial = this.GetComponent<MeshRenderer>().material;
     }
 
     // Update is called once per frame
@@ -72,6 +76,7 @@ public class Food : MonoBehaviour
         {
             //change the foods texture to stage 1 cooked
             this.GetComponent<MeshRenderer>().material = partialyCookedMaterial;
+            currentMaterial = partialyCookedMaterial;
         }
 
         //checks to see if the total cooktime is equal to the second cook state
@@ -79,6 +84,7 @@ public class Food : MonoBehaviour
         {
             //change the foods texture to stage 2 cookedw
             this.GetComponent<MeshRenderer>().material = cookedMaterial;
+            currentMaterial = cookedMaterial;
             isCooked = true;
         }
 
@@ -87,6 +93,7 @@ public class Food : MonoBehaviour
         {
             //change the food to burnt texture
             this.GetComponent<MeshRenderer>().material = burntMaterial;
+            currentMaterial = burntMaterial;
             isCooked = false;
         }
     }
@@ -106,7 +113,6 @@ public class Food : MonoBehaviour
             //change the foods texture to stage 2 cooked
             this.GetComponent<MeshRenderer>().material = cookedMaterial;
             isBoiled = true;
-            Debug.Log("food boiled");
             isCooked = false;
         }
 
@@ -151,5 +157,18 @@ public class Food : MonoBehaviour
     public void SetSliced(bool slice)
     {
         isSliced = slice;
+    }
+
+    public void ResetFood()
+    {
+        isBoiled = false;
+        isCooking = false;
+        isCooked = false;
+        isBoiling = false;
+        isBoiled = false;
+        isSliced = false;
+        totalCookTime = 0;
+        totalBoilTime = 0;
+        this.GetComponent<MeshRenderer>().material = intialMaterial;
     }
 }

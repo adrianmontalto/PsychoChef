@@ -14,9 +14,11 @@ public class FoodMissions : MonoBehaviour
     public float missionCountdownTimer = 0.0f;//a timer to countdown how long to do the mission
     public float setUpDelayTimer = 0.0f;//a delay timer to allow the player time to set up
     public float satisfaction = 0.0f;//the level of satisfaction the customer has
+    public float satisfactionDecreaseRate;//the rate at which satisfaction decreases
     private float timeUsed = 0.0f;//the amount of time used
     private float timeLeft = 0.0f;//the amount of time left
     private float initialTime = 0.0f;//the initial countdown timer
+    private float maxSatisfaction;// the max amount of satisfaction
 
 	// Use this for initialization
 	void Start ()
@@ -25,6 +27,7 @@ public class FoodMissions : MonoBehaviour
         missionCountdownResetTimer = missionCountdownTimer;
         initialTime = missionCountdownTimer;
         missionCountdownTimer = 0;
+        maxSatisfaction = satisfaction;
         //missionTimerBar = GetComponent<UnityEngine.UI.Image>();
 	}
 	
@@ -41,6 +44,7 @@ public class FoodMissions : MonoBehaviour
             {
                 //reduces the countdown timer
                 missionCountdownTimer -= Time.deltaTime;
+                satisfaction -= satisfactionDecreaseRate * Time.deltaTime;
                 //checks to see if the countdowntimer is less then zero
                 if (missionCountdownTimer < 0)
                 {
@@ -50,10 +54,11 @@ public class FoodMissions : MonoBehaviour
                     //resets mission countdown timer
                     missionCountdownTimer = missionCountdownResetTimer;
                 }
-                missionTimerBar.rectTransform.localScale = new Vector3(1, missionCountdownTimer * 0.02f, 1);
-                satisfactionBar.rectTransform.localScale = new Vector3(satisfaction * 0.002f, 0.3f, 0.3f);
+                missionTimerBar.fillAmount = CalculateTimer(missionCountdownTimer, 0, missionCountdownResetTimer, 0, 1);
+                satisfactionBar.fillAmount = CalculateTimer(satisfaction, 0, maxSatisfaction, 0, 1);
             }
         }
+        
     }
 
     void GenerateFoodRequest()
@@ -69,7 +74,7 @@ public class FoodMissions : MonoBehaviour
     void CookCreamyChickenPasta()
     {
         //sets the text to cook creamy chicken
-        missionDisplayText.text = "Cook Creamy Chicken Pasta";
+        missionDisplayText.text = "Creamy Chicken Pasta";
     }
 
     public int GetOrderNumber()
@@ -99,5 +104,10 @@ public class FoodMissions : MonoBehaviour
     public void ResetTimer()
     {
         missionCountdownTimer = initialTime;
+    }
+
+    private float CalculateTimer(float value, float inMin,float inMax,float outMin,float outMax)
+    {
+        return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     }
 }

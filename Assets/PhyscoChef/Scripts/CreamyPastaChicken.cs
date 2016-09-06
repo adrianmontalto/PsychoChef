@@ -48,6 +48,7 @@ public class CreamyPastaChicken : MonoBehaviour
             totalSatisfaction = satisfactionIncrease + satisfactionDecrease;
             //applies the satisfaction to the missions satisfaction
             missions.satisfaction += totalSatisfaction;
+            Debug.Log(missions.satisfaction);
             //resets all of the objects
             Reset();
         }
@@ -456,6 +457,14 @@ public class CreamyPastaChicken : MonoBehaviour
     }
     void Reset()
     {
+        Rigidbody[] bodies = FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
+        foreach (Rigidbody body in bodies)
+        {
+            if (body.GetComponent<Items>() != null)
+            {
+                body.GetComponent<Items>().ResetPostion();
+            }
+        }
         chickenSlices = 0;
         pastaBoiled = false;
         chickenSliced = false;
@@ -479,13 +488,6 @@ public class CreamyPastaChicken : MonoBehaviour
         bell.GetComponent<Bell>().SetDone(false);
         isActive = false;
 
-        Rigidbody[] bodies = FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
-        foreach (Rigidbody body in bodies)
-        {
-            if(body.GetComponent<Items>() != null)
-            {
-                body.GetComponent<Items>().ResetPostion();
-            }           
-        }
+
     }
 }
