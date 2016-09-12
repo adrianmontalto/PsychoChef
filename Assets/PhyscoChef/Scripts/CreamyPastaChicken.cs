@@ -3,12 +3,14 @@ using System.Collections;
 
 public class CreamyPastaChicken : MonoBehaviour
 {
-    public FoodMissions missions;//the mission manager
-    public FoodIngredientArea ingredientsArea;//the ingredient area
-    public Bell bell;//the food done bell
-    public float increaseRate = 0.0f;//the rate at which satisfaction increases
-    public float decreaseRate = 0.0f;//the rate at which satisfaction decreases
-    public int chickenSlices = 0;//the amount of chicken slices required
+    [SerializeField]
+    private FoodMissions missions;//the mission manager
+    [SerializeField]
+    private FoodIngredientArea ingredientsArea;//the ingredient area
+    [SerializeField]
+    private Bell bell;//the food done bell
+    [SerializeField]
+    private int chickenSlices = 0;//the amount of chicken slices required
     private bool isActive = false;//whether the area is active
     private bool pastaBoiled = false;//sets whether the pasta is boiled
     private bool chickenSliced = false;//sets whether the chicken is sliced
@@ -26,7 +28,7 @@ public class CreamyPastaChicken : MonoBehaviour
     private int totalCookedOil = 0;//the total amount of cooked oil
     private int totalCreamAdded = 0;//the total amount of cream
     private int totalBoiledPasta = 0;//the total amount of boiled pasta
-
+    private int numberOfIngredients = 4;//the number of ingredients required to complete the recipe
 
 	// Use this for initialization
 	void Start ()
@@ -40,16 +42,7 @@ public class CreamyPastaChicken : MonoBehaviour
         //checks to see if the recipe is active
 	    if(isActive)
         {
-            //calculates the satisfaction increase
-            satisfactionIncrease = missions.GetComponent<FoodMissions>().GetTimeLeft() * correctIngredients * increaseRate;
-            //calculates the satisfaction decrease
-            satisfactionDecrease = missions.GetComponent<FoodMissions>().GetTimeUsed() * incorrectIngredients * decreaseRate;
-            //calculate the total amount of satisfaction given
-            totalSatisfaction = satisfactionIncrease + satisfactionDecrease;
-            //applies the satisfaction to the missions satisfaction
-            missions.satisfaction += totalSatisfaction;
-            Debug.Log(missions.satisfaction);
-            //resets all of the objects
+            CalculateSatisfaction();
             Reset();
         }
 	}
@@ -455,6 +448,7 @@ public class CreamyPastaChicken : MonoBehaviour
             incorrectIngredients --;
         }
     }
+
     void Reset()
     {
         Rigidbody[] bodies = FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
@@ -487,7 +481,32 @@ public class CreamyPastaChicken : MonoBehaviour
         ingredientsArea.SetActive(false);
         bell.GetComponent<Bell>().SetDone(false);
         isActive = false;
+    }
 
+    void CalculateSatisfaction()
+    {
+        
+        int multiplier;//the amount by which the satisfaction is calculated by
 
+        //checks to see if the amount of incorrect ingredients isnt higher then the asmount of ingredients
+        if(incorrectIngredients >= numberOfIngredients)
+        {
+            //adds zero to the satisfaction meter
+            missions.AddSatisfaction(0.0f);
+        }
+        else
+        {
+            //calculate the multiplier
+            multiplier = correctIngredients - incorrectIngredients;
+
+            //calculate the percentage of correct ingredients
+            float percentageOfCorrect = multiplier / numberOfIngredients;
+
+            //calculate the amount of satisfaction score to add
+            float satisfaction = percentageOfCorrect * missions.GetSatisfactionScore();
+
+            //add satisfaction to score
+            missions.AddSatisfaction(satisfaction);
+        }
     }
 }

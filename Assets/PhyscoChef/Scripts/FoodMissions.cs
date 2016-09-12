@@ -2,26 +2,33 @@
 using System.Collections;
 
 public class FoodMissions : MonoBehaviour
-{
-    //private int randomMin = 0;
-    //private int randomMax = 0;
-    private float missionCountdownResetTimer = 0.0f;//a timer to reset the timer for the next meal
+{    
     private int orderNumber = 1;//the number of the recipe that is being ordered
     private bool isChecking = false;//whether or not the order is being checked
-    public UnityEngine.UI.Text missionDisplayText;//the text to display what is required to be cooked
-    public UnityEngine.UI.Image missionTimerBar;//a image to show how much time is left to cook thye meal
-    public UnityEngine.UI.Image satisfactionBar;//a image to represent the customers satisfaction
-    public float missionCountdownTimer = 0.0f;//a timer to countdown how long to do the mission
-    public float setUpDelayTimer = 0.0f;//a delay timer to allow the player time to set up
-    public float satisfaction = 0.0f;//the level of satisfaction the customer has
-    public float satisfactionDecreaseRate;//the rate at which satisfaction decreases
+    [SerializeField]
+    private UnityEngine.UI.Text missionDisplayText;//the text to display what is required to be cooked
+    [SerializeField]
+    private UnityEngine.UI.Image missionTimerBar;//a image to show how much time is left to cook thye meal
+    [SerializeField]
+    private UnityEngine.UI.Image satisfactionBar;//a image to represent the customers satisfaction
+    [SerializeField]
+    private float missionCountdownTimer = 0.0f;//a timer to countdown how long to do the mission
+    [SerializeField]
+    private float setUpDelayTimer = 0.0f;//a delay timer to allow the player time to set up
+    [SerializeField]
+    private float satisfaction = 0.0f;//the level of satisfaction the customer has
+    [SerializeField]
+    private float satisfactionDecreaseRate;//the rate at which satisfaction decreases
     private float timeUsed = 0.0f;//the amount of time used
     private float timeLeft = 0.0f;//the amount of time left
     private float initialTime = 0.0f;//the initial countdown timer
     private float maxSatisfaction;// the max amount of satisfaction
+    private float missionCountdownResetTimer = 0.0f;//a timer to reset the timer for the next meal
+    [SerializeField]
+    private float satisfactionScore = 0.0f;//the amount of points you get if you complete the recipe
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         //sets the mission countdown timer and reset timer
         missionCountdownResetTimer = missionCountdownTimer;
@@ -109,5 +116,22 @@ public class FoodMissions : MonoBehaviour
     private float CalculateTimer(float value, float inMin,float inMax,float outMin,float outMax)
     {
         return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    }
+
+    public float GetSatisfactionScore()
+    {
+        return satisfactionScore;
+    }
+
+    public void AddSatisfaction(float score)
+    {
+        if (satisfaction + score < maxSatisfaction)
+        {
+            satisfaction += score;
+        }
+        else
+        {
+            satisfaction = maxSatisfaction;
+        }        
     }
 }
