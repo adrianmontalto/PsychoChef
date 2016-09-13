@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2305400}
   - 114: {fileID: 11410928}
   m_Layer: 0
-  m_Name: Bell
+  m_Name: bell
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

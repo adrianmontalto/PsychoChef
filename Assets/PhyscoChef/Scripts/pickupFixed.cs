@@ -4,7 +4,6 @@ using System.Collections;
 [RequireComponent(typeof(SteamVR_TrackedObject))]
 public class pickupFixed : MonoBehaviour
 {
-    public Rigidbody rigidBodyAttachPoint;
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
 
@@ -22,23 +21,42 @@ public class pickupFixed : MonoBehaviour
         device = SteamVR_Controller.Input((int)trackedObj.index);
     }
 
-    void OnTriggerStay(Collider col)
+    void Update ()
+    {
+
+    }
+
+    void OnTriggerStay (Collider col)
     {
         if (fixedJoint == null)
         {
-            if(device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
+            if (device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
             {
                 //adds a fixed joint to the colliding object
                 fixedJoint = col.gameObject.AddComponent<FixedJoint>();
                 //connects the object to the hand
-                fixedJoint.connectedBody = rigidBodyAttachPoint;
+//                fixedJoint.connectedBody = rigidBodyAttachPoint;
                 col.attachedRigidbody.isKinematic = true;
                 Debug.Log("pick up object");
+            }
+
+            if (Input.GetKeyDown("A"))
+            {
+                fixedJoint = gameObject.AddComponent<FixedJoint>();
+
+                fixedJoint.connectedBody = col.gameObject.GetComponent<Rigidbody>();
+
+                if (fixedJoint.connectedBody == null)
+                {
+                    fixedJoint.connectedBody = col.gameObject.GetComponentInParent<Rigidbody>();
+                }
+
+                fixedJoint.breakForce = 1000;
             }
         }
 
         //checks to see if there is a fixed joint and that the trigger is not held
-        else if(fixedJoint !=null)
+        else if (fixedJoint !=null)
         {
             if(device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
             {
@@ -59,7 +77,7 @@ public class pickupFixed : MonoBehaviour
         }
     }
 
-    void TossObject(Rigidbody rigidbody)
+    void TossObject (Rigidbody rigidbody)
     {
         //convert local space vectors to world space vectors
         //
@@ -80,7 +98,7 @@ public class pickupFixed : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter (Collider other)
     {
         //checks to see if the hand has hit the stove
         if (other.tag == "StoveKnob")
