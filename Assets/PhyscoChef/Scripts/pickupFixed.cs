@@ -9,6 +9,8 @@ public class pickupFixed : MonoBehaviour
 
     FixedJoint fixedJoint;
 
+    bool grab = false;
+
     // Use this for initialization
     void Awake ()
     {
@@ -23,7 +25,10 @@ public class pickupFixed : MonoBehaviour
 
     void Update ()
     {
-
+        if (Input.GetKeyDown("a") == true)
+        {
+            grab = !grab;
+        }
     }
 
     void OnTriggerStay (Collider col)
@@ -40,7 +45,7 @@ public class pickupFixed : MonoBehaviour
                 Debug.Log("pick up object");
             }
 
-            if (Input.GetKeyDown("A"))
+            if (grab == true)
             {
                 fixedJoint = gameObject.AddComponent<FixedJoint>();
 
@@ -49,6 +54,12 @@ public class pickupFixed : MonoBehaviour
                 if (fixedJoint.connectedBody == null)
                 {
                     fixedJoint.connectedBody = col.gameObject.GetComponentInParent<Rigidbody>();
+                }
+
+                if (fixedJoint.connectedBody == null)
+                {
+                    Destroy(fixedJoint);
+                    return;
                 }
 
                 fixedJoint.breakForce = 1000;
