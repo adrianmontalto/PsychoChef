@@ -9,9 +9,14 @@ public class pickupFixed : MonoBehaviour
 
     FixedJoint fixedJoint;
 
-    bool grab = false;
+    Rigidbody rb;
 
     // Use this for initialization
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
@@ -25,9 +30,13 @@ public class pickupFixed : MonoBehaviour
 
     void Update()
     {
-        if (device.GetHairTriggerUp() == true)
+        if (fixedJoint != null)
         {
-            Destroy(fixedJoint);
+            if (device.GetHairTriggerUp() == true)
+            {
+                fixedJoint.connectedBody.velocity = device.velocity;
+                Destroy(fixedJoint);
+            }
         }
     }
 
@@ -54,9 +63,14 @@ public class pickupFixed : MonoBehaviour
                     return;
                 }
 
-                fixedJoint.breakForce = 100000;
+                fixedJoint.breakForce = 1000;
             }
         }
+    }
+
+    void OnJointBreak(float force)
+    {
+        fixedJoint.connectedBody.velocity = device.velocity;
     }
 
     void OnTriggerEnter(Collider other)
