@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CuttingScript : MonoBehaviour {
-
+public class CuttingScript : MonoBehaviour
+{
 	// Use this for initialization
 	void Start ()
     {
-
 	}
 	
 	// Update is called once per frame
@@ -49,7 +48,7 @@ public class CuttingScript : MonoBehaviour {
                 xLocation += objectTransform.localPosition.x;
 
                 if (cutPoint.x < xLocation)
-                {
+                {                    
                     Debug.LogError("Cutpoint");
                     checking = false;
 

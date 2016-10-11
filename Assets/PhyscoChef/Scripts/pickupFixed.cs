@@ -80,11 +80,13 @@ public class pickupFixed : MonoBehaviour
         {
             //sets the heating area
             other.GetComponent<StoveKnob>().SetActive();
+            Debug.Log("hit stoveK");
         }
 
         if (other.tag == "Finish")
         {
             other.GetComponent<Bell>().SetDone(true);
+            Debug.Log("hit bell");
         }
     }
 }

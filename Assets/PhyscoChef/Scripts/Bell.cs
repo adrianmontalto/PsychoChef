@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class Bell : MonoBehaviour
 {
     private bool isDone = false;
+    [SerializeField]
+    private AudioClip bellSound;
+    AudioSource audio;
     public FoodIngredientArea ingredientsArea;
 	// Use this for initialization
 	void Start ()
     {
-	
+        audio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -16,7 +20,10 @@ public class Bell : MonoBehaviour
     {
 	    if(isDone == true)
         {
+            audio.PlayOneShot(bellSound, 0.7f);
+            Debug.Log("ding");
             ingredientsArea.SetActive(true);
+          
         }
 	}
 

@@ -1,15 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class CuttableObject : MonoBehaviour
 {
+    [SerializeField]
+    private AudioClip chopSound;
+    AudioSource audio;
     //public float explosiveForce = 0.0f;
     //public float explosiveRadius = 0.0f;
 
 	// Use this for initialization
 	void Start ()
     {
-
+        audio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -28,6 +32,7 @@ public class CuttableObject : MonoBehaviour
             //applies force to the fixed joint
             if(GetComponent<FixedJoint>() != null)
             {
+                audio.PlayOneShot(chopSound, 0.7f);
                 ExplosiveForce();
             }           
        }
