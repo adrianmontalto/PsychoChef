@@ -11,6 +11,13 @@ public class pickupFixed : MonoBehaviour
 
     Rigidbody rb;
 
+    GameObject nearestObject;
+
+    float nearestObjectDistance;
+
+    public Shader outline;
+    public Shader standard;
+
     // Use this for initialization
     void Start()
     {
@@ -38,33 +45,85 @@ public class pickupFixed : MonoBehaviour
                 Destroy(fixedJoint);
             }
         }
+        else if (fixedJoint == null)
+        {
+            if (nearestObject != null)
+            {
+                if (device.GetHairTriggerDown() == true)
+                {
+                    fixedJoint = gameObject.AddComponent<FixedJoint>();
+
+                    fixedJoint.connectedBody = nearestObject.GetComponent<Rigidbody>();
+
+                    if (fixedJoint.connectedBody == null)
+                    {
+                        fixedJoint.connectedBody = nearestObject.GetComponentInParent<Rigidbody>();
+                    }
+
+                    if (fixedJoint.connectedBody == null)
+                    {
+                        Destroy(fixedJoint);
+                        return;
+                    }
+
+                    fixedJoint.breakForce = 1000;
+
+                    //reset shader
+                    nearestObject.GetComponent<Renderer>().material.shader = standard;
+                }
+            }
+        }
     }
 
     void OnTriggerStay(Collider col)
     {
         if (fixedJoint == null)
         {
-
-            // (SteamVR_Controller.ButtonMask.Trigger)
-            if (device.GetHairTriggerDown() == true)
+            if (col.gameObject != nearestObject)
             {
-                fixedJoint = gameObject.AddComponent<FixedJoint>();
-
-                fixedJoint.connectedBody = col.gameObject.GetComponent<Rigidbody>();
-
-                if (fixedJoint.connectedBody == null)
+                Debug.LogWarning("NOTSAME");
+                if (nearestObject == null)
                 {
-                    fixedJoint.connectedBody = col.gameObject.GetComponentInParent<Rigidbody>();
-                }
+                    Debug.LogWarning("NEWCOL");
+                    nearestObject = col.gameObject;
 
-                if (fixedJoint.connectedBody == null)
+                    nearestObjectDistance = (gameObject.transform.position - col.gameObject.transform.position).magnitude;
+
+                    //change shader
+                    nearestObject.GetComponent<Renderer>().material.shader = outline;
+                }
+                else
                 {
-                    Destroy(fixedJoint);
-                    return;
-                }
+                    Debug.LogWarning("OLDCOL");
+                    float distance = (gameObject.transform.position - col.gameObject.transform.position).magnitude;
+                    if (distance < nearestObjectDistance)
+                    {
+                        Debug.LogWarning("CLOSERCOL");
+                        //reset shader
+                        nearestObject.GetComponent<Renderer>().material.shader = standard;
 
-                fixedJoint.breakForce = 1000;
+                        nearestObject = col.gameObject;
+
+                        nearestObjectDistance = distance;
+
+                        //change shader
+                        nearestObject.GetComponent<Renderer>().material.shader = outline;
+                    }
+                }
             }
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Debug.LogWarning("WHAT");
+        if (other.gameObject == nearestObject)
+        {
+            Debug.LogWarning("YES");
+
+            nearestObject.GetComponent<Renderer>().material.shader = standard;
+
+            nearestObject = null;
         }
     }
 

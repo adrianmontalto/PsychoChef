@@ -482,7 +482,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011910020874}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.054022036, y: 0.025930304, z: 0.025978815}
@@ -494,7 +494,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010688765074}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.054022033, y: 0.025930304, z: 0.025978813}
@@ -555,6 +555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4a68ad3c06cec4097fd8244e373791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outline: {fileID: 4800000, guid: 67b988340c9ee0240b20361debb032ae, type: 3}
+  standard: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &114000010638306904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -644,6 +646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4a68ad3c06cec4097fd8244e373791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outline: {fileID: 4800000, guid: 67b988340c9ee0240b20361debb032ae, type: 3}
+  standard: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &114000013213194056
 MonoBehaviour:
   m_ObjectHideFlags: 1
