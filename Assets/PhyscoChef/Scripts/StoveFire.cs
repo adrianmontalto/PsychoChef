@@ -62,13 +62,11 @@ public class StoveFire : MonoBehaviour
         if (heat == true)
         {
             Debug.Log("on");
-            fire.GetComponent<MeshRenderer>().enabled = true;
             isHeating = true;
         }
         if (heat == false)
         {
             Debug.Log("off");
-            fire.GetComponent<MeshRenderer>().enabled = false;
             isHeating = false;
         }
     }

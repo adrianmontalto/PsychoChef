@@ -9,7 +9,7 @@ public class FireEmiter : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        emiters = GetComponentsInChildren<ParticleSystem.EmissionModule>();
+        //emiters = GetComponentsInChildren<ParticleSystem.EmissionModule>();
         particleSystems = GetComponentsInChildren<ParticleSystem>();
 	}
 	
@@ -23,7 +23,7 @@ public class FireEmiter : MonoBehaviour {
     {
         if (state == true)
         {
-            for (int i = 0; i < emiters.Length; ++i)
+            for (int i = 0; i < particleSystems.Length; ++i)
             {
                 particleSystems[i].Play();
                 //emiters[i].enabled = state;
@@ -31,7 +31,7 @@ public class FireEmiter : MonoBehaviour {
         }
         else
         {
-            for (int i = 0; i < emiters.Length; ++i)
+            for (int i = 0; i < particleSystems.Length; ++i)
             {
                 particleSystems[i].Stop();
             }
