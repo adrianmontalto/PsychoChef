@@ -99,12 +99,14 @@ public class BoilingArea : MonoBehaviour
 
         if (temperature < partialyBoiled && emit == true)
         {
-            steamEmiter.enabled = false;
+            steam.Stop();
+            //steamEmiter.enabled = false;
             emit = false;
         }
         else if (temperature > partialyBoiled && emit == false)
         {
-            steamEmiter.enabled = true;
+            steam.Play();
+            //steamEmiter.enabled = true;
             emit = true;
         }
 	}

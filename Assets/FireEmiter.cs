@@ -4,11 +4,13 @@ using System.Collections;
 public class FireEmiter : MonoBehaviour {
 
     private ParticleSystem.EmissionModule[] emiters;
+    private ParticleSystem[] particleSystems;
 
 	// Use this for initialization
 	void Start ()
     {
         emiters = GetComponentsInChildren<ParticleSystem.EmissionModule>();
+        particleSystems = GetComponentsInChildren<ParticleSystem>();
 	}
 	
 	// Update is called once per frame
@@ -19,9 +21,20 @@ public class FireEmiter : MonoBehaviour {
 
     public void ChangeEmit (bool state)
     {
-        for (int i = 0; i < emiters.Length; ++i)
+        if (state == true)
         {
-            emiters[i].enabled = state;
+            for (int i = 0; i < emiters.Length; ++i)
+            {
+                particleSystems[i].Play();
+                //emiters[i].enabled = state;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < emiters.Length; ++i)
+            {
+                particleSystems[i].Stop();
+            }
         }
     }
 }
