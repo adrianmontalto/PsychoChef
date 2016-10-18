@@ -23,11 +23,15 @@ public class BoilingArea : MonoBehaviour
     private bool isBoiling;//whether the water is boiling
     private bool soundSet = false;
     private bool boilSound2Set = false;
+
+    public ParticleSystem steam;
+    private ParticleSystem.EmissionModule steamEmiter;
+    private bool emit;
    
 	// Use this for initialization
 	void Start ()
     {
-       
+        steamEmiter = steam.emission;
     }
 	
 	// Update is called once per frame
@@ -92,6 +96,17 @@ public class BoilingArea : MonoBehaviour
         }
         //checks for which stage of boiling the water is in
         CheckBoilingStage();
+
+        if (temperature < partialyBoiled && emit == true)
+        {
+            steamEmiter.enabled = false;
+            emit = false;
+        }
+        else if (temperature > partialyBoiled && emit == false)
+        {
+            steamEmiter.enabled = true;
+            emit = true;
+        }
 	}
 
     public void SetBoiling(bool boil)

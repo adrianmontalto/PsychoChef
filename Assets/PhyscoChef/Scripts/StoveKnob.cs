@@ -5,6 +5,9 @@ public class StoveKnob : MonoBehaviour
 {
     public StoveFire heatArea;
     private bool isActive = false;
+
+    public FireEmiter fireEmiter;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -27,6 +30,10 @@ public class StoveKnob : MonoBehaviour
             //turns the heat area off
             heatArea.SetHeating(false);
             //disables the heat areas mesh
+
+            //Turn off fire particles
+            fireEmiter.ChangeEmit(false);
+
             return;
         }
 
@@ -39,6 +46,10 @@ public class StoveKnob : MonoBehaviour
             //turns the heat area on
             heatArea.SetHeating(true);
             //enables the heat areas mesh
+
+            //Turn on fire particles
+            fireEmiter.ChangeEmit(true);
+
             return;
         }
     }

@@ -10,10 +10,10 @@ GameObject:
   - 4: {fileID: 404348}
   - 33: {fileID: 3336654}
   - 23: {fileID: 2349100}
-  - 95: {fileID: 9525968}
   - 54: {fileID: 5467054}
   - 65: {fileID: 6522936}
   - 114: {fileID: 11457270}
+  - 114: {fileID: 114000014196869100}
   m_Layer: 0
   m_Name: olive_oil_hollow_body-am
   m_TagString: Food
@@ -28,8 +28,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.917001, y: -2.33, z: 2.6010375}
+  m_LocalPosition: {x: 3.416, y: -2.273, z: 1.152}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,17 +43,20 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 540427101601c00478044c83a6ea6644, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -93,23 +97,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.04987663, y: 0.237056, z: 0.035077725}
   m_Center: {x: -0.00000006239861, y: 0.118528, z: 0}
---- !u!95 &9525968
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119188}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 0632ff1e5861ed34ea8b4b9baaee66e2, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11457270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,3 +132,14 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 119188}
   m_IsPrefabParent: 1
+--- !u!114 &114000014196869100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6280cc628603d4f94694acd2492417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
