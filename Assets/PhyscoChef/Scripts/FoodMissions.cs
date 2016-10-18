@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
+
 
 public class FoodMissions : MonoBehaviour
 {    
@@ -66,6 +68,10 @@ public class FoodMissions : MonoBehaviour
             }
         }
         
+        if(satisfaction <= 0)
+        {
+            SceneManager.LoadScene("gameOver");
+        }
     }
 
     void GenerateFoodRequest()
