@@ -99,5 +99,10 @@ public class PickupParent : MonoBehaviour
             Debug.Log("hit bell");
             col.GetComponent<Bell>().SetDone(true);
         }
+
+        if(col.tag == "SceneButton")
+        {
+            col.GetComponent<SceneButton>().SetActive(true);
+        }
     }
 }
