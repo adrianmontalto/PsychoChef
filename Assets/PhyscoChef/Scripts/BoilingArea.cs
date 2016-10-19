@@ -25,13 +25,11 @@ public class BoilingArea : MonoBehaviour
     private bool boilSound2Set = false;
 
     public ParticleSystem steam;
-    private ParticleSystem.EmissionModule steamEmiter;
-    private bool emit;
+    private bool emitSteam;
    
 	// Use this for initialization
 	void Start ()
     {
-        steamEmiter = steam.emission;
     }
 	
 	// Update is called once per frame
@@ -97,17 +95,15 @@ public class BoilingArea : MonoBehaviour
         //checks for which stage of boiling the water is in
         CheckBoilingStage();
 
-        if (temperature < partialyBoiled && emit == true)
+        if (temperature < partialyBoiled && emitSteam == true)
         {
             steam.Stop();
-            //steamEmiter.enabled = false;
-            emit = false;
+            emitSteam = false;
         }
-        else if (temperature > partialyBoiled && emit == false)
+        else if (temperature > partialyBoiled && emitSteam == false)
         {
             steam.Play();
-            //steamEmiter.enabled = true;
-            emit = true;
+            emitSteam = true;
         }
 	}
 
@@ -158,7 +154,6 @@ public class BoilingArea : MonoBehaviour
             //sets the food to boiling
             other.GetComponent<Food>().SetBoiling(true,temperature);
             soundManager.PlaySplash();
-            Debug.Log("splash");
         }
     }
 

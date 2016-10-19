@@ -9,8 +9,6 @@ public class pickupFixed : MonoBehaviour
 
     FixedJoint fixedJoint;
 
-    Rigidbody rb;
-
     GameObject nearestObject;
 
     float nearestObjectDistance;
@@ -21,7 +19,6 @@ public class pickupFixed : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
     }
 
     void Awake()
@@ -69,7 +66,7 @@ public class pickupFixed : MonoBehaviour
                     fixedJoint.breakForce = 1000;
 
                     //reset shader
-                    nearestObject.GetComponent<Renderer>().material.shader = standard;
+                    nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
                 }
             }
         }
@@ -81,10 +78,8 @@ public class pickupFixed : MonoBehaviour
         {
             if (col.gameObject != nearestObject)
             {
-                Debug.LogWarning("NOTSAME");
                 if (nearestObject == null)
                 {
-                    Debug.LogWarning("NEWCOL");
                     nearestObject = col.gameObject;
 
                     nearestObjectDistance = (gameObject.transform.position - col.gameObject.transform.position).magnitude;
@@ -94,11 +89,9 @@ public class pickupFixed : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("OLDCOL");
                     float distance = (gameObject.transform.position - col.gameObject.transform.position).magnitude;
                     if (distance < nearestObjectDistance)
                     {
-                        Debug.LogWarning("CLOSERCOL");
                         //reset outline width
                         nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
 
