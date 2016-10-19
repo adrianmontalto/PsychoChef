@@ -89,8 +89,8 @@ public class pickupFixed : MonoBehaviour
 
                     nearestObjectDistance = (gameObject.transform.position - col.gameObject.transform.position).magnitude;
 
-                    //change shader
-                    nearestObject.GetComponent<Renderer>().material.shader = outline;
+                    //change outline width
+                    nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.004f);
                 }
                 else
                 {
@@ -99,15 +99,15 @@ public class pickupFixed : MonoBehaviour
                     if (distance < nearestObjectDistance)
                     {
                         Debug.LogWarning("CLOSERCOL");
-                        //reset shader
-                        nearestObject.GetComponent<Renderer>().material.shader = standard;
+                        //reset outline width
+                        nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
 
                         nearestObject = col.gameObject;
 
                         nearestObjectDistance = distance;
 
-                        //change shader
-                        nearestObject.GetComponent<Renderer>().material.shader = outline;
+                        //change outline width
+                        nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.004f);
                     }
                 }
             }
@@ -116,12 +116,10 @@ public class pickupFixed : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        Debug.LogWarning("WHAT");
         if (other.gameObject == nearestObject)
         {
-            Debug.LogWarning("YES");
-
-            nearestObject.GetComponent<Renderer>().material.shader = standard;
+            //reset outline width
+            nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
 
             nearestObject = null;
         }

@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Outlined_Material
-  m_Shader: {fileID: 4800000, guid: 67b988340c9ee0240b20361debb032ae, type: 3}
+  m_Name: OutlineMaterial
+  m_Shader: {fileID: 4800000, guid: f8561fbea3655fb4e81cc6266c5b439c, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -102,7 +102,7 @@ Material:
       second: 1
     - first:
         name: _Outline
-      second: 0.01
+      second: 0.0101
     - first:
         name: _Parallax
       second: 0.02

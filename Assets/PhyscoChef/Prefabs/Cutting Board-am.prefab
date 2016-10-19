@@ -13,6 +13,7 @@ GameObject:
   - 65: {fileID: 6595494}
   - 54: {fileID: 5459408}
   - 114: {fileID: 114000012224780132}
+  - 114: {fileID: 114000010303805382}
   m_Layer: 0
   m_Name: pCube4
   m_TagString: Untagged
@@ -28,7 +29,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470798}
-  - 95: {fileID: 9582598}
   m_Layer: 0
   m_Name: Cutting Board-am
   m_TagString: Untagged
@@ -126,23 +126,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.062015064, y: 0.003561946, z: 0.036168024}
   m_Center: {x: -0.00033139344, y: 0.0009438121, z: -0.01850319}
---- !u!95 &9582598
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168616}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 0998cae0c2cbab6448edf2d520dc1a2f, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -154,6 +137,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 168616}
   m_IsPrefabParent: 1
+--- !u!114 &114000010303805382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6280cc628603d4f94694acd2492417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012224780132
 MonoBehaviour:
   m_ObjectHideFlags: 1
