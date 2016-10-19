@@ -40,6 +40,8 @@ public class pickupFixed : MonoBehaviour
             {
                 fixedJoint.connectedBody.velocity = device.velocity;
                 Destroy(fixedJoint);
+                nearestObject = null;
+                nearestObjectDistance = 1000;
             }
         }
         else if (fixedJoint == null)
@@ -115,6 +117,8 @@ public class pickupFixed : MonoBehaviour
             nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
 
             nearestObject = null;
+
+            nearestObjectDistance = 1000;
         }
     }
 
