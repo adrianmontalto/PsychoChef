@@ -5,10 +5,12 @@ public class Items : MonoBehaviour
 {
 
     private Vector3 startPosition;
+    private Quaternion startRotation;
 	// Use this for initialization
 	void Awake ()
     {
-        startPosition = this.transform.position; 
+        startPosition = this.transform.position;
+        startRotation = this.transform.rotation; 
 	}
 
     public void ResetPostion()
@@ -18,5 +20,6 @@ public class Items : MonoBehaviour
             this.gameObject.GetComponent<Food>().ResetFood();
         }
         this.transform.position = startPosition;
+        this.transform.rotation = startRotation;
     }
 }

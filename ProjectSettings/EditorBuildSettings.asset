@@ -8,8 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PhyscoChef/Scenes/menu.unity
   - enabled: 1
-    path: Assets/PhyscoChef/Scenes/tutorial.unity
-  - enabled: 1
-    path: Assets/PhyscoChef/Scenes/gameOver.unity
-  - enabled: 1
     path: Assets/PhyscoChef/Scenes/game.unity

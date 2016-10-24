@@ -43,8 +43,6 @@ public class CuttableObject : MonoBehaviour
         FixedJoint joint = GetComponent<FixedJoint>();
 
         this.GetComponent<Food>().SetSliced(true);
-        //rb.AddExplosionForce(explosiveForce,this.transform.position,explosiveRadius);
-        //joint.connectedBody.AddExplosionForce(explosiveForce, joint.transform.position, explosiveRadius);
         Object.Destroy(joint);
     }
 }

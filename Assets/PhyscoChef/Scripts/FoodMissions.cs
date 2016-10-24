@@ -87,7 +87,7 @@ public class FoodMissions : MonoBehaviour
     void CookCreamyChickenPasta()
     {
         //sets the text to cook creamy chicken
-        missionDisplayText.text = "Creamy Chicken Pasta";
+        missionDisplayText.text = "Cook Creamy Chicken Pasta";
     }
 
     public int GetOrderNumber()

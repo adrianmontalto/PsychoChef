@@ -57,7 +57,6 @@ public class BoilingArea : MonoBehaviour
                 {
                     soundSet = false;
                     boilSound2Set = true;
-                    soundManager.PlayBoilingSound();
                 }
                 //audio.clip = boilingStage2Sound;
                 //audio.Play();

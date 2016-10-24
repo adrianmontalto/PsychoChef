@@ -7,8 +7,6 @@ public class BoilingAreaSoundManager : MonoBehaviour
     [SerializeField]
     private AudioClip boilingStage1Sound;
     [SerializeField]
-    private AudioClip boilingStage2Sound;
-    [SerializeField]
     private AudioClip splash;
     AudioSource audio;
 	// Use this for initialization
@@ -32,11 +30,6 @@ public class BoilingAreaSoundManager : MonoBehaviour
     {
         audio.clip = boilingStage1Sound;
         audio.Play();
-    }
-
-    public void PlayBoilingSound()
-    {
-        audio.clip = boilingStage2Sound;
     }
 
     public void Stop()
