@@ -13,9 +13,6 @@ public class pickupFixed : MonoBehaviour
 
     float nearestObjectDistance;
 
-    public Shader outline;
-    public Shader standard;
-
     // Use this for initialization
     void Start()
     {
@@ -111,14 +108,17 @@ public class pickupFixed : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == nearestObject)
+        if (fixedJoint == null)
         {
-            //reset outline width
-            nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
+            if (other.gameObject == nearestObject)
+            {
+                //reset outline width
+                nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
 
-            nearestObject = null;
+                nearestObject = null;
 
-            nearestObjectDistance = 1000;
+                nearestObjectDistance = 1000;
+            }
         }
     }
 
