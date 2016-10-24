@@ -13,9 +13,6 @@ public class pickupFixed : MonoBehaviour
 
     float nearestObjectDistance;
 
-    public Shader outline;
-    public Shader standard;
-
     // Use this for initialization
     void Start()
     {
