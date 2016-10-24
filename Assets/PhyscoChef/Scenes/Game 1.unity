@@ -2744,6 +2744,70 @@ BoxCollider:
   m_Center: {x: 0.0000000055879354, y: 0.0038333542, z: -0.000000007450581}
 --- !u!114 &1288819080
 MonoBehaviour:
+<<<<<<< HEAD
+=======
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1288819078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19a7d78ff0fda447b35df3851bc58aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cookRate: 0
+  boilRate: 0
+  partialyCookedState: 0
+  cookedState: 0
+  burntState: 0
+  partialyBoiledState: 0
+  boiledState: 0
+  partialyCookedMaterial: {fileID: 0}
+  cookedMaterial: {fileID: 0}
+  burntMaterial: {fileID: 0}
+  foodName: 10
+--- !u!114 &1288819081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1288819078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6280cc628603d4f94694acd2492417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1288819082
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1288819078}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!4 &1289547748
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 7267a537706f678499e24e079d560914, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046789492}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19.5207, y: 2.0725, z: -2.5793}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2061792260}
+  m_RootOrder: 10
+--- !u!1 &1293126574
+GameObject:
+>>>>>>> 3b08de0b6f06769c471602b45caacb52f11860d1
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4652,7 +4716,11 @@ GameObject:
   - 114: {fileID: 2046789494}
   m_Layer: 0
   m_Name: cream_container_body
+<<<<<<< HEAD
   m_TagString: Cream
+=======
+  m_TagString: Untagged
+>>>>>>> 3b08de0b6f06769c471602b45caacb52f11860d1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
