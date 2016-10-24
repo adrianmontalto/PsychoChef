@@ -64,20 +64,6 @@ public class CreamyPastaChicken : MonoBehaviour
                 CheckPasta(other);
             }
 
-            //checks to see if the food is chicken
-            if (other.GetComponent<Food>().foodName == FoodName.CHICKEN)
-            {
-                //checks that there is the correct chicken
-                CheckChicken(other);
-            }
-
-            //checks to see if the food is oil
-            if (other.GetComponent<Food>().foodName == FoodName.OIL)
-            {
-                //checks if the oil is in the correct state
-                CheckOil(other);
-            }
-
             //checks to see if the food is cream
             if (other.GetComponent<Food>().foodName == FoodName.CREAM)
             {
@@ -90,8 +76,24 @@ public class CreamyPastaChicken : MonoBehaviour
                 incorrectIngredients ++;
             }               
         }
+
+        if(other.tag == "Oil")
+        {
+
+        }
+
+        if(other.tag == "Cream")
+        {
+
+        }
+
+        if(other.tag == "RedWine")
+        {
+
+        }
+
         //checks to see if it is not food
-        if(other.tag != "Food")
+        else
         {
             //increases the number of incorrect ingredients by one
             incorrectIngredients++;
@@ -122,13 +124,6 @@ public class CreamyPastaChicken : MonoBehaviour
             {
                 //controls the removal of cream
                 RemoveCream();
-            }
-
-            //checks to see if the food is oil
-            if (other.GetComponent<Food>().foodName == FoodName.OIL)
-            {
-                //controls the removal of oil
-                RemoveOil(other);
             }
 
             else

@@ -3,13 +3,17 @@ using System.Collections;
 public enum FoodName
 {
     FOOD,
-    CARROT,
-    BREAD,
     PASTA,
     CHICKEN,
-    EGG,
     CREAM,
-    OIL
+    CHEESE,
+    ONION,
+    LETTUCE,
+    PICKLE,
+    BUNTOP,
+    BUNBOTTOM,
+    BURGER,
+    TOMATO
 };
 
 public class Food : MonoBehaviour
