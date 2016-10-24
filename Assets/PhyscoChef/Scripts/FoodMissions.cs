@@ -70,7 +70,7 @@ public class FoodMissions : MonoBehaviour
         
         if(satisfaction <= 0)
         {
-            SceneManager.LoadScene("gameOver");
+            SceneManager.LoadScene("menu");
         }
     }
 
