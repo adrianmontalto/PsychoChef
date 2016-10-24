@@ -9,7 +9,7 @@ public class pickupFixed : MonoBehaviour
 
     FixedJoint fixedJoint;
 
-    GameObject nearestObject;
+    public GameObject nearestObject;
 
     float nearestObjectDistance;
 
@@ -36,6 +36,7 @@ public class pickupFixed : MonoBehaviour
             if (device.GetHairTriggerUp() == true)
             {
                 fixedJoint.connectedBody.velocity = device.velocity;
+                fixedJoint.connectedBody.angularVelocity = device.angularVelocity;
                 Destroy(fixedJoint);
                 nearestObject = null;
                 nearestObjectDistance = 1000;
@@ -64,8 +65,12 @@ public class pickupFixed : MonoBehaviour
 
                     fixedJoint.breakForce = 1000;
 
-                    //reset shader
-                    nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
+                    //reset outline width
+                    Renderer renderer = nearestObject.GetComponent<Renderer>();
+                    if (renderer != null)
+                    {
+                        renderer.material.SetFloat("_Outline", 0.0f);
+                    }
                 }
             }
         }
@@ -84,7 +89,11 @@ public class pickupFixed : MonoBehaviour
                     nearestObjectDistance = (gameObject.transform.position - col.gameObject.transform.position).magnitude;
 
                     //change outline width
-                    nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.004f);
+                    Renderer renderer = nearestObject.GetComponent<Renderer>();
+                    if (renderer != null)
+                    {
+                        renderer.material.SetFloat("_Outline", 0.004f);
+                    }
                 }
                 else
                 {
@@ -92,14 +101,22 @@ public class pickupFixed : MonoBehaviour
                     if (distance < nearestObjectDistance)
                     {
                         //reset outline width
-                        nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
+                        Renderer renderer = nearestObject.GetComponent<Renderer>();
+                        if (renderer != null)
+                        {
+                            renderer.material.SetFloat("_Outline", 0.0f);
+                        }
 
                         nearestObject = col.gameObject;
 
                         nearestObjectDistance = distance;
 
                         //change outline width
-                        nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.004f);
+                        renderer = nearestObject.GetComponent<Renderer>();
+                        if (renderer != null)
+                        {
+                            renderer.material.SetFloat("_Outline", 0.004f);
+                        }
                     }
                 }
             }
@@ -113,11 +130,15 @@ public class pickupFixed : MonoBehaviour
             if (other.gameObject == nearestObject)
             {
                 //reset outline width
-                nearestObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
+                Renderer renderer = nearestObject.GetComponent<Renderer>();
+                if (renderer != null)
+                {
+                    renderer.material.SetFloat("_Outline", 0.0f);
+                }
 
                 nearestObject = null;
 
-                nearestObjectDistance = 1000;
+                nearestObjectDistance = 10000;
             }
         }
     }
@@ -125,6 +146,9 @@ public class pickupFixed : MonoBehaviour
     void OnJointBreak(float force)
     {
         fixedJoint.connectedBody.velocity = device.velocity;
+        fixedJoint.connectedBody.angularVelocity = device.angularVelocity;
+        nearestObject = null;
+        nearestObjectDistance = 10000;
     }
 
     void OnTriggerEnter(Collider other)
