@@ -3,9 +3,13 @@ using System.Collections;
 
 public class FoodIngredientArea : MonoBehaviour
 {
-    public CreamyPastaChicken chickenPasta;
-    private bool isActive = false;
+    [SerializeField]
+    private CreamyPastaChicken chickenPasta;
+    [SerializeField]
+    private Burger burger;
+    [SerializeField]
     public FoodMissions mission;
+    private bool isActive = false;
     private int orderNumber = 0;
 	// Use this for initialization
 	void Start ()

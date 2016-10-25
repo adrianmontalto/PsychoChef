@@ -5,7 +5,7 @@ using System.Collections;
 
 public class FoodMissions : MonoBehaviour
 {    
-    private int orderNumber = 1;//the number of the recipe that is being ordered
+    private int orderNumber = 0;//the number of the recipe that is being ordered
     private bool isChecking = false;//whether or not the order is being checked
     [SerializeField]
     private UnityEngine.UI.Text missionDisplayText;//the text to display what is required to be cooked
@@ -28,6 +28,8 @@ public class FoodMissions : MonoBehaviour
     private float missionCountdownResetTimer = 0.0f;//a timer to reset the timer for the next meal
     [SerializeField]
     private float satisfactionScore = 0.0f;//the amount of points you get if you complete the recipe
+    [SerializeField]
+    private int numberOfIncorrectAllowed = 0;
 
     // Use this for initialization
     void Start ()
@@ -37,7 +39,7 @@ public class FoodMissions : MonoBehaviour
         initialTime = missionCountdownTimer;
         missionCountdownTimer = 0;
         maxSatisfaction = satisfaction;
-        //missionTimerBar = GetComponent<UnityEngine.UI.Image>();
+        orderNumber = Random.Range(1, 2);
 	}
 	
 	// Update is called once per frame
@@ -57,7 +59,9 @@ public class FoodMissions : MonoBehaviour
                 //checks to see if the countdowntimer is less then zero
                 if (missionCountdownTimer < 0)
                 {
-                    Debug.Log("new misision");
+                    //Debug.Log("new misision");
+                    //generate a new random number
+                    orderNumber = Random.Range(1, 2);
                     //generates the food order
                     GenerateFoodRequest();
                     //resets mission countdown timer
@@ -82,12 +86,22 @@ public class FoodMissions : MonoBehaviour
             //calls the cook chicken pasta
             CookCreamyChickenPasta();
         }
+        if(orderNumber == 2)
+        {
+            CookBurger();
+        }
     }
 
     void CookCreamyChickenPasta()
     {
         //sets the text to cook creamy chicken
         missionDisplayText.text = "Cook Creamy Chicken Pasta";
+    }
+
+    void CookBurger()
+    {
+        //sets the text to cook burger
+        missionDisplayText.text = "cook Burger";
     }
 
     public int GetOrderNumber()
@@ -129,15 +143,8 @@ public class FoodMissions : MonoBehaviour
         return satisfactionScore;
     }
 
-    public void AddSatisfaction(float score)
+    public void AddSatisfaction(float numberOfIngredients,float numberOfCorrect,float numberOfIncorrect)
     {
-        if (satisfaction + score < maxSatisfaction)
-        {
-            satisfaction += score;
-        }
-        else
-        {
-            satisfaction = maxSatisfaction;
-        }        
+             
     }
 }
