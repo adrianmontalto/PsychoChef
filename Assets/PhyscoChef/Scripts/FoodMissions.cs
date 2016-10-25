@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
 
 public class FoodMissions : MonoBehaviour
-{    
-    private int orderNumber = 0;//the number of the recipe that is being ordered
-    private bool isChecking = false;//whether or not the order is being checked
+{
+    private GameObject previousImage;
+    [SerializeField]
+    private GameObject InitImage;
+    [SerializeField]
+    private GameObject pastaRecipeImage;
+    [SerializeField]
+    private GameObject burgerRecipeImage;
     [SerializeField]
     private UnityEngine.UI.Text missionDisplayText;//the text to display what is required to be cooked
     [SerializeField]
@@ -30,7 +36,8 @@ public class FoodMissions : MonoBehaviour
     private float satisfactionScore = 0.0f;//the amount of points you get if you complete the recipe
     [SerializeField]
     private int numberOfIncorrectAllowed = 0;
-
+    private int orderNumber = 0;//the number of the recipe that is being ordered
+    private bool isChecking = false;//whether or not the order is being checked
     // Use this for initialization
     void Start ()
     {
@@ -40,6 +47,7 @@ public class FoodMissions : MonoBehaviour
         missionCountdownTimer = 0;
         maxSatisfaction = satisfaction;
         orderNumber = Random.Range(1, 2);
+        previousImage = InitImage;
 	}
 	
 	// Update is called once per frame
@@ -83,11 +91,17 @@ public class FoodMissions : MonoBehaviour
         //checks to see if the order number is order 1
         if(orderNumber == 1)
         {
+            previousImage.SetActive(false);
+            pastaRecipeImage.SetActive(true);
+            previousImage = pastaRecipeImage;
             //calls the cook chicken pasta
             CookCreamyChickenPasta();
         }
         if(orderNumber == 2)
         {
+            previousImage.SetActive(false);
+            burgerRecipeImage.SetActive(true);
+            previousImage = burgerRecipeImage;
             CookBurger();
         }
     }
@@ -143,8 +157,43 @@ public class FoodMissions : MonoBehaviour
         return satisfactionScore;
     }
 
-    public void AddSatisfaction(float numberOfIngredients,float numberOfCorrect,float numberOfIncorrect)
+    public void AddSatisfaction(float numberOfIngredients,int numberOfCorrect,int numberOfIncorrect)
     {
-             
+        //checks that the number or incorrect ingredients are less then the amount of mistakes allowed
+        if(numberOfIncorrect < numberOfIncorrectAllowed)
+        {
+            //checks that the amount of incorrect is less than the number of ingredients
+            if(numberOfIncorrect < numberOfIngredients)
+            {
+                //minus the amount of incorrect ingredients from the correct ingredients
+                int num = numberOfCorrect - numberOfIncorrect;
+                //makes sure the num of correct ingredients are more then zero
+                if(num > 0)
+                {
+                    //calculate the percentage of correct ingredients
+                    float multiplier = numberOfIngredients / num;
+                    //adds to the satisfaction score
+                    satisfaction += multiplier * satisfactionScore;
+                }
+                //the number of incorrect ingredients are equal to or moire then the number of correct ingredients
+                else
+                {
+                    //adds to the satisfaction score
+                    satisfaction += 0;
+                }
+            }
+            //the number of incorrect ingredients are more than the number of ingredients
+            else
+            {
+                //adds to the satisfaction score
+                satisfaction += 0;
+            }
+        }
+        //the number of incorrect ingredients are more than what is allowed
+        else
+        {
+            //adds to the satisfaction score
+            satisfaction += 0;
+        }
     }
 }
