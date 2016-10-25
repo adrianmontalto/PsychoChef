@@ -15,17 +15,12 @@ public class CreamyPastaChicken : MonoBehaviour
     private bool pastaBoiled = false;//sets whether the pasta is boiled
     private bool chickenSliced = false;//sets whether the chicken is sliced
     private bool creamAdded = false;//sets whether the cream has been added
-    private bool oilCooked = false;//sets whether the oil is cooked
-    private float satisfactionIncrease = 0.0f;//the amount satisfaction is increased
-    private float satisfactionDecrease = 0.0f;//the amount of satisfaction decreased
-    private float totalSatisfaction = 0.0f;//the total amount of satisfaction
-    private float timeRemaining = 0.0f;//the amount of time left
-    private float timeUsed = 0.0f;//the amount of time used
+    private bool oilAdded = false;//sets whether the oil is cooked
     private int correctIngredients = 1;//the amount of correct ingredients
     private int incorrectIngredients = 1;//the amount of incorrect ingredients
     private int numberOfChickenSlices = 0;//the amount of cooked sliced chicken
     private int totalCookedChicken = 0;//the total amount of cooked chicken
-    private int totalCookedOil = 0;//the total amount of cooked oil
+    private int totalOil = 0;//the total amount of cooked oil
     private int totalCreamAdded = 0;//the total amount of cream
     private int totalBoiledPasta = 0;//the total amount of boiled pasta
     private int numberOfIngredients = 4;//the number of ingredients required to complete the recipe
@@ -42,7 +37,7 @@ public class CreamyPastaChicken : MonoBehaviour
         //checks to see if the recipe is active
 	    if(isActive)
         {
-            CalculateSatisfaction();
+            missions.AddSatisfaction(numberOfIngredients, correctIngredients, incorrectIngredients);
             Reset();
         }
 	}
@@ -73,17 +68,12 @@ public class CreamyPastaChicken : MonoBehaviour
 
         if(other.tag == "Oil")
         {
-
+            CheckOil();
         }
 
         if(other.tag == "Cream")
         {
-
-        }
-
-        if(other.tag == "RedWine")
-        {
-
+            CheckCream();
         }
 
         //checks to see if it is not food
@@ -118,6 +108,16 @@ public class CreamyPastaChicken : MonoBehaviour
                 //increase the incorrect ingredients by one
                 incorrectIngredients --;
             }
+        }
+
+        if (other.tag == "Oil")
+        {
+            RemoveOil();
+        }
+
+        if (other.tag == "Cream")
+        {
+            RemoveCream();
         }
         else
         {
@@ -309,77 +309,33 @@ public class CreamyPastaChicken : MonoBehaviour
         }
     }
 
-    void CheckOil(Collider col)
+    void CheckOil()
     {
-        //checks to see if the oil is cooked
-        if(oilCooked)
+        if(!oilAdded)
         {
-            //increase the incorrect ingredients by one
-            incorrectIngredients ++;
-            //checks to see if the oil is cooked
-            if (col.GetComponent<Food>().GetCooked() == true)
-            {
-                //increase the total cooked oil by one
-                totalCookedOil ++;
-            }
+            correctIngredients++;
+            totalOil++;
+            oilAdded = true;
         }
         else
         {
-            //checks to see if the oil is cooked
-            if(col.GetComponent<Food>().GetCooked() == true)
-            {
-                //increase the correct ingredients by one
-                correctIngredients ++;
-                //increase the total cooked oil by one
-                totalCookedOil ++;
-                //sets the oil cooked to true
-                oilCooked = true;
-            }
-            //checks to see that the oil isn't cooked
-            if(col.GetComponent<Food>().GetCooked() == false)
-            {
-                //increase the incorrect ingredients by one
-                incorrectIngredients ++;
-            }
-        }        
+            incorrectIngredients ++;
+            totalOil ++;
+        }     
     }
 
-    void RemoveOil(Collider col)
+    void RemoveOil()
     {
-        //checks to see if oil is cooked
-        if(oilCooked)
+        if(totalOil > 1)
         {
-            if(col.GetComponent<Food>().GetCooked())
-            {
-                //reduce the correct ingredients by one
-                correctIngredients--;
-                //checks to see it the total cooked oil is greater then zero
-                if (totalCookedOil > 0)
-                {
-                    //reduce the total cooked oil by one
-                    totalCookedOil--;
-                    //checks to see it the total cooked oil is greater then zero
-                    if (totalCookedOil > 0)
-                    {
-                        //increase the amount of correct ingredients by one
-                        correctIngredients++;
-                        //reduce the amount of incorrect ingredients by one
-                        incorrectIngredients--;
-                        //sets the oil cooked to true
-                        oilCooked = true;
-                    }
-                }
-            }
-            else
-            {
-                //reduce the incorrect ingredients by one
-                incorrectIngredients --;
-            }
+            totalOil --;
+            incorrectIngredients --;
         }
         else
         {
-            //reduce the incorrect ingredients by one
-            incorrectIngredients --;
+            correctIngredients--;
+            totalOil--;
+            oilAdded = false;
         }
     }
 
@@ -445,17 +401,12 @@ public class CreamyPastaChicken : MonoBehaviour
         pastaBoiled = false;
         chickenSliced = false;
         creamAdded = false;
-        oilCooked = false;
-        satisfactionIncrease = 0.0f;
-        satisfactionDecrease = 0.0f;
-        totalSatisfaction = 0.0f;
-        timeRemaining = 0.0f;
-        timeUsed = 0.0f;
+        oilAdded = false;
         correctIngredients = 0;
         incorrectIngredients = 0;
         numberOfChickenSlices = 0;
         totalCookedChicken = 0;
-        totalCookedOil = 0;
+        totalOil = 0;
         totalCreamAdded = 0;
         totalBoiledPasta = 0;
         missions.SetChecking(false);
