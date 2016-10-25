@@ -18,17 +18,9 @@ public class CutObject : MonoBehaviour {
     {
         if (col.gameObject.tag == "Food")
         {
-            GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(col.gameObject, transform.position, transform.right, col.gameObject.GetComponent<Renderer>().material);
-
-            for (int i = 1; i < pieces.Length; i++)
+            if (col.gameObject.GetComponent<SlicedObject>().GetRecentlySliced() == false)
             {
-                if (!pieces[i].GetComponent<Rigidbody>())
-                {
-                    pieces[i].AddComponent<Rigidbody>();
-                    pieces[i].name = "CutChicken";
-                    pieces[i].tag = "Food";
-                    //change layer
-                }
+                GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(col.gameObject, transform.position, transform.up, col.gameObject.GetComponent<Renderer>().material);
             }
         }
     }

@@ -63,7 +63,7 @@ public class pickupFixed : MonoBehaviour
                         return;
                     }
 
-                    fixedJoint.breakForce = 1000;
+                    fixedJoint.breakForce = 10000;
 
                     //reset outline width
                     Renderer renderer = nearestObject.GetComponent<Renderer>();

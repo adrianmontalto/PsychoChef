@@ -2,6 +2,9 @@
  * Imported Assest!
  * Owner: https://www.linkedin.com/in/dustin-whirle
  * https://www.youtube.com/watch?v=xgoUmrhXyYE
+ * 
+ * Edited by: Tennyson King
+ * Date: 25/10/16
  */
 
 using UnityEngine;
@@ -119,16 +122,31 @@ namespace BLINDED_AM_ME
 			Mesh right_HalfMesh = _rightSide.GetMesh();
 			right_HalfMesh.name = "Split Mesh Right";
 
-			// assign the game objects
 
-			victim.name = "left side";
-			victim.GetComponent<MeshFilter>().mesh = left_HalfMesh;
+            float minSize = 0.01f;
+
+            //check left mesh size
+            if (left_HalfMesh.bounds.size.x < minSize || left_HalfMesh.bounds.size.y < minSize || left_HalfMesh.bounds.size.z < minSize)
+            {
+                return null;
+            }
+            //check right mesh size
+            if (right_HalfMesh.bounds.size.x < minSize || right_HalfMesh.bounds.size.y < minSize || right_HalfMesh.bounds.size.z < minSize)
+            {
+                return null;
+            }
+
+            // assign the game objects
+
+            victim.GetComponent<MeshFilter>().mesh = left_HalfMesh;
 
 			GameObject leftSideObj = victim;
 
-			GameObject rightSideObj = new GameObject("right side", typeof(MeshFilter), typeof(MeshRenderer));
+            GameObject rightSideObj = GameObject.Instantiate(leftSideObj);
 			rightSideObj.transform.position = victim.transform.position;
 			rightSideObj.transform.rotation = victim.transform.rotation;
+            rightSideObj.transform.localScale = victim.transform.localScale;
+            rightSideObj.transform.parent = victim.transform.parent;
 			rightSideObj.GetComponent<MeshFilter>().mesh = right_HalfMesh;
 		
 
@@ -136,8 +154,13 @@ namespace BLINDED_AM_ME
 			leftSideObj.GetComponent<MeshRenderer>().materials = mats;
 			rightSideObj.GetComponent<MeshRenderer>().materials = mats;
 
-			return new GameObject[]{ leftSideObj, rightSideObj };
+            //change mesh colliders to new meshes
 
+
+            leftSideObj.GetComponent<SlicedObject>().SetAsRecentlySliced();
+            rightSideObj.GetComponent<SlicedObject>().SetAsRecentlySliced();
+
+            return new GameObject[]{ leftSideObj, rightSideObj };
 		}
 
 		/// <summary>
