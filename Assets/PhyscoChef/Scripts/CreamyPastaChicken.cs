@@ -64,12 +64,6 @@ public class CreamyPastaChicken : MonoBehaviour
                 CheckPasta(other);
             }
 
-            //checks to see if the food is cream
-            if (other.GetComponent<Food>().foodName == FoodName.CREAM)
-            {
-                //checks to see if the cream is in the correct state
-                CheckCream();
-            }
             else
             {
                 //increases the number of incorrect ingredients by one
@@ -117,13 +111,6 @@ public class CreamyPastaChicken : MonoBehaviour
             {
                 //controls the removal of the chicken
                 RemoveChicken(other);
-            }
-
-            //checks to see if the food is cream
-            if (other.GetComponent<Food>().foodName == FoodName.CREAM)
-            {
-                //controls the removal of cream
-                RemoveCream();
             }
 
             else
@@ -487,7 +474,7 @@ public class CreamyPastaChicken : MonoBehaviour
         if(incorrectIngredients >= numberOfIngredients)
         {
             //adds zero to the satisfaction meter
-            missions.AddSatisfaction(0.0f);
+            //missions.AddSatisfaction(0.0f);
         }
         else
         {
@@ -501,7 +488,7 @@ public class CreamyPastaChicken : MonoBehaviour
             float satisfaction = percentageOfCorrect * missions.GetSatisfactionScore();
 
             //add satisfaction to score
-            missions.AddSatisfaction(satisfaction);
+            //missions.AddSatisfaction(satisfaction);
         }
     }
 }

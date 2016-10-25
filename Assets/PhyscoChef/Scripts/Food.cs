@@ -5,7 +5,6 @@ public enum FoodName
     FOOD,
     PASTA,
     CHICKEN,
-    CREAM,
     CHEESE,
     ONION,
     LETTUCE,
