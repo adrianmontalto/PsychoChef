@@ -24,13 +24,10 @@ public class StoveKnob : MonoBehaviour
     {
         if (isActive == true)
         {
-            Debug.Log("stove on");
             //turns the knob off
             isActive = false;
             //turns the heat area off
             heatArea.SetHeating(false);
-            //disables the heat areas mesh
-
             //Turn off fire particles
             fireEmiter.ChangeEmit(false);
 
@@ -40,13 +37,10 @@ public class StoveKnob : MonoBehaviour
         //checks to see if the stove knob isnt active
         if (isActive == false)
         {
-            Debug.Log("stove off");
             //sets the knob to active
             isActive = true;
             //turns the heat area on
             heatArea.SetHeating(true);
-            //enables the heat areas mesh
-
             //Turn on fire particles
             fireEmiter.ChangeEmit(true);
 

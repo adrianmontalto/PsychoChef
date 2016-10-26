@@ -39,7 +39,7 @@ public class SceneButton : MonoBehaviour
         {
             Debug.Log("game loaded");
             //loads the game scene
-            SceneManager.LoadScene("game");
+            SceneManager.LoadScene("game1");
         }
         //checks to see if scene is menu
         if(isMenu)

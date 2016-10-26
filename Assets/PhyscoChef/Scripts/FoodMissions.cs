@@ -46,7 +46,7 @@ public class FoodMissions : MonoBehaviour
         initialTime = missionCountdownTimer;
         missionCountdownTimer = 0;
         maxSatisfaction = satisfaction;
-        orderNumber = Random.Range(1, 2);
+        orderNumber = Random.Range(1,3);
         previousImage = InitImage;
 	}
 	
@@ -69,7 +69,8 @@ public class FoodMissions : MonoBehaviour
                 {
                     //Debug.Log("new misision");
                     //generate a new random number
-                    orderNumber = Random.Range(1, 2);
+                    orderNumber = Random.Range(1, 3);
+                    Debug.Log(orderNumber);
                     //generates the food order
                     GenerateFoodRequest();
                     //resets mission countdown timer

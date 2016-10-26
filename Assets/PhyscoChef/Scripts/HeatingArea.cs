@@ -21,6 +21,7 @@ public class HeatingArea : MonoBehaviour
         //checks to see if the area is heating up
         if (isHeating == true)
         {
+            Debug.Log("heating");
             //checks to see if the temperature is less than the max temperature
             if(temperature < maxTemperature)
             {
@@ -39,6 +40,7 @@ public class HeatingArea : MonoBehaviour
         //checks to see if the area isnt heating up
         if (isHeating == false)
         {
+            Debug.Log("notHeating");
             //checks to see that the temperature is greater then zero
             if (temperature > 0.0f)
             {
@@ -70,7 +72,8 @@ public class HeatingArea : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(isHeating)
+        Debug.Log(other.tag);
+        if (isHeating)
         {
             //checks to see if the saucepan has collided
             if (other.tag == "SaucePan")
@@ -91,6 +94,7 @@ public class HeatingArea : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        Debug.Log(other.tag);
         if (isHeating)
         {
             //checks to see if the saucepan has collided
@@ -111,6 +115,7 @@ public class HeatingArea : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
+        Debug.Log(other.tag);
         //checks to see if the food has left the heating area
         if (other.tag == "SaucePan")
         {
