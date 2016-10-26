@@ -35,10 +35,10 @@ public class BoilingArea : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        
         //checks to see if the water is boiling
         if (isBoiling == true)
         {
+            Debug.Log("boiling");
             if (temperature < partialyBoiled)
             {
                 if(soundSet == false)

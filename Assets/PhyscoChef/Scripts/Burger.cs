@@ -488,6 +488,15 @@ public class Burger : MonoBehaviour
 
     void Reset()
     {
+        Rigidbody[] bodies = FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
+        foreach (Rigidbody body in bodies)
+        {
+            if (body.GetComponent<Items>() != null)
+            {
+                body.GetComponent<Items>().ResetPostion();
+            }
+        }
+
         bottomBunAdded = false;
         burgerCooked = false;
         cheeseAdded = false;
