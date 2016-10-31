@@ -45,13 +45,13 @@ public class Food : MonoBehaviour
     private FoodName foodName = FoodName.FOOD;//the name of the food
     private bool isCooking = false;//a bool to dertermine whether the food is cooking
     private bool isCooked = false;//whether the food is cooked
-//    private bool isOverCooked = false;//whether the food is overcooked
+    private bool isOverCooked = false;//whether the food is overcooked
     private bool isBoiling = false;//checks to see that the food is boiling
     private bool isBoiled = false;
+    private bool isOverBoiled = false;
     private bool isSliced = false;
-    private float totalCookTime = 0;//the total time that the food has been cooked for
+    private float totalCookTime;//the total time that the food has been cooked for
     private float externalCookRate = 1.0f;//the rate of cooking applied by an external source
-    private float totalBoilTime;//the total time the food has been boiling
     private float boilCookRate = 1.0f;//the rate at which boil affects cooking
     private Material intialMaterial;
 
@@ -77,7 +77,7 @@ public class Food : MonoBehaviour
         if (isBoiling == true)
         {
             //increase the cook time byt applying the boil rate
-            totalBoilTime+= boilRate * boilCookRate * Time.deltaTime;
+            totalCookTime += boilRate * boilCookRate * Time.deltaTime;
         }
         //checks to see which cook stage the food is in
         CheckCookStage();
@@ -106,7 +106,7 @@ public class Food : MonoBehaviour
         {
             //changes the foods texture to overcooked
             this.GetComponent<MeshRenderer>().material = overCookedMaterial;
-//            isOverCooked = true;
+            isOverCooked = true;
         }
 
         //checks to see if the totatlcooktime is equal to the burnt state
@@ -121,14 +121,14 @@ public class Food : MonoBehaviour
     void CheckBoiledStage ()
     {
         //checks to see if the total cooktime is equal to the first cook state
-        if (totalBoilTime >= partialyCookedState)
+        if (totalCookTime >= partialyCookedState)
         {
             //change the foods texture to stage 1 cooked
             this.GetComponent<MeshRenderer>().material = partialyCookedMaterial;
         }
 
         //checks to see if the total cooktime is equal to the second cook state
-        if (totalBoilTime >= cookedState)
+        if (totalCookTime >= cookedState)
         {
             //change the foods texture to stage 2 cooked
             this.GetComponent<MeshRenderer>().material = cookedMaterial;
@@ -137,15 +137,15 @@ public class Food : MonoBehaviour
         }
 
         //checks to see if the food is overcooked
-        if (totalBoilTime >= overCookedState)
+        if (totalCookTime >= overCookedState)
         {
             //changes the foods texture to overcooked
             this.GetComponent<MeshRenderer>().material = overCookedMaterial;
-//            isOverCooked = true;
+            isOverBoiled = true;
         }
 
         //checks to see if the totatlcooktime is equal to the burnt state
-        if (totalBoilTime >= burntState)
+        if (totalCookTime >= burntState)
         {
             //change the food to burnt texture
             this.GetComponent<MeshRenderer>().material = burntMaterial;
@@ -172,9 +172,19 @@ public class Food : MonoBehaviour
         return isBoiled;
     }
 
+    public bool GetOverBoiled()
+    {
+        return isOverBoiled;
+    }
+
     public bool GetCooked()
     {
         return isCooked;
+    }
+
+    public bool GetOverCooked()
+    {
+        return isOverCooked;
     }
     
     public bool GetSliced()
@@ -192,12 +202,12 @@ public class Food : MonoBehaviour
         isBoiled = false;
         isCooking = false;
         isCooked = false;
-//        isOverCooked = false;
+        isOverCooked = false;
+        isOverBoiled = false;
         isBoiling = false;
         isBoiled = false;
         isSliced = false;
         totalCookTime = 0;
-        totalBoilTime = 0;
         this.GetComponent<MeshRenderer>().material = intialMaterial;
     }
 
