@@ -29,7 +29,7 @@ GameObject:
   - 65: {fileID: 65000013076418580}
   - 65: {fileID: 65000013637461980}
   - 65: {fileID: 65000011860745980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FridgeDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - 4: {fileID: 4000010335819008}
   - 33: {fileID: 33000011904992982}
   - 23: {fileID: 23000011076349970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
