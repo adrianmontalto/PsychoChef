@@ -419,7 +419,7 @@ public class CreamyPastaChicken : MonoBehaviour
     void CalculateSatisfaction()
     {
         
-        int multiplier;//the amount by which the satisfaction is calculated by
+//        int multiplier;//the amount by which the satisfaction is calculated by
 
         //checks to see if the amount of incorrect ingredients isnt higher then the asmount of ingredients
         if(incorrectIngredients >= numberOfIngredients)
@@ -430,13 +430,13 @@ public class CreamyPastaChicken : MonoBehaviour
         else
         {
             //calculate the multiplier
-            multiplier = correctIngredients - incorrectIngredients;
+//            multiplier = correctIngredients - incorrectIngredients;
 
             //calculate the percentage of correct ingredients
-            float percentageOfCorrect = multiplier / numberOfIngredients;
+//            float percentageOfCorrect = multiplier / numberOfIngredients;
 
             //calculate the amount of satisfaction score to add
-            float satisfaction = percentageOfCorrect * missions.GetSatisfactionScore();
+//            float satisfaction = percentageOfCorrect * missions.GetSatisfactionScore();
 
             //add satisfaction to score
             //missions.AddSatisfaction(satisfaction);

@@ -153,7 +153,6 @@ public class pickupFixed : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
         //checks to see if the hand has hit the stove
         if (other.tag == "StoveKnob")
         {

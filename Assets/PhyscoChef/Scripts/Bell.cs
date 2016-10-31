@@ -5,9 +5,7 @@ using System.Collections;
 public class Bell : MonoBehaviour
 {
     private bool isDone = false;
-    [SerializeField]
-    private AudioClip bellSound;
-    AudioSource audio;
+    new AudioSource audio;
     public FoodIngredientArea ingredientsArea;
 	// Use this for initialization
 	void Start ()
@@ -20,7 +18,7 @@ public class Bell : MonoBehaviour
     {
 	    if(isDone == true)
         {
-            audio.PlayOneShot(bellSound, 0.7f);
+            audio.PlayOneShot(audio.clip, 0.7f);
             Debug.Log("ding");
             ingredientsArea.SetActive(true);
           

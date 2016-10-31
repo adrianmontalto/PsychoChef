@@ -7,11 +7,11 @@ public class FinishedMeal : MonoBehaviour
     private bool isShowing = false;
     [SerializeField]
     private float displayTime;
-    private float displayResetTime;
+//    private float displayResetTime;
 	// Use this for initialization
 	void Start ()
     {
-        displayResetTime = displayTime;
+//        displayResetTime = displayTime;
 	}
 	
 	// Update is called once per frame

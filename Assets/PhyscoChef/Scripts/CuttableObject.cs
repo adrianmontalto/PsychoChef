@@ -6,7 +6,7 @@ public class CuttableObject : MonoBehaviour
 {
     [SerializeField]
     private AudioClip chopSound;
-    AudioSource audio;
+    new AudioSource audio;
     //public float explosiveForce = 0.0f;
     //public float explosiveRadius = 0.0f;
 

@@ -7,7 +7,7 @@ public class Saucepan : MonoBehaviour
     public float heatRate = 0.0f;//the rate at which the saucepan heats up
     public float cooldownRate = 0.0f;//the rate at which the saucepan cools down
     public float maxTemperature = 0.0f;//the max temperature that the saucepan can reach
-    private float temperature = 0.0f;//the temperature of ther saucepan
+//    private float temperature = 0.0f;//the temperature of ther saucepan
     private bool isBoiling = false;//whether the saucepan is on a heating area
 
 	// Use this for initialization
@@ -29,7 +29,6 @@ public class Saucepan : MonoBehaviour
         ////checks to see if the sauce is not boiling
         if(isBoiling == false)
         {
-            Debug.Log("sp-setnotboil");
             //sets the boiling area to not boiling
             boilingArea.SetBoiling(false);
         }

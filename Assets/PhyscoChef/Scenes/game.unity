@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17870317, g: 0.22374609, b: 0.30569723, a: 1}
+  m_IndirectSpecularColor: {r: 0.17870305, g: 0.22374621, b: 0.30569807, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -148,6 +148,134 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 946cc1a6ca598c341a362ae574cf1a0a, type: 2}
   m_IsPrefabParent: 0
+--- !u!43 &250508789
+Mesh:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  serializedVersion: 8
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 24
+    topology: 0
+    firstVertex: 0
+    vertexCount: 8
+    localAABB:
+      m_Center: {x: 0, y: 0.01, z: 0}
+      m_Extent: {x: 2.15, y: 0, z: 1.65}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
+  m_Skin: []
+  m_VertexData:
+    m_CurrentChannels: 13
+    m_VertexCount: 8
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 288
+    _typelessdata: 000000400ad7233c0000c03f000000000000803f0000803f0000803f0000000000000000000000400ad7233c0000c0bf000000000000803f0000803f0000803f0000803f00000000000000c00ad7233c0000c0bf000000000000803f0000803f0000803f0000000000000000000000c00ad7233c0000c03f000000000000803f0000803f0000803f0000803f000000009a9909400ad7233c3333d33f000000000000803f0000803f00000000000000000000803f9a9909400ad7233c3333d3bf000000000000803f0000803f000000000000803f0000803f9a9909c00ad7233c3333d3bf000000000000803f0000803f00000000000000000000803f9a9909c00ad7233c3333d33f000000000000803f0000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0.01, z: 0}
+    m_Extent: {x: 2.15, y: 0, z: 1.65}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshOptimized: 0
 --- !u!1001 &294574427
 Prefab:
   m_ObjectHideFlags: 0
@@ -185,7 +313,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 464340, guid: e42dcdd260cd6b240a841cad86e831ee, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6526812, guid: e42dcdd260cd6b240a841cad86e831ee, type: 2}
       propertyPath: m_Center.x
@@ -240,35 +368,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 956762291}
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
---- !u!21 &349725184
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: PixelSnap
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &354757957
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +587,9 @@ Prefab:
       propertyPath: boiledState
       value: 28
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6522936, guid: c17041cb85a9ff04ca14444bb339a30f, type: 2}
+    - {fileID: 11457270, guid: c17041cb85a9ff04ca14444bb339a30f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c17041cb85a9ff04ca14444bb339a30f, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &484832176 stripped
@@ -522,7 +623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19a66e9ea383a48a3301cc0f73e3d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bellSound: {fileID: 8300000, guid: 8a0c7782436f95244b028c0318f3b6eb, type: 3}
   ingredientsArea: {fileID: 1575231613}
 --- !u!82 &526372951
 AudioSource:
@@ -673,6 +773,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &600107279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 600107276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5053a7a300fba742ae7d4a83f2cf0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &600107282 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d8eb8b793c6ac1a498b60fd1919cf9d5, type: 3}
@@ -815,7 +926,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 470798, guid: beee4a93d723f524c90a3b33c9ca3de3, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000010303805382, guid: beee4a93d723f524c90a3b33c9ca3de3, type: 2}
@@ -927,7 +1038,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 464340, guid: e42dcdd260cd6b240a841cad86e831ee, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6526812, guid: e42dcdd260cd6b240a841cad86e831ee, type: 2}
       propertyPath: m_Center.x
@@ -1043,271 +1154,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b8a6016e8e04aa4295e0ce4415cfac6, type: 3}
   m_IsPrefabParent: 0
---- !u!1001 &844024058
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1916981696}
-    m_Modifications:
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 6.922
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3.495
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.988
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013247470492, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_Name
-      value: Chicken (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: foodName
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &844024059 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 844024058}
 --- !u!1 &868817735 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 25bc08c817d128b4fa22f0dfc14e6e87, type: 3}
@@ -1332,6 +1178,29 @@ MeshCollider:
 GameObject:
   m_PrefabParentObject: {fileID: 114874, guid: d0fdde2a2025fe849b58b2c8604863ff, type: 2}
   m_PrefabInternal: {fileID: 1620039702}
+--- !u!64 &891977868
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 891977867}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 70a787acd24b8574ca38b0a06b05b7ec, type: 3}
+--- !u!114 &891977869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 891977867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6659c3163c2b14c8a5c396999de21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &891977877
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1356,6 +1225,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f6280cc628603d4f94694acd2492417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &906100911 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 119188, guid: c17041cb85a9ff04ca14444bb339a30f, type: 2}
+  m_PrefabInternal: {fileID: 449336023}
+--- !u!64 &906100912
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906100911}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 0632ff1e5861ed34ea8b4b9baaee66e2, type: 3}
+--- !u!114 &906100913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906100911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6659c3163c2b14c8a5c396999de21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &935485889
@@ -1759,12 +1655,12 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 349725184}
+      objectReference: {fileID: 2029416232}
     - target: {fileID: 33000011101988710, guid: c2509e5e3bf4c49468ab2838a1e8da10,
         type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1643322580}
+      objectReference: {fileID: 250508789}
     - target: {fileID: 23000012946749396, guid: c2509e5e3bf4c49468ab2838a1e8da10,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -2091,267 +1987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6280cc628603d4f94694acd2492417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1616464401
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1916981696}
-    m_Modifications:
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 7.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3.525
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.744
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 41
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: foodName
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1616464402 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1616464401}
 --- !u!1001 &1620039702
 Prefab:
   m_ObjectHideFlags: 0
@@ -2391,7 +2026,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6521630, guid: d0fdde2a2025fe849b58b2c8604863ff, type: 2}
+    - {fileID: 6585746, guid: d0fdde2a2025fe849b58b2c8604863ff, type: 2}
+    - {fileID: 6595650, guid: d0fdde2a2025fe849b58b2c8604863ff, type: 2}
+    - {fileID: 6503978, guid: d0fdde2a2025fe849b58b2c8604863ff, type: 2}
+    - {fileID: 6550834, guid: d0fdde2a2025fe849b58b2c8604863ff, type: 2}
+    - {fileID: 11411138, guid: d0fdde2a2025fe849b58b2c8604863ff, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d0fdde2a2025fe849b58b2c8604863ff, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1621276476
@@ -2436,134 +2077,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f35fa249b5008c44ac2998be6f82d4d, type: 2}
   m_IsPrefabParent: 0
---- !u!43 &1643322580
-Mesh:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  serializedVersion: 8
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 24
-    topology: 0
-    firstVertex: 0
-    vertexCount: 8
-    localAABB:
-      m_Center: {x: 0, y: 0.01, z: 0}
-      m_Extent: {x: 2.15, y: 0, z: 1.65}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
-  m_Skin: []
-  m_VertexData:
-    m_CurrentChannels: 13
-    m_VertexCount: 8
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 288
-    _typelessdata: 000000400ad7233c0000c03f000000000000803f0000803f0000803f0000000000000000000000400ad7233c0000c0bf000000000000803f0000803f0000803f0000803f00000000000000c00ad7233c0000c0bf000000000000803f0000803f0000803f0000000000000000000000c00ad7233c0000c03f000000000000803f0000803f0000803f0000803f000000009a9909400ad7233c3333d33f000000000000803f0000803f00000000000000000000803f9a9909400ad7233c3333d3bf000000000000803f0000803f000000000000803f0000803f9a9909c00ad7233c3333d3bf000000000000803f0000803f00000000000000000000803f9a9909c00ad7233c3333d33f000000000000803f0000803f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0.01, z: 0}
-    m_Extent: {x: 2.15, y: 0, z: 1.65}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshOptimized: 0
 --- !u!1 &1648097316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,7 +2301,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012743441676, guid: d36cabdc505e05444be9339feba30ffd, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1000011407952668, guid: d36cabdc505e05444be9339feba30ffd, type: 2}
       propertyPath: m_Name
@@ -2933,271 +2446,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2051167459}
   m_RootOrder: 3
---- !u!1001 &1884009679
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1916981696}
-    m_Modifications:
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 7.041
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3.495
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.988
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013247470492, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_Name
-      value: Chicken (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: foodName
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1884009680 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1884009679}
 --- !u!1 &1916981695
 GameObject:
   m_ObjectHideFlags: 0
@@ -3230,10 +2478,6 @@ Transform:
   - {fileID: 174317840}
   - {fileID: 646842540}
   - {fileID: 552491310}
-  - {fileID: 1616464402}
-  - {fileID: 1917212879}
-  - {fileID: 844024059}
-  - {fileID: 1884009680}
   - {fileID: 1846828365}
   - {fileID: 1872951533}
   - {fileID: 1557314782}
@@ -3241,271 +2485,6 @@ Transform:
   - {fileID: 600107282}
   m_Father: {fileID: 0}
   m_RootOrder: 6
---- !u!1001 &1917212878
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1916981696}
-    m_Modifications:
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 6.804
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3.495
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.988
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011725702372, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013247470492, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-      propertyPath: m_Name
-      value: Chicken (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012344266466, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012730791144, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010010171594, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012412397824, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012796696386, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boilRate
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyCookedState
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: cookedState
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: burntState
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: partialyBoiledState
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: boiledState
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013368090296, guid: 561b25f75cb7d1941a136194c107f14c,
-        type: 2}
-      propertyPath: foodName
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 561b25f75cb7d1941a136194c107f14c, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1917212879 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1917212878}
 --- !u!1 &1941876909 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 7b8a6016e8e04aa4295e0ce4415cfac6, type: 3}
@@ -3705,6 +2684,35 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a0a5f82df497dd429f8894c6f0a9e55, type: 3}
   m_IsPrefabParent: 0
+--- !u!21 &2029416232
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: PixelSnap
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2051167458
 GameObject:
   m_ObjectHideFlags: 0
@@ -3781,7 +2789,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d8eb8b793c6ac1a498b60fd1919cf9d5, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d8eb8b793c6ac1a498b60fd1919cf9d5, type: 3}
       propertyPath: m_LocalScale.x

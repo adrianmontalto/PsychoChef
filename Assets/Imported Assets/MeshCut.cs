@@ -16,111 +16,149 @@ namespace BLINDED_AM_ME
 
 	public class MeshCut{
 
-		private static Mesh_Maker _leftSide = new Mesh_Maker();
-		private static Mesh_Maker _rightSide = new Mesh_Maker();
+        const float cutTimeStep = 0.01f;
+        const float capTimeStep = 0.05f;
+
+        /// <summary>
+        /// Cut the specified victim
+        /// </summary>
+        /// 
+
+        public static IEnumerator Cut(GameObject victim, Vector3 anchorPoint, Vector3 normalDirection, Material capMaterial)
+        {
+            victim.GetComponent<SlicedObject>().SetAsRecentlySliced();
+
+            Mesh_Maker _leftSide;
+            Mesh_Maker _rightSide;
 
 
-		private static Plane _blade;
-		private static Mesh  _victim_mesh;
+            Plane _blade;
+            Mesh _victim_mesh;
 
-		// capping stuff
-		private static List<Vector3> _new_vertices = new List<Vector3>();
+            // capping stuff
+            List<Vector3> _new_vertices = new List<Vector3>();
 
-		private static int _capMatSub = 1;
+            int _capMatSub = 1;
 
-		/// <summary>
-		/// Cut the specified victim
-		/// </summary>
-		public static GameObject[] Cut(GameObject victim, Vector3 anchorPoint, Vector3 normalDirection, Material capMaterial){
+            // set the blade relative to victim
+            _blade = new Plane(victim.transform.InverseTransformDirection(-normalDirection),
+                    victim.transform.InverseTransformPoint(anchorPoint));
 
-			// set the blade relative to victim
-			_blade = new Plane(victim.transform.InverseTransformDirection(-normalDirection),
-				victim.transform.InverseTransformPoint(anchorPoint));
+            // get the victims mesh
+            _victim_mesh = victim.GetComponent<MeshFilter>().mesh;
 
-			// get the victims mesh
-			_victim_mesh = victim.GetComponent<MeshFilter>().mesh;
+            // reset values
+            _new_vertices.Clear();
 
-			// reset values
-			_new_vertices.Clear();
-
-			_leftSide  = new Mesh_Maker();
-			_rightSide = new Mesh_Maker();
+            _leftSide = new Mesh_Maker();
+            _rightSide = new Mesh_Maker();
 
 
-			bool[] sides = new bool[3];
-			int[] indices;
-			int   p1,p2,p3;
+            bool[] sides = new bool[3];
+            int[] indices;
+            int p1, p2, p3;
 
-			// go throught the submeshes
-			for(int sub=0; sub<_victim_mesh.subMeshCount; sub++){
+            Vector3[] vertices = _victim_mesh.vertices;
+            Vector3[] normals = _victim_mesh.normals;
+            Vector4[] tangents = _victim_mesh.tangents;
+            Vector2[] uvs = _victim_mesh.uv;
 
-				indices = _victim_mesh.GetTriangles(sub);
+            yield return null;
 
-				for(int i=0; i<indices.Length; i+=3){
+            float startTime = Time.realtimeSinceStartup;
 
-					p1 = indices[i];
-					p2 = indices[i+1];
-					p3 = indices[i+2];
+            
 
-					sides[0] = _blade.GetSide(_victim_mesh.vertices[p1]);
-					sides[1] = _blade.GetSide(_victim_mesh.vertices[p2]);
-					sides[2] = _blade.GetSide(_victim_mesh.vertices[p3]);
+            // go throught the submeshes
+            for (int sub = 0; sub < _victim_mesh.subMeshCount; sub++)
+            {
 
+                indices = _victim_mesh.GetTriangles(sub);
 
-					// whole triangle
-					if(sides[0] == sides[1] && sides[0] == sides[2]){
+                
 
-						if(sides[0]){ // left side
-
-							_leftSide.AddTriangle(
-								new Vector3[]{ _victim_mesh.vertices[p1], _victim_mesh.vertices[p2], _victim_mesh.vertices[p3] },
-								new Vector3[]{ _victim_mesh.normals[p1],  _victim_mesh.normals[p2],  _victim_mesh.normals[p3] },
-								new Vector2[]{ _victim_mesh.uv[p1],       _victim_mesh.uv[p2],       _victim_mesh.uv[p3] },
-								new Vector4[]{ _victim_mesh.tangents[p1], _victim_mesh.tangents[p2], _victim_mesh.tangents[p3] },
-								sub);
-						}else{
-
-							_rightSide.AddTriangle(
-								new Vector3[]{ _victim_mesh.vertices[p1], _victim_mesh.vertices[p2], _victim_mesh.vertices[p3] },
-								new Vector3[]{ _victim_mesh.normals[p1],  _victim_mesh.normals[p2],  _victim_mesh.normals[p3] },
-								new Vector2[]{ _victim_mesh.uv[p1],       _victim_mesh.uv[p2],       _victim_mesh.uv[p3] },
-								new Vector4[]{ _victim_mesh.tangents[p1], _victim_mesh.tangents[p2], _victim_mesh.tangents[p3] },
-								sub);
-						}
-
-					}else{ // cut the triangle
-						
-						Cut_this_Face(
-							new Vector3[]{ _victim_mesh.vertices[p1], _victim_mesh.vertices[p2], _victim_mesh.vertices[p3] },
-							new Vector3[]{ _victim_mesh.normals[p1],  _victim_mesh.normals[p2],  _victim_mesh.normals[p3] },
-							new Vector2[]{ _victim_mesh.uv[p1],       _victim_mesh.uv[p2],       _victim_mesh.uv[p3] },
-							new Vector4[]{ _victim_mesh.tangents[p1], _victim_mesh.tangents[p2], _victim_mesh.tangents[p3] },
-							sub);
-					}
-				}
-			}
-
-			// The capping Material will be at the end
-			Material[] mats = victim.GetComponent<MeshRenderer>().sharedMaterials;
-			if(mats[mats.Length-1].name != capMaterial.name){
-				Material[] newMats = new Material[mats.Length+1];
-				mats.CopyTo(newMats, 0);
-				newMats[mats.Length] = capMaterial;
-				mats = newMats;
-			}
-			_capMatSub = mats.Length-1; // for later use
-
-			// cap the opennings
-			Capping();
+                for (int i = 0; i < indices.Length; i += 3)
+                {
+                    if (Time.realtimeSinceStartup - startTime >= cutTimeStep)
+                    {
+                        yield return null;
+                        startTime = Time.realtimeSinceStartup;
+                    }
 
 
-			// Left Mesh
-			Mesh left_HalfMesh = _leftSide.GetMesh();
-			left_HalfMesh.name =  "Split Mesh Left";
+                    p1 = indices[i];
+                    p2 = indices[i + 1];
+                    p3 = indices[i + 2];
 
-			// Right Mesh
-			Mesh right_HalfMesh = _rightSide.GetMesh();
-			right_HalfMesh.name = "Split Mesh Right";
+                    sides[0] = _blade.GetSide(vertices[p1]);
+                    sides[1] = _blade.GetSide(vertices[p2]);
+                    sides[2] = _blade.GetSide(vertices[p3]);
+
+
+                    // whole triangle
+                    if (sides[0] == sides[1] && sides[0] == sides[2])
+                    {
+
+                        if (sides[0])
+                        { // left side
+
+                            _leftSide.AddTriangle(
+                                new Vector3[] { vertices[p1], vertices[p2], vertices[p3] },
+                                new Vector3[] { normals[p1], normals[p2], normals[p3] },
+                                new Vector2[] { uvs[p1], uvs[p2], uvs[p3] },
+                                new Vector4[] { tangents[p1], tangents[p2], tangents[p3] },
+                                sub);
+                        }
+                        else
+                        {
+
+                            _rightSide.AddTriangle(
+                                new Vector3[] { vertices[p1], vertices[p2], vertices[p3] },
+                                new Vector3[] { normals[p1], normals[p2], normals[p3] },
+                                new Vector2[] { uvs[p1], uvs[p2], uvs[p3] },
+                                new Vector4[] { tangents[p1], tangents[p2], tangents[p3] },
+                                sub);
+                        }
+
+                    }
+                    else
+                    { // cut the triangle
+
+                        Cut_this_Face(_blade, _new_vertices, _leftSide, _rightSide, 
+                            new Vector3[] { vertices[p1], vertices[p2], vertices[p3] },
+                            new Vector3[] { normals[p1], normals[p2], normals[p3] },
+                            new Vector2[] { uvs[p1], uvs[p2], uvs[p3] },
+                            new Vector4[] { tangents[p1], tangents[p2], tangents[p3] },
+                            sub);
+                    }
+                }
+            }
+
+            // The capping Material will be at the end
+            Material[] mats = victim.GetComponent<MeshRenderer>().sharedMaterials;
+            if (mats[mats.Length - 1].name != capMaterial.name)
+            {
+                Material[] newMats = new Material[mats.Length + 1];
+                mats.CopyTo(newMats, 0);
+                newMats[mats.Length] = capMaterial;
+                mats = newMats;
+            }
+            _capMatSub = mats.Length - 1; // for later use
+
+            // cap the opennings
+            IEnumerator kappa = Capping(_new_vertices, _blade, _leftSide, _rightSide, _capMatSub);
+            while(kappa.MoveNext())
+            {
+                yield return null;
+            }
+
+            // Left Mesh
+            Mesh left_HalfMesh = _leftSide.GetMesh();
+            left_HalfMesh.name = "Split Mesh Left";
+
+            // Right Mesh
+            Mesh right_HalfMesh = _rightSide.GetMesh();
+            right_HalfMesh.name = "Split Mesh Right";
 
 
             float minSize = 0.01f;
@@ -128,46 +166,45 @@ namespace BLINDED_AM_ME
             //check left mesh size
             if (left_HalfMesh.bounds.size.x < minSize || left_HalfMesh.bounds.size.y < minSize || left_HalfMesh.bounds.size.z < minSize)
             {
-                return null;
+                yield break;
             }
             //check right mesh size
             if (right_HalfMesh.bounds.size.x < minSize || right_HalfMesh.bounds.size.y < minSize || right_HalfMesh.bounds.size.z < minSize)
             {
-                return null;
+                yield break;
             }
 
             // assign the game objects
 
             victim.GetComponent<MeshFilter>().mesh = left_HalfMesh;
 
-			GameObject leftSideObj = victim;
+            GameObject leftSideObj = victim;
 
             GameObject rightSideObj = GameObject.Instantiate(leftSideObj);
-			rightSideObj.transform.position = victim.transform.position;
-			rightSideObj.transform.rotation = victim.transform.rotation;
+            rightSideObj.transform.position = victim.transform.position;
+            rightSideObj.transform.rotation = victim.transform.rotation;
             rightSideObj.transform.localScale = victim.transform.localScale;
             rightSideObj.transform.parent = victim.transform.parent;
-			rightSideObj.GetComponent<MeshFilter>().mesh = right_HalfMesh;
-		
+            rightSideObj.GetComponent<MeshFilter>().mesh = right_HalfMesh;
 
-			// assign mats
-			leftSideObj.GetComponent<MeshRenderer>().materials = mats;
-			rightSideObj.GetComponent<MeshRenderer>().materials = mats;
+
+            // assign mats
+            leftSideObj.GetComponent<MeshRenderer>().materials = mats;
+            rightSideObj.GetComponent<MeshRenderer>().materials = mats;
 
             //change mesh colliders to new meshes
+            leftSideObj.GetComponent<MeshCollider>().sharedMesh = leftSideObj.GetComponent<MeshFilter>().mesh;
+            rightSideObj.GetComponent<MeshCollider>().sharedMesh = rightSideObj.GetComponent<MeshFilter>().mesh;
 
-
-            leftSideObj.GetComponent<SlicedObject>().SetAsRecentlySliced();
-            rightSideObj.GetComponent<SlicedObject>().SetAsRecentlySliced();
-
-            return new GameObject[]{ leftSideObj, rightSideObj };
-		}
+//            return new GameObject[] { leftSideObj, rightSideObj };
+        }
 
 		/// <summary>
 		///  I have no idea how I made this work
 		/// </summary>
-		private static void Cut_this_Face(
-			Vector3[] vertices,
+		private static void Cut_this_Face(Plane _blade, List<Vector3> _new_vertices, Mesh_Maker _leftSide, Mesh_Maker _rightSide,
+
+            Vector3[] vertices,
 			Vector3[] normals,
 			Vector2[] uvs,
 			Vector4[] tangents,
@@ -343,13 +380,13 @@ namespace BLINDED_AM_ME
 			tangents[0] = temp3;
 
 		}
-			
-		private static List<Vector3> capVertTracker = new List<Vector3>();
-		private static List<Vector3> capVertpolygon = new List<Vector3>();
 
-		static void Capping(){
+		static IEnumerator Capping(List<Vector3> _new_vertices, Plane _blade, Mesh_Maker _leftSide, Mesh_Maker _rightSide, int _capMatSub)
+        {
+            HashSet<Vector3> capVertTracker = new HashSet<Vector3>();
+            List<Vector3> capVertpolygon = new List<Vector3>();
 
-			capVertTracker.Clear();
+            float startTime = Time.realtimeSinceStartup;
 
 			for(int i=0; i<_new_vertices.Count; i++)
 				if(!capVertTracker.Contains(_new_vertices[i]))
@@ -366,7 +403,7 @@ namespace BLINDED_AM_ME
 					while(!isDone){
 						isDone = true;
 
-						for(int k=0; k<_new_vertices.Count; k+=2){ // go through the pairs
+						for(int k=((i%2 == 0) ? i : i - 1); k<_new_vertices.Count; k+=2){ // go through the pairs
 
 							if(_new_vertices[k] == capVertpolygon[capVertpolygon.Count-1] && !capVertTracker.Contains(_new_vertices[k+1])){ // if so add the other
 
@@ -380,16 +417,22 @@ namespace BLINDED_AM_ME
 								capVertpolygon.Add(_new_vertices[k]);
 								capVertTracker.Add(_new_vertices[k]);
 							}
-						}
+                            if (Time.realtimeSinceStartup - startTime >= capTimeStep)
+                            {
+                                yield return null;
+                                startTime = Time.realtimeSinceStartup;
+                            }
+                        }
 					}
 
-					FillCap(capVertpolygon);
+					FillCap(capVertpolygon, _blade, _leftSide, _rightSide, _capMatSub);
 
 				}
 			
 		}
 
-		static void FillCap(List<Vector3> vertices){
+		static void FillCap(List<Vector3> vertices, Plane _blade, Mesh_Maker _leftSide, Mesh_Maker _rightSide, int _capMatSub)
+        {
 
 
 			// center of the cap

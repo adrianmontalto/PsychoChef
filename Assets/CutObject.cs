@@ -20,7 +20,7 @@ public class CutObject : MonoBehaviour {
         {
             if (col.gameObject.GetComponent<SlicedObject>().GetRecentlySliced() == false)
             {
-                GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(col.gameObject, transform.position, transform.up, col.gameObject.GetComponent<Renderer>().material);
+                StartCoroutine(BLINDED_AM_ME.MeshCut.Cut(col.gameObject, transform.position, transform.up, col.gameObject.GetComponent<Renderer>().material));
             }
         }
     }

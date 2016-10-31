@@ -8,7 +8,7 @@ public class BoilingAreaSoundManager : MonoBehaviour
     private AudioClip boilingStage1Sound;
     [SerializeField]
     private AudioClip splash;
-    AudioSource audio;
+    new AudioSource audio;
 	// Use this for initialization
 	void Start ()
     {

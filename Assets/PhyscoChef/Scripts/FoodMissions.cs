@@ -67,10 +67,8 @@ public class FoodMissions : MonoBehaviour
                 //checks to see if the countdowntimer is less then zero
                 if (missionCountdownTimer < 0)
                 {
-                    //Debug.Log("new misision");
                     //generate a new random number
                     orderNumber = Random.Range(1, 3);
-                    Debug.Log(orderNumber);
                     //generates the food order
                     GenerateFoodRequest();
                     //resets mission countdown timer
@@ -92,16 +90,28 @@ public class FoodMissions : MonoBehaviour
         //checks to see if the order number is order 1
         if(orderNumber == 1)
         {
-            previousImage.SetActive(false);
-            pastaRecipeImage.SetActive(true);
+            if (previousImage != null)
+            {
+                previousImage.SetActive(false);
+            }
+            if (pastaRecipeImage != null)
+            {
+                pastaRecipeImage.SetActive(true);
+            }
             previousImage = pastaRecipeImage;
             //calls the cook chicken pasta
             CookCreamyChickenPasta();
         }
-        if(orderNumber == 2)
+        if (orderNumber == 2)
         {
-            previousImage.SetActive(false);
-            burgerRecipeImage.SetActive(true);
+            if (previousImage != null)
+            {
+                previousImage.SetActive(false);
+            }
+            if (burgerRecipeImage != null)
+            {
+                burgerRecipeImage.SetActive(true);
+            }
             previousImage = burgerRecipeImage;
             CookBurger();
         }

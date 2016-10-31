@@ -45,11 +45,11 @@ public class Food : MonoBehaviour
     private FoodName foodName = FoodName.FOOD;//the name of the food
     private bool isCooking = false;//a bool to dertermine whether the food is cooking
     private bool isCooked = false;//whether the food is cooked
-    private bool isOverCooked = false;//whether the food is overcooked
+//    private bool isOverCooked = false;//whether the food is overcooked
     private bool isBoiling = false;//checks to see that the food is boiling
     private bool isBoiled = false;
     private bool isSliced = false;
-    private float totalCookTime;//the total time that the food has been cooked for
+    private float totalCookTime = 0;//the total time that the food has been cooked for
     private float externalCookRate = 1.0f;//the rate of cooking applied by an external source
     private float totalBoilTime;//the total time the food has been boiling
     private float boilCookRate = 1.0f;//the rate at which boil affects cooking
@@ -106,7 +106,7 @@ public class Food : MonoBehaviour
         {
             //changes the foods texture to overcooked
             this.GetComponent<MeshRenderer>().material = overCookedMaterial;
-            isOverCooked = true;
+//            isOverCooked = true;
         }
 
         //checks to see if the totatlcooktime is equal to the burnt state
@@ -141,7 +141,7 @@ public class Food : MonoBehaviour
         {
             //changes the foods texture to overcooked
             this.GetComponent<MeshRenderer>().material = overCookedMaterial;
-            isOverCooked = true;
+//            isOverCooked = true;
         }
 
         //checks to see if the totatlcooktime is equal to the burnt state
@@ -192,7 +192,7 @@ public class Food : MonoBehaviour
         isBoiled = false;
         isCooking = false;
         isCooked = false;
-        isOverCooked = false;
+//        isOverCooked = false;
         isBoiling = false;
         isBoiled = false;
         isSliced = false;
@@ -205,6 +205,4 @@ public class Food : MonoBehaviour
     {
         return foodName;
     }
-
-    public bool Get
 }

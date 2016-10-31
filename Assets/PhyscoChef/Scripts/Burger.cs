@@ -192,42 +192,42 @@ public class Burger : MonoBehaviour
 
     void CheckWhichIngredient(Collider col)
     {
-        if(col.GetComponent<Food>().foodName == FoodName.BUNBOTTOM)
+        if(col.GetComponent<Food>().GetName() == FoodName.BUNBOTTOM)
         {
             CheckBottomBun();
         }
 
-        if(col.GetComponent<Food>().foodName == FoodName.BURGER)
+        if(col.GetComponent<Food>().GetName() == FoodName.BURGER)
         {
             CheckBurger(col);
         }
 
-        if(col.GetComponent<Food>().foodName == FoodName.CHEESE)
+        if(col.GetComponent<Food>().GetName() == FoodName.CHEESE)
         {
             CheckCheese();
         }
 
-        if(col.GetComponent<Food>().foodName == FoodName.LETTUCE)
+        if(col.GetComponent<Food>().GetName() == FoodName.LETTUCE)
         {
             CheckLettuce();
         }
 
-        if(col.GetComponent<Food>().foodName == FoodName.PICKLE)
+        if(col.GetComponent<Food>().GetName() == FoodName.PICKLE)
         {
             CheckPickle();
         }
 
-        if(col.GetComponent<Food>().foodName == FoodName.ONION)
+        if(col.GetComponent<Food>().GetName() == FoodName.ONION)
         {
             CheckOnion();
         }
 
-        if(col.GetComponent<Food>().foodName == FoodName.TOMATO)
+        if(col.GetComponent<Food>().GetName() == FoodName.TOMATO)
         {
             CheckTomato();
         }
 
-        if(col.GetComponent<Food>().foodName == FoodName.BUNTOP)
+        if(col.GetComponent<Food>().GetName() == FoodName.BUNTOP)
         {
             CheckTopBun();
         }
@@ -236,42 +236,42 @@ public class Burger : MonoBehaviour
 
     void RemoveIngredient(Collider col)
     {
-        if (col.GetComponent<Food>().foodName == FoodName.BUNBOTTOM)
+        if (col.GetComponent<Food>().GetName() == FoodName.BUNBOTTOM)
         {
             RemoveBottomBun();
         }
 
-        if (col.GetComponent<Food>().foodName == FoodName.BURGER)
+        if (col.GetComponent<Food>().GetName() == FoodName.BURGER)
         {
             RemoveBurger(col);
         }
 
-        if (col.GetComponent<Food>().foodName == FoodName.CHEESE)
+        if (col.GetComponent<Food>().GetName() == FoodName.CHEESE)
         {
             RemoveCheese();
         }
 
-        if (col.GetComponent<Food>().foodName == FoodName.LETTUCE)
+        if (col.GetComponent<Food>().GetName() == FoodName.LETTUCE)
         {
             RemoveLettuce();
         }
 
-        if (col.GetComponent<Food>().foodName == FoodName.PICKLE)
+        if (col.GetComponent<Food>().GetName() == FoodName.PICKLE)
         {
             RemovePickle();
         }
 
-        if (col.GetComponent<Food>().foodName == FoodName.ONION)
+        if (col.GetComponent<Food>().GetName() == FoodName.ONION)
         {
             RemoveOnion();
         }
 
-        if (col.GetComponent<Food>().foodName == FoodName.TOMATO)
+        if (col.GetComponent<Food>().GetName() == FoodName.TOMATO)
         {
             RemoveTomato();
         }
 
-        if (col.GetComponent<Food>().foodName == FoodName.BUNTOP)
+        if (col.GetComponent<Food>().GetName() == FoodName.BUNTOP)
         {
             RemoveTopBun();
         }
