@@ -53,7 +53,7 @@ public class CreamyPastaChicken : MonoBehaviour
         if(other.tag == "Food")
         {
             //checks to see if the food is pasta
-            if (other.GetComponent<Food>().foodName == FoodName.PASTA)
+            if (other.GetComponent<Food>().GetName() == FoodName.PASTA)
             {
                 //checks that the pasta is in the correct state
                 CheckPasta(other);
@@ -90,14 +90,14 @@ public class CreamyPastaChicken : MonoBehaviour
         if(other.tag == "Food")
         {
             //checks to see if the food is pasta
-            if(other.GetComponent<Food>().foodName == FoodName.PASTA)
+            if(other.GetComponent<Food>().GetName() == FoodName.PASTA)
             {
                 //controls the removal of the pasta
                 RemovePasta(other);
             }
 
             //checks to see if the food is chicken
-            if (other.GetComponent<Food>().foodName == FoodName.CHICKEN)
+            if (other.GetComponent<Food>().GetName() == FoodName.CHICKEN)
             {
                 //controls the removal of the chicken
                 RemoveChicken(other);

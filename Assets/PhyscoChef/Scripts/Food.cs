@@ -17,19 +17,35 @@ public enum FoodName
 
 public class Food : MonoBehaviour
 {
-    public float cookRate;//the rate at which a food cooks
-    public float boilRate;//the rate at which the food boils
-    public float partialyCookedState;//the first stage of cooking
-    public float cookedState;//the scond stage of cooking
-    public float burntState;//when the food is burnt
-    public float partialyBoiledState;
-    public float boiledState;
-    public Material partialyCookedMaterial;//the material for the first stage
-    public Material cookedMaterial;//the material for the second stage
-    public Material burntMaterial;//the material for when it is burnt
-    public FoodName foodName = FoodName.FOOD;//the name of the food
+    [SerializeField]
+    private float cookRate;//the rate at which a food cooks
+    [SerializeField]
+    private float boilRate;//the rate at which the food boils
+    [SerializeField]
+    private float partialyCookedState;//the first stage of cooking
+    [SerializeField]
+    private float overCookedState;
+    [SerializeField]
+    private float cookedState;//the scond stage of cooking
+    [SerializeField]
+    private float burntState;//when the food is burnt
+    [SerializeField]
+    private float partialyBoiledState;
+    [SerializeField]
+    private float boiledState;
+    [SerializeField]
+    private Material partialyCookedMaterial;//the material for the first stage
+    [SerializeField]
+    private Material cookedMaterial;//the material for fully cooked
+    [SerializeField]
+    private Material overCookedMaterial;//the material for overcooked
+    [SerializeField]
+    private Material burntMaterial;//the material for when it is burnt
+    [SerializeField]
+    private FoodName foodName = FoodName.FOOD;//the name of the food
     private bool isCooking = false;//a bool to dertermine whether the food is cooking
-    private bool isCooked = false;
+    private bool isCooked = false;//whether the food is cooked
+    private bool isOverCooked = false;//whether the food is overcooked
     private bool isBoiling = false;//checks to see that the food is boiling
     private bool isBoiled = false;
     private bool isSliced = false;
@@ -38,13 +54,10 @@ public class Food : MonoBehaviour
     private float totalBoilTime;//the total time the food has been boiling
     private float boilCookRate = 1.0f;//the rate at which boil affects cooking
     private Material intialMaterial;
-    private Material currentMaterial;
- 
 
     // Use this for initialization
     void Start()
     {
-        currentMaterial = this.GetComponent<MeshRenderer>().material;
         intialMaterial = this.GetComponent<MeshRenderer>().material;
     }
 
@@ -78,7 +91,6 @@ public class Food : MonoBehaviour
         {
             //change the foods texture to stage 1 cooked
             this.GetComponent<MeshRenderer>().material = partialyCookedMaterial;
-            currentMaterial = partialyCookedMaterial;
         }
 
         //checks to see if the total cooktime is equal to the second cook state
@@ -86,8 +98,15 @@ public class Food : MonoBehaviour
         {
             //change the foods texture to stage 2 cookedw
             this.GetComponent<MeshRenderer>().material = cookedMaterial;
-            currentMaterial = cookedMaterial;
             isCooked = true;
+        }
+
+        //checks to see if the food is overcooked
+        if(totalCookTime >= overCookedState)
+        {
+            //changes the foods texture to overcooked
+            this.GetComponent<MeshRenderer>().material = overCookedMaterial;
+            isOverCooked = true;
         }
 
         //checks to see if the totatlcooktime is equal to the burnt state
@@ -95,7 +114,6 @@ public class Food : MonoBehaviour
         {
             //change the food to burnt texture
             this.GetComponent<MeshRenderer>().material = burntMaterial;
-            currentMaterial = burntMaterial;
             isCooked = false;
         }
     }
@@ -116,6 +134,14 @@ public class Food : MonoBehaviour
             this.GetComponent<MeshRenderer>().material = cookedMaterial;
             isBoiled = true;
             isCooked = false;
+        }
+
+        //checks to see if the food is overcooked
+        if (totalBoilTime >= overCookedState)
+        {
+            //changes the foods texture to overcooked
+            this.GetComponent<MeshRenderer>().material = overCookedMaterial;
+            isOverCooked = true;
         }
 
         //checks to see if the totatlcooktime is equal to the burnt state
@@ -166,6 +192,7 @@ public class Food : MonoBehaviour
         isBoiled = false;
         isCooking = false;
         isCooked = false;
+        isOverCooked = false;
         isBoiling = false;
         isBoiled = false;
         isSliced = false;
@@ -173,4 +200,11 @@ public class Food : MonoBehaviour
         totalBoilTime = 0;
         this.GetComponent<MeshRenderer>().material = intialMaterial;
     }
+
+    public FoodName GetName()
+    {
+        return foodName;
+    }
+
+    public bool Get
 }
