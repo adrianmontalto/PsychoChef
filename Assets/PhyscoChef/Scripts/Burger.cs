@@ -18,18 +18,21 @@ public class Burger : MonoBehaviour
     private bool tomatoAdded = false;
     private bool topBunAdded = false;
     private bool isActive = false;
+    private bool overCookedBurger = false;
 
     private int bottomBunCount = 0;
     private int burgerCount = 0;
+    private int numberOfBurgers = 0;
     private int cookedBurgerCount = 0;
+    private int overCookedBurgerCount = 0;
     private int cheeseCount = 0;
     private int lettuceCount = 0;
     private int pickleCount = 0;
     private int onionCount = 0;
     private int tomatoCount = 0;
     private int topBunCount = 0;
-    private int correctIngredients = 0;
-    private int incorrectIngredients = 0;
+    private float correctIngredients = 0;
+    private float incorrectIngredients = 0;
     private int numberOfIngredients = 8;
     // Use this for initialization
     void Start ()
@@ -77,7 +80,16 @@ public class Burger : MonoBehaviour
             {
                 correctIngredients ++;
                 cookedBurgerCount ++;
+                numberOfBurgers ++;
                 burgerCooked = true;
+            }
+            if(col.GetComponent<Food>().GetOverCooked())
+            {
+                correctIngredients += 0.5f;
+                overCookedBurgerCount ++;
+                numberOfBurgers++;
+                burgerCooked = true;
+                overCookedBurger = true;
             }
             else
             {
@@ -91,6 +103,11 @@ public class Burger : MonoBehaviour
             {
                 incorrectIngredients ++;
                 cookedBurgerCount ++;
+            }
+            if(col.GetComponent<Food>().GetOverCooked())
+            {
+                incorrectIngredients ++;
+                overCookedBurgerCount ++;
             }
             else
             {
@@ -277,7 +294,6 @@ public class Burger : MonoBehaviour
         }
     }
 
-
     void RemoveBottomBun()
     {
         //check that top bun count is greater than 1
@@ -303,7 +319,11 @@ public class Burger : MonoBehaviour
     {
         if(col.GetComponent<Food>().GetCooked())
         {
-            RemoveCookedBurger();
+            RemoveCookedBurger(col);
+        }
+        if(col.GetComponent<Food>().GetOverCooked())
+        {
+            RemoveCookedBurger(col);
         }
         else
         {
@@ -311,22 +331,62 @@ public class Burger : MonoBehaviour
         }
     }
 
-    void RemoveCookedBurger()
+    void RemoveCookedBurger(Collider col)
     {
-        //check that cooked burgers are greater then one
-        if(cookedBurgerCount > 1)
+        if (col.GetComponent<Food>().GetCooked())
         {
-            //reduce cooked burger count
-            cookedBurgerCount --;
-            //reduce incorrect ingredients
-            incorrectIngredients --;
+            numberOfBurgers--;
+            cookedBurgerCount--;
+            if (numberOfBurgers >= 1)
+            {
+                if (overCookedBurgerCount >= 1)
+                {
+                    if (!overCookedBurger)
+                    {
+                        overCookedBurger = true;
+                        correctIngredients -= 0.5f;
+                    }
+                }
+                incorrectIngredients--;
+            }
+            else
+            {
+                //reduce correct ingredients
+                correctIngredients--;
+                //set cooked burger added to false
+                burgerCooked = false;
+            }
         }
-        else
+        if(col.GetComponent<Food>().GetOverCooked())
         {
-            //reduce correct ingredients
-            correctIngredients --;
-            //set cooked burger added to false
-            burgerCooked = false;
+            numberOfBurgers --;
+            overCookedBurgerCount --;
+            if(numberOfBurgers > 0)
+            {
+                if(overCookedBurgerCount > 0)
+                {
+                    if(!overCookedBurger)
+                    {
+                        correctIngredients -= 0.5f;
+                        overCookedBurger = true;
+                    }
+                }
+                incorrectIngredients--;
+            }
+            else
+            {
+                if(overCookedBurger)
+                {
+                    correctIngredients -= 0.5f;
+                    overCookedBurger = false;
+                    burgerCooked = false;
+                }
+                else
+                {
+                    correctIngredients --;
+                    burgerCooked = false;
+                }
+            }
         }
     }
 

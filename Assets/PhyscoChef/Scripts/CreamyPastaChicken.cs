@@ -17,11 +17,12 @@ public class CreamyPastaChicken : MonoBehaviour
     private bool chickenSliced = false;//sets whether the chicken is sliced
     private bool creamAdded = false;//sets whether the cream has been added
     private bool oilAdded = false;//sets whether the oil is cooked
+    private bool incompleteCookedChicken = false;//used to determine if an unperfect chicken is present
     private float correctIngredients = 1;//the amount of correct ingredients
     private float incorrectIngredients = 1;//the amount of incorrect ingredients
     private int numberOfChickenSlices = 0;//the amount of cooked sliced chicken
-    private int numberOfOvercookedSlices = 0;
-    private int totalCookedChicken = 0;//the total amount of cooked chicken
+    private int numberOfCookedChickenSlices = 0;//the amount of cooked slices
+    private int numberOfOvercookedSlices = 0;//the amount of overcooked slices
     private int totalOil = 0;//the total amount of cooked oil
     private int totalCreamAdded = 0;//the total amount of cream
     private int totalBoiledPasta = 0;//the total amount of boiled pasta
@@ -186,7 +187,7 @@ public class CreamyPastaChicken : MonoBehaviour
             }
 
             //checks to see if the pasta isnt boiled
-            else(col.GetComponent<Food>().GetBoiled() == false)
+            else
             {
                 //increase the boiled pasta amount by one
                 incorrectIngredients ++;
@@ -221,6 +222,28 @@ public class CreamyPastaChicken : MonoBehaviour
                     }
                 }
             }
+            if(col.GetComponent<Food>().GetOverBoiled() == true)
+            {
+                //decrease the correct ingredients by one
+                correctIngredients--;
+
+                //checks to see that the amount of boiled pasta is greater then one
+                if (totalOverBoiledPasta > 0)
+                {
+                    //reduce the amount of boiled pasta by one
+                    totalBoiledPasta--;
+                    //checks to see that the amount of boiled pasta is greater then zero
+                    if (totalOverBoiledPasta > 0)
+                    {
+                        //increase the correct ingredients by one
+                        correctIngredients++;
+                        //decrease the incorrect ingredients by one
+                        incorrectIngredients--;
+                        //sets the pasta boiled to true
+                        pastaBoiled = true;
+                    }
+                }
+            }
             else
             {
                 //reduce the amount of incorrect ingredients by one
@@ -236,115 +259,152 @@ public class CreamyPastaChicken : MonoBehaviour
 
     void CheckChicken(Collider col)
     {
-        //checks to see if the chicken is sliced
+        //checks if a complete cooked chicken has been added
         if(chickenSliced)
         {
-            //increase the amount of correct ingredients by one
-            incorrectIngredients++;
-            //checks to see if the chicken is cooked
-            if (col.GetComponent<Food>().GetCooked() == true)
+            //checks if the chicken piece is sliced
+            if(col.GetComponent<Food>().GetSliced())
             {
-                //checks to see if the chicken is sliced
-                if (col.GetComponent<Food>().GetSliced() == true)
+                incorrectIngredients ++;
+                //checks if the chicken is cooked
+                if(col.GetComponent<Food>().GetCooked())
                 {
-                    //increase the number of slice by one
-                    numberOfChickenSlices++;
-                    //checks to see if the number of slices is the same as the required amount needed
-                    if (numberOfChickenSlices == chickenSlices)
-                    {
-                        //increase total cooked chicken by one
-                        totalCookedChicken++;
-                        //stes the number of slices to zero
-                        numberOfChickenSlices = 0;                         
-                    }
+                    numberOfCookedChickenSlices ++;
                 }
-            }
-        }
-        else
-        {
-            //checks to see if the chicken is cooked
-            if(col.GetComponent<Food>().GetCooked() == true)
-            {
-                //checks to see if the chicken is sliced
-                if(col.GetComponent<Food>().GetSliced() == true)
+                //checks if the chicken is overcooked
+                if(col.GetComponent<Food>().GetOverCooked())
                 {
-                    //increase the number of slices by one
-                    numberOfChickenSlices++;
-                    //checks to see if the number of slices is the same as the required amount
-                    if(numberOfChickenSlices == chickenSlices)
-                    {
-                        //increase the total cooked chicken by one
-                        totalCookedChicken ++;
-                        //sets the chicken sliced to true
-                        chickenSliced = true;
-                        //sets the number of slices to zero
-                        numberOfChickenSlices = 0;
-                    }
-                }
-                else
-                {
-                    //increase the incorect ingredients by one
-                    incorrectIngredients ++;
+                    numberOfOvercookedSlices ++;
                 }
             }
             else
             {
-                //increase the correct ingredients by one
                 incorrectIngredients ++;
+            }
+        }
+        else
+        {
+            //checks if the chicken has been cut
+            if (col.GetComponent<Food>().GetSliced())
+            {
+                //checks if the chicken is cooked
+                if (col.GetComponent<Food>().GetCooked())
+                {
+                    numberOfCookedChickenSlices++;
+                    numberOfChickenSlices++;
+                    //checks to see if there is the correct amount of chicken slices
+                    if (numberOfChickenSlices == chickenSlices)
+                    {
+                        chickenSliced = true;
+                        //checks to see if there are any over cooked chicken pieces
+                        if (numberOfOvercookedSlices > 0)
+                        {
+                            correctIngredients += 0.5f;
+                            incompleteCookedChicken = true;
+                        }
+                        else
+                        {
+                            correctIngredients ++;
+                        }
+                    }
+                }
+                //checks to see if the chicken is overcooked
+                if (col.GetComponent<Food>().GetOverCooked())
+                {
+                    numberOfOvercookedSlices++;
+                    numberOfChickenSlices++;
+                    //checks to see that there are the correct amount of chicken pieces
+                    if (numberOfChickenSlices == chickenSlices)
+                    {
+                        chickenSliced = true;
+                        correctIngredients += 0.5f;
+                        incompleteCookedChicken = true;
+                    }
+                }
+                else
+                {
+                    incorrectIngredients++;
+                }
             }
         }
     }
 
     void RemoveChicken(Collider col)
     {
-        //checks if the chicken is sliced
+        //checks to see if a whole chicken is added
         if(chickenSliced)
         {
-            if (col.GetComponent<Food>().GetSliced())
+            //checks to see if the chicken is cut
+            if(col.GetComponent<Food>().GetSliced())
             {
-                if(col.GetComponent<Food>().GetBoiled())
+                //checks to see if the chicken is cooked
+                if(col.GetComponent<Food>().GetCooked())
                 {
-                    //reduce the incorrect ingredients by one
-                    correctIngredients--;
-                    //checks to see if the total cooked chicken is greater then zero
-                    if (totalCookedChicken > 0)
+                    numberOfChickenSlices --;
+                    numberOfCookedChickenSlices --;
+                    if(numberOfChickenSlices < chickenSlices)
                     {
-                        //reduce the total amount of cooked chicken by one
-                        totalCookedChicken--;
-                        //checks to see if the total cooked chicken is greater then zero
-                        if (totalCookedChicken > 0)
+                        chickenSliced = false;
+                        if(incompleteCookedChicken)
                         {
-                            //increase the correct ingredients by one
-                            correctIngredients++;
-                            //reduce the incorrect ingredients by one
-                            incorrectIngredients--;
-                            //sets the chicken to be sliced
-                            chickenSliced = true;
+                            correctIngredients -= 0.5f;
+                        }
+                        else
+                        {
+                            correctIngredients --;
+                        }
+                    }
+                }
+
+                //checks to see if the chicken is overcooked
+                if(col.GetComponent<Food>().GetOverCooked())
+                {
+                    numberOfChickenSlices --;
+                    numberOfOvercookedSlices--;
+                    if(numberOfChickenSlices >= chickenSlices)
+                    {
+                        if(incompleteCookedChicken)
+                        {
+                            if(numberOfOvercookedSlices < 1)
+                            {
+                                incompleteCookedChicken = false;
+                                correctIngredients += 0.5f;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        chickenSliced = false;
+                        if(incompleteCookedChicken)
+                        {
+                            correctIngredients -= 0.5f;
+                        }
+                        else
+                        {
+                            correctIngredients --;
                         }
                     }
                 }
                 else
                 {
-                    //reduces the incorrect ingredients by one
-                    incorrectIngredients--;
+                    incorrectIngredients --;
                 }
             }
             else
             {
-                //reduces the incorrect ingredients by one
-                incorrectIngredients--;
-            }          
+                incorrectIngredients --;
+            }
         }
+
         else
         {
-            //reduce the incorrect ingredients by one
             incorrectIngredients --;
         }
     }
 
     void CheckOil()
     {
-        if(!oilAdded)
+        if (!oilAdded)
         {
             correctIngredients++;
             totalOil++;
@@ -352,17 +412,17 @@ public class CreamyPastaChicken : MonoBehaviour
         }
         else
         {
-            incorrectIngredients ++;
-            totalOil ++;
-        }     
+            incorrectIngredients++;
+            totalOil++;
+        }
     }
 
     void RemoveOil()
     {
-        if(totalOil > 1)
+        if (totalOil > 1)
         {
-            totalOil --;
-            incorrectIngredients --;
+            totalOil--;
+            incorrectIngredients--;
         }
         else
         {
@@ -375,7 +435,7 @@ public class CreamyPastaChicken : MonoBehaviour
     void CheckCream()
     {
         //checks to see if cream is added
-        if(creamAdded)
+        if (creamAdded)
         {
             //increases the incorrect ingredients by one
             incorrectIngredients++;
@@ -383,7 +443,7 @@ public class CreamyPastaChicken : MonoBehaviour
         else
         {
             //increase the correct ingredients by one
-            correctIngredients ++;
+            correctIngredients++;
             //sets the cream added to true
             creamAdded = true;
         }
@@ -392,22 +452,22 @@ public class CreamyPastaChicken : MonoBehaviour
     void RemoveCream()
     {
         //checks to see if cream is added
-        if(creamAdded)
+        if (creamAdded)
         {
             //reduce the correct ingredients by one
-            correctIngredients --;
+            correctIngredients--;
             //checks to see if the total cream added is greater then one
-            if(totalCreamAdded > 0)
-            { 
+            if (totalCreamAdded > 0)
+            {
                 //reduce the total cream added by one
                 totalCreamAdded--;
                 //checks to see if the total cream added is greater then one
                 if (totalCreamAdded > 0)
                 {
                     //increase the correct ingredients by one
-                    correctIngredients ++;
+                    correctIngredients++;
                     //decrease the incorrect ingredients by one
-                    incorrectIngredients --;
+                    incorrectIngredients--;
                     //sets the cream added to true
                     creamAdded = true;
                 }
@@ -416,7 +476,7 @@ public class CreamyPastaChicken : MonoBehaviour
         else
         {
             //decrease the incorrect ingredients by one
-            incorrectIngredients --;
+            incorrectIngredients--;
         }
     }
 
@@ -451,11 +511,11 @@ public class CreamyPastaChicken : MonoBehaviour
 
     void CalculateSatisfaction()
     {
-        
+
         float multiplier;//the amount by which the satisfaction is calculated by
 
         //checks to see if the amount of incorrect ingredients isnt higher then the asmount of ingredients
-        if(incorrectIngredients >= numberOfIngredients)
+        if (incorrectIngredients >= numberOfIngredients)
         {
             //adds zero to the satisfaction meter
             //missions.AddSatisfaction(0.0f);
@@ -475,41 +535,3 @@ public class CreamyPastaChicken : MonoBehaviour
             //missions.AddSatisfaction(satisfaction);
         }
     }
-
-    void CheckSlices()
-    {
-        if(chickenSliced)
-        {
-            int totalChickenSlices = chickenSlices + numberOfOvercookedSlices;
-            if(numberOfChickenSlices == chickenSlices)
-            {
-                totalCookedChicken ++;
-                numberOfChickenSlices = 0;
-            }
-            if(totalChickenSlices == chickenSlices)
-            {
-                totalCookedChicken ++;
-                numberOfChickenSlices = 0;
-                numberOfOvercookedSlices = 0;
-            }
-        }
-        else
-        {
-            if(numberOfChickenSlices == chickenSlices)
-            {
-                totalCookedChicken ++;
-                correctIngredients ++;
-                chickenSliced = true;
-                numberOfChickenSlices = 0;
-            }
-            if(numberOfChickenSlices + numberOfOvercookedSlices == chickenSlices)
-            {
-                totalCookedChicken ++;
-                correctIngredients += 0.5f;
-                chickenSliced = true;
-                numberOfChickenSlices = 0;
-                numberOfOvercookedSlices = 0;
-            }
-        }
-    }
-}

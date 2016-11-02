@@ -168,7 +168,7 @@ public class FoodMissions : MonoBehaviour
         return satisfactionScore;
     }
 
-    public void AddSatisfaction(float numberOfIngredients,int numberOfCorrect,int numberOfIncorrect)
+    public void AddSatisfaction(float numberOfIngredients,float numberOfCorrect,float numberOfIncorrect)
     {
         //checks that the number or incorrect ingredients are less then the amount of mistakes allowed
         if(numberOfIncorrect < numberOfIncorrectAllowed)
