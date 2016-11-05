@@ -8,16 +8,43 @@ public class StoveKnob : MonoBehaviour
 
     public FireEmiter fireEmiter;
 
+    public float rotation;
+    private float maxRotation = 180;
+
 	// Use this for initialization
 	void Start ()
     {
-        
+        rotation = transform.rotation.eulerAngles.z;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-	
+        float currRotation = transform.rotation.eulerAngles.z;
+
+        if (currRotation != rotation)
+        {
+
+            float percent = currRotation / maxRotation;
+
+            if (isActive == true && currRotation == 0)
+            {
+                isActive = false;
+                fireEmiter.ChangeEmit(false);
+            }
+            else if (isActive == false && currRotation != 0)
+            {
+                isActive = true;
+                fireEmiter.ChangeSizeNSpeed(percent);
+                fireEmiter.ChangeEmit(true);
+            }
+            else
+            {
+                fireEmiter.ChangeSizeNSpeed(percent);
+            }
+        }
+
+        rotation = currRotation;
 	}
 
     public void SetActive()

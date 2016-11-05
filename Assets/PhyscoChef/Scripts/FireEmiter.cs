@@ -6,11 +6,22 @@ public class FireEmiter : MonoBehaviour {
     private ParticleSystem.EmissionModule[] emiters;
     private ParticleSystem[] particleSystems;
 
-	// Use this for initialization
-	void Start ()
+    private float maxFireSize = 0.3f;
+    private float maxFireSpeed = 1.0f;
+    private float minFireSize = 0.15f;
+    private float minFireSpeed = 0.5f;
+
+    private float sizeDiff;
+    private float speedDiff;
+
+    // Use this for initialization
+    void Start ()
     {
         //emiters = GetComponentsInChildren<ParticleSystem.EmissionModule>();
         particleSystems = GetComponentsInChildren<ParticleSystem>();
+
+        sizeDiff = maxFireSize - minFireSize;
+        speedDiff = maxFireSpeed - minFireSpeed;
 	}
 	
 	// Update is called once per frame
@@ -35,6 +46,18 @@ public class FireEmiter : MonoBehaviour {
             {
                 particleSystems[i].Stop();
             }
+        }
+    }
+
+    public void ChangeSizeNSpeed (float percent)
+    {
+        float newSize = minFireSize + (sizeDiff * percent);
+        float newSpeed = minFireSpeed + (speedDiff * percent);
+
+        for (int i = 0; i < particleSystems.Length; ++i)
+        {
+            particleSystems[i].startSize = newSize;
+            particleSystems[i].startSpeed = newSpeed;
         }
     }
 }
