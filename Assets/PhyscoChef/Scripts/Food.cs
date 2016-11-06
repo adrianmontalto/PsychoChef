@@ -50,7 +50,7 @@ public class Food : MonoBehaviour
     private bool isBoiled = false;
     private bool isOverBoiled = false;
     private bool isSliced = false;
-    private float totalCookTime;//the total time that the food has been cooked for
+    private float totalCookTime = 0.0f;//the total time that the food has been cooked for
     private float externalCookRate = 1.0f;//the rate of cooking applied by an external source
     private float boilCookRate = 1.0f;//the rate at which boil affects cooking
     private Material intialMaterial;
