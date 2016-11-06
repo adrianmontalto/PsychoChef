@@ -177,7 +177,7 @@ public class FoodMissions : MonoBehaviour
             if(numberOfIncorrect < numberOfIngredients)
             {
                 //minus the amount of incorrect ingredients from the correct ingredients
-                int num = numberOfCorrect - numberOfIncorrect;
+                float num = numberOfCorrect - numberOfIncorrect;
                 //makes sure the num of correct ingredients are more then zero
                 if(num > 0)
                 {
