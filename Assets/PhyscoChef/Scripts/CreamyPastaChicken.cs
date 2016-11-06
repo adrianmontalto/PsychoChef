@@ -507,32 +507,4 @@ public class CreamyPastaChicken : MonoBehaviour
         bell.GetComponent<Bell>().SetDone(false);
         isActive = false;
     }
-
-    void CalculateSatisfaction()
-    {
-
-        float multiplier;//the amount by which the satisfaction is calculated by
-
-        //checks to see if the amount of incorrect ingredients isnt higher then the asmount of ingredients
-        if (incorrectIngredients >= numberOfIngredients)
-        {
-            //adds zero to the satisfaction meter
-            //missions.AddSatisfaction(0.0f);
-        }
-        else
-        {
-            //calculate the multiplier
-            multiplier = correctIngredients - incorrectIngredients;
-
-            //calculate the percentage of correct ingredients
-            float percentageOfCorrect = multiplier / numberOfIngredients;
-
-            //calculate the amount of satisfaction score to add
-            float satisfaction = percentageOfCorrect * missions.GetSatisfactionScore();
-
-            //add satisfaction to score
-            //missions.AddSatisfaction(satisfaction);
-        }
-    }
-
 }
