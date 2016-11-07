@@ -1,19 +1,17 @@
 fileFormatVersion: 2
-guid: 7d769123712ae41469d906806639162f
-timeCreated: 1472539460
+guid: f7d73e72728a4bd43a5672d8148f4a48
+timeCreated: 1474244850
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: pCube3
-    100004: polySurface5
-    400000: //RootNode
-    400002: pCube3
-    400004: polySurface5
-    2300000: polySurface5
-    3300000: polySurface5
-    4300000: polySurface5
+    100000: pallet
+    100002: //RootNode
+    400000: pallet
+    400002: //RootNode
+    2300000: pallet
+    3300000: pallet
+    4300000: pallet
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -22,7 +20,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ca12ef30e8078784f897653deac050a3
-timeCreated: 1473029033
+guid: 95d182471be474f4f82066d62280ef13
+timeCreated: 1476830455
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,15 +9,15 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Van
+    4300000: finished_product
   materials:
     importMaterials: 1
     materialName: 0
-    materialSearch: 1
+    materialSearch: 2
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
