@@ -58,7 +58,7 @@ public class Food : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        intialMaterial = this.GetComponent<MeshRenderer>().material;
+        intialMaterial = this.GetComponentInChildren<MeshRenderer>().material;
     }
 
     // Update is called once per frame
