@@ -40,6 +40,7 @@ GameObject:
   - 114: {fileID: 114000012747954816}
   - 114: {fileID: 114000012564972828}
   - 64: {fileID: 64000012216731228}
+  - 114: {fileID: 114000013828623516}
   m_Layer: 9
   m_Name: Tomato
   m_TagString: Food
@@ -173,3 +174,14 @@ MonoBehaviour:
   overCookedMaterial: {fileID: 2100000, guid: 4172ea014755aca448bfc4ef05ae5aee, type: 2}
   burntMaterial: {fileID: 2100000, guid: 4172ea014755aca448bfc4ef05ae5aee, type: 2}
   foodName: 10
+--- !u!114 &114000013828623516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012628597778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6659c3163c2b14c8a5c396999de21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -37,6 +37,7 @@ GameObject:
   - 54: {fileID: 54000011931497506}
   - 114: {fileID: 114000010298102632}
   - 64: {fileID: 64000011751582278}
+  - 114: {fileID: 114000010324168284}
   m_Layer: 9
   m_Name: RedWineBottle
   m_TagString: RedWine
@@ -301,6 +302,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f6280cc628603d4f94694acd2492417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000010324168284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011136807222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6659c3163c2b14c8a5c396999de21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114000012515223728

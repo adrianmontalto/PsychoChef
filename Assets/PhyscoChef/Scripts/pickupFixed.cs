@@ -66,7 +66,7 @@ public class pickupFixed : MonoBehaviour
                     fixedJoint.breakForce = 10000;
 
                     //reset outline width
-                    Renderer renderer = nearestObject.GetComponent<Renderer>();
+                    Renderer renderer = nearestObject.GetComponentInChildren<Renderer>();
                     if (renderer != null)
                     {
                         renderer.material.SetFloat("_Outline", 0.0f);
@@ -89,7 +89,7 @@ public class pickupFixed : MonoBehaviour
                     nearestObjectDistance = (gameObject.transform.position - col.gameObject.transform.position).magnitude;
 
                     //change outline width
-                    Renderer renderer = nearestObject.GetComponent<Renderer>();
+                    Renderer renderer = nearestObject.GetComponentInChildren<Renderer>();
                     if (renderer != null)
                     {
                         renderer.material.SetFloat("_Outline", 0.004f);
@@ -101,7 +101,7 @@ public class pickupFixed : MonoBehaviour
                     if (distance < nearestObjectDistance)
                     {
                         //reset outline width
-                        Renderer renderer = nearestObject.GetComponent<Renderer>();
+                        Renderer renderer = nearestObject.GetComponentInChildren<Renderer>();
                         if (renderer != null)
                         {
                             renderer.material.SetFloat("_Outline", 0.0f);
@@ -112,7 +112,7 @@ public class pickupFixed : MonoBehaviour
                         nearestObjectDistance = distance;
 
                         //change outline width
-                        renderer = nearestObject.GetComponent<Renderer>();
+                        renderer = nearestObject.GetComponentInChildren<Renderer>();
                         if (renderer != null)
                         {
                             renderer.material.SetFloat("_Outline", 0.004f);
@@ -130,7 +130,7 @@ public class pickupFixed : MonoBehaviour
             if (other.gameObject == nearestObject)
             {
                 //reset outline width
-                Renderer renderer = nearestObject.GetComponent<Renderer>();
+                Renderer renderer = nearestObject.GetComponentInChildren<Renderer>();
                 if (renderer != null)
                 {
                     renderer.material.SetFloat("_Outline", 0.0f);
@@ -165,6 +165,11 @@ public class pickupFixed : MonoBehaviour
         {
             other.GetComponent<Bell>().SetDone(true);
 //            Debug.Log("hit bell");
+        }
+
+        if (other.tag == "SceneButton")
+        {
+            other.GetComponent<SceneButton>().SetActive(true);
         }
     }
 }

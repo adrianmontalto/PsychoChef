@@ -23,6 +23,7 @@ GameObject:
   - 114: {fileID: 114000011009010242}
   - 114: {fileID: 114000013434896878}
   - 64: {fileID: 64000013233031168}
+  - 114: {fileID: 114000010192551490}
   m_Layer: 9
   m_Name: BunBottom
   m_TagString: Food
@@ -137,6 +138,17 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: aba4e35aff37e5244b3f476a7d830471, type: 3}
+--- !u!114 &114000010192551490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010623872492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6659c3163c2b14c8a5c396999de21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011009010242
 MonoBehaviour:
   m_ObjectHideFlags: 1

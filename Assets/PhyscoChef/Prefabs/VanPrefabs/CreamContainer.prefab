@@ -40,6 +40,7 @@ GameObject:
   - 114: {fileID: 114000010271659124}
   - 64: {fileID: 64000013816447348}
   - 138: {fileID: 138000013267370516}
+  - 114: {fileID: 114000011427998110}
   m_Layer: 9
   m_Name: CreamContainerBody
   m_TagString: Cream
@@ -301,6 +302,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f6280cc628603d4f94694acd2492417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000011427998110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011819343314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6659c3163c2b14c8a5c396999de21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114000013107185532
