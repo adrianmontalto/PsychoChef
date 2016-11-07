@@ -796,7 +796,7 @@ MonoBehaviour:
   partialyBoiled: 30
   heatRate: 4
   cooldownRate: 3
-  notBoiledMaterial: {fileID: 2100000, guid: 0fd04908eb2353242b24ce6c0866eb71, type: 2}
+  notBoiledMaterial: {fileID: 2100000, guid: ddbc1ace5f94e9f4dbe9c454997d7d12, type: 2}
   partiallyBoiledMaterial: {fileID: 2100000, guid: eb3b4445906e10148b2d59fe3fdb0448,
     type: 2}
   fullyBoiledMaterial: {fileID: 2100000, guid: 3e93286d777a7844789edd0e6ab9a5b4, type: 2}
