@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: chicken_breast_burnt_TEXTURE
+  m_Name: chicken_burnt_TEXTURE
   m_Shader: {fileID: 4800000, guid: f8561fbea3655fb4e81cc6266c5b439c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
