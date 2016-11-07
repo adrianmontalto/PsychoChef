@@ -154,17 +154,17 @@ public class pickupFixed : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         //checks to see if the hand has hit the stove
-        if (other.tag == "StoveKnob")
+//        if (other.tag == "StoveKnob")
         {
             //sets the heating area
-            other.GetComponent<StoveKnob>().SetActive();
-            Debug.Log("hit stoveK");
+//            other.GetComponent<StoveKnob>().SetActive();
+//            Debug.Log("hit stoveK");
         }
 
         if (other.tag == "Finish")
         {
             other.GetComponent<Bell>().SetDone(true);
-            Debug.Log("hit bell");
+//            Debug.Log("hit bell");
         }
     }
 }

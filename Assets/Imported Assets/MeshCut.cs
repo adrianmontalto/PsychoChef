@@ -392,7 +392,8 @@ namespace BLINDED_AM_ME
 				if(!capVertTracker.Contains(_new_vertices[i]))
 				{
 					capVertpolygon.Clear();
-					capVertpolygon.Add(_new_vertices[i]);
+
+                    capVertpolygon.Add(_new_vertices[i]);
 					capVertpolygon.Add(_new_vertices[i+1]);
 
 					capVertTracker.Add(_new_vertices[i]);
