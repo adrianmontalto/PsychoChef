@@ -21,6 +21,6 @@ public class JointedObject : MonoBehaviour
 
     public void Reset()
     {
-        fixedJoint = joint.GetComponent<GameObject>().AddComponent<FixedJoint>();
+        fixedJoint = joint.AddComponent<FixedJoint>();
     }
 }

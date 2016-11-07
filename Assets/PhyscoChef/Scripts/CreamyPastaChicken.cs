@@ -490,13 +490,7 @@ public class CreamyPastaChicken : MonoBehaviour
                 body.GetComponent<Items>().ResetPostion();
             }
         }
-        foreach(Rigidbody body in bodies)
-        {
-            if(body.GetComponent<JointedObject>() != null)
-            {
-                body.GetComponent<JointedObject>().Reset();
-            }
-        }
+
         chickenSlices = 0;
         pastaBoiled = false;
         chickenSliced = false;
