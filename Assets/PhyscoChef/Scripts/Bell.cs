@@ -19,9 +19,7 @@ public class Bell : MonoBehaviour
 	    if(isDone == true)
         {
             audio.PlayOneShot(audio.clip, 0.7f);
-            Debug.Log("ding");
             ingredientsArea.SetActive(true);
-          
         }
 	}
 

@@ -6,7 +6,6 @@ public class StoveFire : MonoBehaviour
     public float heatRate = 0.0f;//the rate  at which the area heats up
     public float cooldownRate = 0.0f;//the rate at which the area cools down
     public float maxTemperature = 0.0f;//the maximum temperature that the area can get to
-    public GameObject fire;//the stove fire
     private float temperature = 1.0f;//the temperature of the area
     private bool isHeating = false;//determine whether the area is heating up
 
@@ -61,12 +60,10 @@ public class StoveFire : MonoBehaviour
         isHeating = heat;
         if (heat == true)
         {
-            Debug.Log("on");
             isHeating = true;
         }
         if (heat == false)
         {
-            Debug.Log("off");
             isHeating = false;
         }
     }

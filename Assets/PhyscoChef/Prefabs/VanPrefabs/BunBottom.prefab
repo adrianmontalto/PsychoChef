@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19a7d78ff0fda447b35df3851bc58aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cookRate: 0.05
-  boilRate: 0.025
+  cookRate: 1
+  boilRate: 0.5
   partialyCookedState: 14
   overCookedState: 42
   cookedState: 28

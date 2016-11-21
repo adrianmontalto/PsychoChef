@@ -29,12 +29,16 @@ public class StoveKnob : MonoBehaviour
 
             if (isActive == true && currRotation == 0)
             {
+                Debug.Log("stove off");
                 isActive = false;
+                heatArea.SetHeating(false);
                 fireEmiter.ChangeEmit(false);
             }
             else if (isActive == false && currRotation != 0)
             {
+                Debug.Log("stove on");
                 isActive = true;
+                heatArea.SetHeating(true);
                 fireEmiter.ChangeSizeNSpeed(percent);
                 fireEmiter.ChangeEmit(true);
             }

@@ -67,6 +67,7 @@ public class Food : MonoBehaviour
         //checks to see if the food is cooking
         if (isCooking)
         {
+           
             if(isBoiling == false)
             {
                 //increases the cook time
@@ -76,7 +77,7 @@ public class Food : MonoBehaviour
 
         if (isBoiling == true)
         {
-            //increase the cook time byt applying the boil rate
+            //increase the cook time by applying the boil rate
             totalCookTime += boilRate * boilCookRate * Time.deltaTime;
         }
         //checks to see which cook stage the food is in
