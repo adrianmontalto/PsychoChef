@@ -24,9 +24,9 @@ public class Food : MonoBehaviour
     [SerializeField]
     private float partialyCookedState;//the first stage of cooking
     [SerializeField]
-    private float overCookedState;
-    [SerializeField]
     private float cookedState;//the scond stage of cooking
+    [SerializeField]
+    private float overCookedState;
     [SerializeField]
     private float burntState;//when the food is burnt
     [SerializeField]
