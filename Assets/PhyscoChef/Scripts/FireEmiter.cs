@@ -3,7 +3,6 @@ using System.Collections;
 
 public class FireEmiter : MonoBehaviour {
 
-    private ParticleSystem.EmissionModule[] emiters;
     private ParticleSystem[] particleSystems;
 
     private float maxFireSize = 0.3f;
@@ -17,7 +16,6 @@ public class FireEmiter : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        //emiters = GetComponentsInChildren<ParticleSystem.EmissionModule>();
         particleSystems = GetComponentsInChildren<ParticleSystem>();
 
         sizeDiff = maxFireSize - minFireSize;
