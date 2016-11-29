@@ -45,7 +45,7 @@ namespace BLINDED_AM_ME
                     victim.transform.InverseTransformPoint(anchorPoint));
 
             // get the victims mesh
-            _victim_mesh = victim.GetComponent<MeshFilter>().mesh;
+            _victim_mesh = victim.GetComponentInChildren<MeshFilter>().mesh;
 
             // reset values
             _new_vertices.Clear();
@@ -135,7 +135,7 @@ namespace BLINDED_AM_ME
             }
 
             // The capping Material will be at the end
-            Material[] mats = victim.GetComponent<MeshRenderer>().sharedMaterials;
+            Material[] mats = victim.GetComponentInChildren<MeshRenderer>().sharedMaterials;
             if (mats[mats.Length - 1].name != capMaterial.name)
             {
                 Material[] newMats = new Material[mats.Length + 1];

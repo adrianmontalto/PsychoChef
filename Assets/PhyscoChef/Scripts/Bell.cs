@@ -21,7 +21,7 @@ public class Bell : MonoBehaviour
             audio.PlayOneShot(audio.clip, 0.7f);
             Debug.Log("ding");
             ingredientsArea.SetActive(true);
-          
+            isDone = false;
         }
 	}
 

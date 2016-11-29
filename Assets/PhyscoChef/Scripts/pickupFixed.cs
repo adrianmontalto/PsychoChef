@@ -62,8 +62,10 @@ public class pickupFixed : MonoBehaviour
                         Destroy(fixedJoint);
                         return;
                     }
-
-                    fixedJoint.breakForce = 10000;
+                    if (!fixedJoint.connectedBody.gameObject.layer.Equals(8))
+                    {
+                        fixedJoint.breakForce = 5000;
+                    }
 
                     //reset outline width
                     Renderer renderer = nearestObject.GetComponentInChildren<Renderer>();
